@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowRight } from "react-icons/fa6";
 
 // Small decorative dots scattered around the student (% of the right panel)
 const dots = [
@@ -35,7 +36,7 @@ const CoursesBanner = ({
 }) => {
   return (
     <section
-      className="relative mt-22 overflow-hidden bg-[#fafafa]"
+      className="relative mt-22 overflow-hidden bg-[#fafafa] dark:bg-slate-950 transition-colors"
       style={{
         backgroundImage:
           "linear-gradient(rgba(0,0,0,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.045) 1px, transparent 1px)",
@@ -44,14 +45,12 @@ const CoursesBanner = ({
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-0 px-6 lg:min-h-[420px] lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
         {/* Left: copy */}
-        <div className="self-center py-12 lg:py-16">
-          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] sm:text-5xl lg:text-6xl">
+        <div className="self-center py-12 lg:py-16" data-aos="fade-right">
+          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] dark:text-sky-300 sm:text-5xl lg:text-6xl">
             {heading}
           </h1>
 
-          
-
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
             {text}
           </p>
 
@@ -59,19 +58,19 @@ const CoursesBanner = ({
             href={ctaHref}
             className="mt-8 inline-flex items-center justify-center rounded-lg bg-[#03A9f4] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#081f50] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2a6b]"
           >
-            {ctaLabel} <span className="pl-2"> </span><i class="fa-solid fa-arrow-right"></i>
+            {ctaLabel} <FaArrowRight aria-hidden="true" className="ml-2" />
           </a>
         </div>
 
         {/* Right: student panel */}
-        <div className="relative mx-auto h-[320px] w-full max-w-[460px] lg:h-[420px]">
+        <div className="relative mx-auto h-[320px] w-full max-w-[460px] lg:h-[420px]" data-aos="fade-left" data-aos-delay="150">
           {/* Dots */}
           {dots.map((d, i) => (
             <span
               key={i}
               aria-hidden="true"
               className={`absolute h-1.5 w-1.5 rounded-full ${
-                i % 3 === 0 ? "bg-[#ffb703]" : i % 2 === 0 ? "bg-[#0b2a6b]" : "bg-[#0b2a6b]/50"
+                i % 3 === 0 ? "bg-[#ffb703]" : i % 2 === 0 ? "bg-[#0b2a6b] dark:bg-sky-400" : "bg-[#0b2a6b]/50 dark:bg-sky-400/50"
               }`}
               style={{ top: `${d.top}%`, left: `${d.left}%` }}
             />
@@ -82,7 +81,7 @@ const CoursesBanner = ({
             <span
               key={s.char}
               aria-hidden="true"
-              className="absolute z-20 rounded-md border border-[#0b2a6b]/15 bg-white px-2.5 py-1 text-base font-bold text-[#0b2a6b] shadow-sm"
+              className="absolute z-20 rounded-md border border-[#0b2a6b]/15 bg-white px-2.5 py-1 text-base font-bold text-[#0b2a6b] shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-sky-300"
               style={{
                 top: `${s.top}%`,
                 left: `${s.left}%`,

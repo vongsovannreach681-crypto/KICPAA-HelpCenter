@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import {
+  FaBookOpen,
+  FaCalculator,
+  FaCheck,
+  FaChevronDown,
+} from "react-icons/fa6";
 import tq1Book from "../../assets/images/book/tq1.png";
 import tq2Book from "../../assets/images/book/tq2.png";
 import tq3Book from "../../assets/images/book/tq3.png";
@@ -354,7 +360,8 @@ const BooksExplore = () => {
       id="books-explore"
     >
       <div
-        className="mb-12 flex justify-center"
+        data-aos="fade-up"
+        className="mb-12 flex flex-wrap justify-center gap-2 sm:gap-4"
         role="group"
         aria-label="Filter courses by qualification level"
       >
@@ -363,16 +370,17 @@ const BooksExplore = () => {
             id: "principles",
             label: "Principles Level",
             count: TQbook.length,
-            icon: "fa-solid fa-book-open",
+            icon: FaBookOpen,
           },
           {
             id: "technician",
             label: "Technician Level",
             count: TQbookTechnical.length,
-            icon: "fa-solid fa-calculator",
+            icon: FaCalculator,
           },
         ].map((level) => {
           const isActive = activeLevel === level.id;
+          const LevelIcon = level.icon;
 
           return (
             <button
@@ -382,32 +390,32 @@ const BooksExplore = () => {
               aria-pressed={isActive}
               aria-controls={`${level.id}-panel`}
               onClick={() => setActiveLevel(level.id)}
-              className={`group relative min-w-44 px-6 py-4 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#03A9f4] sm:min-w-60 ${
+              className={`group relative min-w-[140px] px-4 py-3 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#03A9f4] sm:min-w-60 sm:px-6 sm:py-4 ${
                 isActive
-                  ? "text-[#0b1a6e]"
-                  : "text-slate-500 hover:text-[#0b1a6e]"
+                  ? "text-[#0b1a6e] dark:text-[#03A9f4]"
+                  : "text-slate-500 hover:text-[#0b1a6e] dark:text-slate-400 dark:hover:text-[#03A9f4]"
               }`}
             >
               <span
                 aria-hidden="true"
                 className={`mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl transition-colors ${
                   isActive
-                    ? "bg-[#0b1a6e] text-white"
-                    : "bg-slate-100 text-slate-500 group-hover:bg-sky-50 group-hover:text-[#0b1a6e]"
+                    ? "bg-[#0b1a6e] text-white dark:bg-[#03A9f4] dark:text-slate-950"
+                    : "bg-slate-100 text-slate-500 group-hover:bg-sky-50 group-hover:text-[#0b1a6e] dark:bg-slate-800 dark:text-slate-400 dark:group-hover:bg-slate-700 dark:group-hover:text-[#03A9f4]"
                 }`}
               >
-                <i className={`${level.icon} text-lg`} />
+                <LevelIcon aria-hidden="true" className="text-lg" />
               </span>
               <span className="block text-base font-bold sm:text-lg">
                 {level.label}
               </span>
-              <span className="mt-1 block text-xs text-slate-500">
+              <span className="mt-1 block text-xs text-slate-500 dark:text-slate-400">
                 {level.count} courses
               </span>
               <span
                 aria-hidden="true"
                 className={`absolute inset-x-6 bottom-0 h-0.5 rounded-full transition-colors ${
-                  isActive ? "bg-[#0b1a6e]" : "bg-transparent"
+                  isActive ? "bg-[#0b1a6e] dark:bg-[#03A9f4]" : "bg-transparent"
                 }`}
               />
             </button>
@@ -417,38 +425,38 @@ const BooksExplore = () => {
 
       {activeLevel === "principles" && (
         <div id="principles-panel">
-      <div className="max-w-6xl">
+      <div className="max-w-6xl" data-aos="fade-up">
         <h2
           id="books-explore-title"
-          className="text-2xl font-bold tracking-tight text-[#0b1a6e] sm:text-3xl"
+          className="text-2xl font-bold tracking-tight text-[#0b1a6e] sm:text-3xl dark:text-sky-400"
         >
           Principles Level
         </h2>
-        <p className="mt-3 max-w-5xl font-serif text-base italic leading-7 text-slate-700 sm:text-lg">
+        <p className="mt-3 max-w-5xl font-serif text-base italic leading-7 text-slate-700 sm:text-lg dark:text-slate-300">
           The Principles Level provides a framework for learning which contains
           core skills in processing business transactions to enable students to
           become effective members of an accounting support team.
         </p>
       </div>
 
-      <div className="mt-8 border-b border-slate-300">
+      <div className="mt-8 border-b border-slate-300 dark:border-slate-800">
         {TQbook.map((book) => (
-          <details key={book.id} className="group border-t border-slate-300">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[#0b1a6e] outline-none transition-colors hover:text-[#03A9f4] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#03A9f4] sm:py-7 [&::-webkit-details-marker]:hidden">
+          <details key={book.id} data-aos="fade-up" className="group border-t border-slate-300 dark:border-slate-800">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[#0b1a6e] outline-none transition-colors hover:text-[#03A9f4] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#03A9f4] sm:py-7 [&::-webkit-details-marker]:hidden dark:text-slate-100 dark:hover:text-[#03A9f4]">
               <span className="text-lg font-bold sm:text-2xl">{book.name}</span>
-              <i
-                className="fa-solid fa-chevron-down shrink-0 text-sm text-slate-500 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"
+              <FaChevronDown
+                className="shrink-0 text-sm text-slate-500 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none dark:text-slate-400"
                 aria-hidden="true"
               />
             </summary>
 
-            <div className="grid gap-6 pb-7 text-slate-600 md:grid-cols-2 md:gap-8">
+            <div className="grid gap-6 pb-7 text-slate-600 md:grid-cols-2 md:gap-8 dark:text-slate-300">
               <div>
                 <p className="text-sm leading-7 sm:text-base">{book.des}</p>
               </div>
 
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#0b1a6e]">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#0b1a6e] dark:text-sky-300">
                   On completion of this module, candidates will reach a
                   competency sufficient to be able to:
                 </h3>
@@ -457,11 +465,11 @@ const BooksExplore = () => {
                     <li key={`${book.id}-${index}`} className="flex gap-3">
                       <span
                         aria-hidden="true"
-                        className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-[11px] font-bold text-[#03A9f4]"
+                        className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-[11px] font-bold text-[#03A9f4] dark:bg-sky-950/60 dark:text-[#03A9f4]"
                       >
-                        <i className="fa-solid fa-check" />
+                        <FaCheck aria-hidden="true" />
                       </span>
-                      <span className="text-sm leading-6 text-slate-700 sm:text-base">
+                      <span className="text-sm leading-6 text-slate-700 sm:text-base dark:text-slate-300">
                         {outcome}
                       </span>
                     </li>
@@ -471,29 +479,29 @@ const BooksExplore = () => {
             </div>
 
             {book.syllabusCoverage?.length > 0 && (
-              <div className="mb-8 overflow-x-auto rounded-sm border border-sky-200">
+              <div className="mb-8 overflow-x-auto rounded-sm border border-sky-200 dark:border-slate-800">
                 <table className="w-full min-w-[560px] border-collapse text-left text-sm sm:text-base">
                   <caption className="sr-only">
                     {book.name} syllabus coverage
                     {book.syllabusCoverage[0].weight !== undefined &&
                       " and assessment weights"}
                   </caption>
-                  <thead className="bg-sky-100 text-slate-950">
+                  <thead className="bg-sky-100 text-slate-950 dark:bg-slate-800 dark:text-slate-100">
                     <tr>
                       <th
                         scope="col"
-                        className="w-16 border border-sky-200 px-4 py-3"
+                        className="w-16 border border-sky-200 px-4 py-3 dark:border-slate-800"
                       />
                       <th
                         scope="col"
-                        className="border border-sky-200 px-5 py-3 font-bold uppercase tracking-wide"
+                        className="border border-sky-200 px-5 py-3 font-bold uppercase tracking-wide dark:border-slate-800"
                       >
                         Syllabus coverage
                       </th>
                       {book.syllabusCoverage[0].weight !== undefined && (
                         <th
                           scope="col"
-                          className="w-36 border border-sky-200 px-4 py-3 text-center font-bold uppercase tracking-wide"
+                          className="w-36 border border-sky-200 px-4 py-3 text-center font-bold uppercase tracking-wide dark:border-slate-800"
                         >
                           Weight (%)
                         </th>
@@ -502,33 +510,33 @@ const BooksExplore = () => {
                   </thead>
                   <tbody>
                     {book.syllabusCoverage.map((row) => (
-                      <tr key={row.code} className="bg-white">
+                      <tr key={row.code} className="bg-white dark:bg-slate-900">
                         <th
                           scope="row"
-                          className="border border-sky-200 px-4 py-2 text-center font-medium text-[#0b4b88]"
+                          className="border border-sky-200 px-4 py-2 text-center font-medium text-[#0b4b88] dark:border-slate-800 dark:text-sky-400"
                         >
                           ({row.code})
                         </th>
-                        <td className="border border-sky-200 px-5 py-2 text-slate-800">
+                        <td className="border border-sky-200 px-5 py-2 text-slate-800 dark:border-slate-800 dark:text-slate-200">
                           {row.topic}
                         </td>
                         {row.weight !== undefined && (
-                          <td className="border border-sky-200 px-4 py-2 text-center text-slate-800">
+                          <td className="border border-sky-200 px-4 py-2 text-center text-slate-800 dark:border-slate-800 dark:text-slate-200">
                             {row.weight}
                           </td>
                         )}
                       </tr>
                     ))}
                     {book.syllabusCoverage[0].weight !== undefined && (
-                      <tr className="bg-sky-100 font-bold text-slate-950">
+                      <tr className="bg-sky-100 font-bold text-slate-950 dark:bg-slate-800 dark:text-slate-100">
                         <th
                           scope="row"
-                          className="border border-sky-200 px-4 py-2"
+                          className="border border-sky-200 px-4 py-2 dark:border-slate-800"
                         />
-                        <td className="border border-sky-200 px-5 py-2 uppercase">
+                        <td className="border border-sky-200 px-5 py-2 uppercase dark:border-slate-800">
                           Total
                         </td>
-                        <td className="border border-sky-200 px-4 py-2 text-center">
+                        <td className="border border-sky-200 px-4 py-2 text-center dark:border-slate-800">
                           {book.syllabusCoverage.reduce(
                             (total, row) => total + row.weight,
                             0,
@@ -553,40 +561,41 @@ const BooksExplore = () => {
         className="scroll-mt-24"
         id="technician-level"
       >
-        <div className="max-w-6xl">
+        <div className="max-w-6xl" data-aos="fade-up">
           <h2
             id="technician-level-title"
-            className="text-2xl font-bold tracking-tight text-[#0b1a6e] sm:text-3xl"
+            className="text-2xl font-bold tracking-tight text-[#0b1a6e] sm:text-3xl dark:text-sky-400"
           >
             Technician Level
           </h2>
-          <p className="mt-3 max-w-5xl font-serif text-base italic leading-7 text-slate-700 sm:text-lg">
+          <p className="mt-3 max-w-5xl font-serif text-base italic leading-7 text-slate-700 sm:text-lg dark:text-slate-300">
             The Technician Level modules build on the studied undertaken in the previous level and develop skills with a particular focus on application of knowledge, using realistic scenarios.
           </p>
         </div>
 
-        <div className="mt-8 border-b border-slate-300">
+        <div className="mt-8 border-b border-slate-300 dark:border-slate-800">
           {TQbookTechnical.map((book) => (
             <details
               key={book.id}
-              className="group border-t border-slate-300"
+              data-aos="fade-up"
+              className="group border-t border-slate-300 dark:border-slate-800"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[#0b1a6e] outline-none transition-colors hover:text-[#03A9f4] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#03A9f4] sm:py-7 [&::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-6 text-[#0b1a6e] outline-none transition-colors hover:text-[#03A9f4] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#03A9f4] sm:py-7 [&::-webkit-details-marker]:hidden dark:text-slate-100 dark:hover:text-[#03A9f4]">
                 <span className="text-lg font-bold sm:text-2xl">
                   {book.name}
                 </span>
-                <i
-                  className="fa-solid fa-chevron-down shrink-0 text-sm text-slate-500 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"
+                <FaChevronDown
+                  className="shrink-0 text-sm text-slate-500 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none dark:text-slate-400"
                   aria-hidden="true"
                 />
               </summary>
 
-              <div className="grid gap-6 pb-7 text-slate-600 md:grid-cols-2 md:gap-8">
+              <div className="grid gap-6 pb-7 text-slate-600 md:grid-cols-2 md:gap-8 dark:text-slate-300">
                 <p className="text-sm leading-7 sm:text-base">{book.des}</p>
 
                 {book.list.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-[#0b1a6e]">
+                    <h3 className="text-sm font-bold uppercase tracking-wider text-[#0b1a6e] dark:text-sky-300">
                       On completion of this module, candidates will reach a
                       competency sufficient to be able to:
                     </h3>
@@ -598,11 +607,11 @@ const BooksExplore = () => {
                         >
                           <span
                             aria-hidden="true"
-                            className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-[11px] font-bold text-[#03A9f4]"
+                            className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-50 text-[11px] font-bold text-[#03A9f4] dark:bg-sky-950/60 dark:text-[#03A9f4]"
                           >
-                            <i className="fa-solid fa-check" />
+                            <FaCheck aria-hidden="true" />
                           </span>
-                          <span className="text-sm leading-6 text-slate-700 sm:text-base">
+                          <span className="text-sm leading-6 text-slate-700 sm:text-base dark:text-slate-300">
                             {outcome}
                           </span>
                         </li>
@@ -613,29 +622,29 @@ const BooksExplore = () => {
               </div>
 
               {book.syllabusCoverage?.length > 0 && (
-                <div className="mb-8 overflow-x-auto rounded-sm border border-sky-200">
+                <div className="mb-8 overflow-x-auto rounded-sm border border-sky-200 dark:border-slate-800">
                   <table className="w-full min-w-[560px] border-collapse text-left text-sm sm:text-base">
                     <caption className="sr-only">
                       {book.name} syllabus coverage
                       {book.syllabusCoverage[0].weight !== undefined &&
                         " and assessment weights"}
                     </caption>
-                    <thead className="bg-sky-100 text-slate-950">
+                    <thead className="bg-sky-100 text-slate-950 dark:bg-slate-800 dark:text-slate-100">
                       <tr>
                         <th
                           scope="col"
-                          className="w-16 border border-sky-200 px-4 py-3"
+                          className="w-16 border border-sky-200 px-4 py-3 dark:border-slate-800"
                         />
                         <th
                           scope="col"
-                          className="border border-sky-200 px-5 py-3 font-bold uppercase tracking-wide"
+                          className="border border-sky-200 px-5 py-3 font-bold uppercase tracking-wide dark:border-slate-800"
                         >
                           Syllabus coverage
                         </th>
                         {book.syllabusCoverage[0].weight !== undefined && (
                           <th
                             scope="col"
-                            className="w-36 border border-sky-200 px-4 py-3 text-center font-bold uppercase tracking-wide"
+                            className="w-36 border border-sky-200 px-4 py-3 text-center font-bold uppercase tracking-wide dark:border-slate-800"
                           >
                             Weight (%)
                           </th>
@@ -644,33 +653,33 @@ const BooksExplore = () => {
                     </thead>
                     <tbody>
                       {book.syllabusCoverage.map((row) => (
-                        <tr key={row.code} className="bg-white">
+                        <tr key={row.code} className="bg-white dark:bg-slate-900">
                           <th
                             scope="row"
-                            className="border border-sky-200 px-4 py-2 text-center font-medium text-[#0b4b88]"
+                            className="border border-sky-200 px-4 py-2 text-center font-medium text-[#0b4b88] dark:border-slate-800 dark:text-sky-400"
                           >
                             ({row.code})
                           </th>
-                          <td className="border border-sky-200 px-5 py-2 text-slate-800">
+                          <td className="border border-sky-200 px-5 py-2 text-slate-800 dark:border-slate-800 dark:text-slate-200">
                             {row.topic}
                           </td>
                           {row.weight !== undefined && (
-                            <td className="border border-sky-200 px-4 py-2 text-center text-slate-800">
+                            <td className="border border-sky-200 px-4 py-2 text-center text-slate-800 dark:border-slate-800 dark:text-slate-200">
                               {row.weight}
                             </td>
                           )}
                         </tr>
                       ))}
                       {book.syllabusCoverage[0].weight !== undefined && (
-                        <tr className="bg-sky-100 font-bold text-slate-950">
+                        <tr className="bg-sky-100 font-bold text-slate-950 dark:bg-slate-800 dark:text-slate-100">
                           <th
                             scope="row"
-                            className="border border-sky-200 px-4 py-2"
+                            className="border border-sky-200 px-4 py-2 dark:border-slate-800"
                           />
-                          <td className="border border-sky-200 px-5 py-2 uppercase">
+                          <td className="border border-sky-200 px-5 py-2 uppercase dark:border-slate-800">
                             Total
                           </td>
-                          <td className="border border-sky-200 px-4 py-2 text-center">
+                          <td className="border border-sky-200 px-4 py-2 text-center dark:border-slate-800">
                             {book.syllabusCoverage.reduce(
                               (total, row) => total + row.weight,
                               0,

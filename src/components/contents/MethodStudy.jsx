@@ -27,9 +27,10 @@ const methods = [
 
 const MethodCard = ({ method }) => (
   <section
-    className={`group relative mt-10 flex flex-col items-stretch overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-[#0b1a6e]/10
+    data-aos={method.reverse ? "fade-left" : "fade-right"}
+    className={`group relative mt-10 flex flex-col items-stretch overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-md ring-1 ring-[#0b1a6e]/10 dark:ring-slate-800
       transition-all duration-300 ease-out
-      hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#03A9F4]/50
+      hover:-translate-y-1.5 hover:shadow-2xl hover:ring-[#03A9F4]/50 dark:hover:ring-[#03A9F4]/50
       focus-within:-translate-y-1.5 focus-within:shadow-2xl
       motion-reduce:transition-none motion-reduce:hover:translate-y-0
       ${method.reverse ? "md:flex-row-reverse" : "md:flex-row"}`}
@@ -43,7 +44,7 @@ const MethodCard = ({ method }) => (
     />
 
     {/* Image panel: image zooms inside a clipped frame */}
-    <div className="relative flex shrink-0 items-center justify-center overflow-hidden  md:w-72">
+    <div className="relative flex shrink-0 items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-800/40 md:w-72">
       <img
         className="w-[250px] transition-transform duration-500 ease-out group-hover:scale-110 group-hover:-rotate-1 motion-reduce:transform-none"
         src={method.image}
@@ -53,7 +54,7 @@ const MethodCard = ({ method }) => (
 
     {/* Text */}
     <div className="flex-1 p-6 md:p-8">
-      <h3 className="mb-5 w-fit text-2xl font-bold text-[#0b1a6e]">
+      <h3 className="mb-5 w-fit text-2xl font-bold text-[#0b1a6e] dark:text-sky-300">
         {method.title}
         <span
           aria-hidden="true"
@@ -61,12 +62,12 @@ const MethodCard = ({ method }) => (
         />
       </h3>
 
-      <p className="max-w-prose text-left text-base leading-relaxed text-gray-700">
+      <p className="max-w-prose text-left text-base leading-relaxed text-gray-700 dark:text-slate-300">
         {method.description}
       </p>
 
       {method.note && (
-        <p className="mt-4 w-fit rounded-md border-l-4 border-amber-400 bg-amber-50 px-3 py-2 text-sm text-[#0b1a6e] transition-colors duration-300 group-hover:bg-amber-100">
+        <p className="mt-4 w-fit rounded-md border-l-4 border-amber-400 bg-amber-50 dark:bg-amber-950/40 px-3 py-2 text-sm text-[#0b1a6e] dark:text-amber-300 transition-colors duration-300 group-hover:bg-amber-100 dark:group-hover:bg-amber-950/60">
           {method.note}
         </p>
       )}
@@ -76,11 +77,11 @@ const MethodCard = ({ method }) => (
 
 const MethodStudy = () => {
   return (
-    <div className="container mt-15">
-      <h3 className="mt-15 border-l-4 border-[#0b1a6e] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] transition-colors duration-200 hover:text-[#16257f] sm:text-4xl">
+    <div id="method-study" className="container mt-15 scroll-mt-24">
+      <h3 data-aos="fade-up" className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
         Method study
       </h3>
-      <p className="pt-5 text-lg text-gray-700">
+      <p data-aos="fade-up" data-aos-delay="100" className="pt-5 text-lg text-gray-700 dark:text-slate-300">
         The ATQ program is delivered to students through two methods:
       </p>
 

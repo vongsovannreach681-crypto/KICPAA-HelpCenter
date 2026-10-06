@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { FaArrowRight } from "react-icons/fa6";
 import course from "../../assets/images/bot.png";
 
 const SubjectCoursesBanner = () => {
@@ -144,7 +145,7 @@ const SubjectCoursesBanner = () => {
 
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-8 md:min-h-[460px] md:grid-cols-[1.1fr_0.9fr] lg:px-12 lg:py-20">
         {/* Copy */}
-        <div>
+        <div data-aos="fade-right">
           <p className="inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-100/10 px-4 py-2 text-sm font-medium text-cyan-200">
             <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.9)]" />
             Learn with confidence
@@ -167,15 +168,15 @@ const SubjectCoursesBanner = () => {
             className="group mt-8 inline-flex items-center gap-3 rounded-lg bg-[#03A9f4] px-6 py-3.5 font-semibold text-white shadow-lg shadow-sky-500/30 transition-colors hover:bg-[#0288d1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             Explore TQ Books
-            <i
-              className="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"
+            <FaArrowRight
+              className="transition-transform group-hover:translate-x-1"
               aria-hidden="true"
             />
           </a>
         </div>
 
         {/* Image, framed by orbit rings */}
-        <div className="group relative mx-auto flex w-full max-w-md items-center justify-center md:max-w-none">
+        <div data-aos="fade-left" data-aos-delay="150" className="group relative mx-auto flex w-full max-w-md items-center justify-center md:max-w-none">
           <div
             className="pointer-events-none absolute aspect-square w-[92%] rounded-full border border-cyan-200/15 transition duration-700 group-hover:scale-105 group-hover:border-cyan-200/30 motion-reduce:transition-none"
             aria-hidden="true"
@@ -187,7 +188,7 @@ const SubjectCoursesBanner = () => {
           <img
             src={course}
             alt=""
-            className="relative w-[400px] max-w-xl object-contain drop-shadow-[0_24px_40px_rgba(3,169,244,0.35)] transition duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-105 group-hover:drop-shadow-[0_32px_48px_rgba(3,169,244,0.55)] motion-reduce:transform-none motion-reduce:transition-none"
+            className="relative w-full max-w-[300px] sm:max-w-[380px] object-contain drop-shadow-[0_24px_40px_rgba(3,169,244,0.35)] transition duration-700 ease-out group-hover:-translate-y-2 group-hover:scale-105 group-hover:drop-shadow-[0_32px_48px_rgba(3,169,244,0.55)] motion-reduce:transform-none motion-reduce:transition-none"
           />
         </div>
       </div>

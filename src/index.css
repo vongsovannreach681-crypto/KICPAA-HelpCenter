@@ -1,8 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  font-family: "Poppins", sans-serif;
+  --font-english: "Poppins";
+  --font-khmer: "Kantumruy Pro";
+  font-family: var(--font-english), var(--font-khmer), system-ui, sans-serif;
+}
+
+:lang(en) {
+  font-family: var(--font-english), var(--font-khmer), system-ui, sans-serif;
+}
+
+:lang(km),
+:lang(kh) {
+  font-family: var(--font-khmer), var(--font-english), system-ui, sans-serif;
 }
 
 body {
@@ -10,6 +23,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: #edf1f7;
+  color: #1e293b;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background: #0b1120;
+  color: #f1f5f9;
 }
 
 * {
@@ -18,6 +39,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 .secondaryColor{
     background-color: #03A9f4;
@@ -25,7 +47,15 @@ html {
 .container {
   max-width: 1250px;
   margin: 0 auto;
-  
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 .admission-flow-arrow {
@@ -47,6 +77,23 @@ html {
   animation-play-state: paused;
 }
 
+.chat-window-enter {
+  transform-origin: bottom right;
+  animation: chat-window-enter 240ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes chat-window-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -63,6 +110,10 @@ html {
   }
 
   .marquee-track {
+    animation: none;
+  }
+
+  .chat-window-enter {
     animation: none;
   }
 }

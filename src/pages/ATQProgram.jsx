@@ -2,16 +2,15 @@ import React from 'react'
 import Header from '../components/navbar/Header'
 import CoursesBanner from '../components/HeroSection/CoursesBanner'
 import ATQprogram from '../components/contents/ATQprogram'
-import MethodStudy from '../components/contents/MethodStudy'
+import AIChatbot from '../components/chatbot/AIChatbot'
 
 const ATQProgram = () => {
   return (
     <>
-        <Header/>
-        <CoursesBanner/>
-        
-        <ATQprogram/>
-        
+      <Header />
+      <CoursesBanner />
+      <ATQprogram />
+      <AIChatbot/>
     </>
   )
 }

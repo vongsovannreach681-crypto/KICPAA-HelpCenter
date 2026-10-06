@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { FaCircleQuestion } from "react-icons/fa6";
 import helpCenterImage from "../../assets/images/help.png";
 
 const HomeSection = () => {
@@ -101,41 +102,40 @@ const HomeSection = () => {
       />
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
         {/* Text */}
-        <div className="text-center lg:text-left">
-          <p className="text-base font-medium text-[#03A9f4] dark:text-blue-300">
+        <div className="text-center lg:text-left" data-aos="fade-up">
+          <p className="text-base font-medium text-[#03A9f4] dark:text-blue-300" data-aos="fade-right" data-aos-delay="100">
             Welcome to
           </p>
 
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-blue-950 sm:text-4xl lg:text-5xl dark:text-white">
+          <h1 className="mt-3 text-3xl font-semibold leading-tight text-blue-950 sm:text-4xl lg:text-5xl dark:text-white" data-aos="fade-up" data-aos-delay="200">
             Accounting Technician Qualification help center
           </h1>
 
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-600 lg:mx-0 dark:text-gray-300">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-600 lg:mx-0 dark:text-gray-300" data-aos="fade-up" data-aos-delay="300">
             Questions about the ATQ Program or the exam? Find what you need
             here, or reach out and we&apos;ll help you directly.
           </p>
-          {/* <input className="mt-5 w-full rounded-lg border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder:text-gray-400 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 sm:text-sm dark:bg-gray-800 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-             type="search" /> */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="400">
             <a
-              href="#"
+              href="/atq-program"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#03A9f4] px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
             >
               ATQ Program
             </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-400/20 px-6 py-3 text-sm font-medium text-blue-900 transition-colors hover:bg-blue-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 dark:text-blue-200 dark:hover:bg-[#03A9f4] dark:hover:text-white"
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent("open-atq-chatbot"))}
+              className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-xl bg-gray-400/20 px-6 py-3 text-sm font-medium text-blue-900 transition-colors hover:bg-blue-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 dark:text-blue-200 dark:hover:bg-[#03A9f4] dark:hover:text-white"
             >
-              <i className="fa-solid fa-circle-question" />
+              <FaCircleQuestion aria-hidden="true" />
               Ask a question
-            </a>
+            </button>
           </div>
         </div>
 
         {/* Image */}
-        <div className="relative ">
-          <div className="absolute inset-4 rounded-3xl " aria-hidden="true" />
+        <div className="relative" data-aos="zoom-in" data-aos-delay="300">
+          <div className="absolute inset-4 rounded-3xl" aria-hidden="true" />
           <img
             className="w-full h-auto"
             src={helpCenterImage}

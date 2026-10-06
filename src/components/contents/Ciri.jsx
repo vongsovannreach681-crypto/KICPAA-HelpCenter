@@ -3,8 +3,8 @@ import { principles, technician } from "../../data/subjectCourses";
 
 function SideLabel({ children }) {
   return (
-    <div className="flex shrink-0 items-center justify-center self-center bg-white px-2 py-5">
-      <span className="rotate-180 text-lg font-extrabold tracking-wide text-[#0b1a6e] [writing-mode:vertical-rl]">
+    <div className="flex shrink-0 items-center justify-center self-center bg-white px-2 py-5 dark:bg-slate-900 dark:border dark:border-slate-800">
+      <span className="rotate-180 text-lg font-extrabold tracking-wide text-[#0b1a6e] dark:text-[#03A9f4] [writing-mode:vertical-rl]">
         {children}
       </span>
     </div>
@@ -21,7 +21,7 @@ function Part({ part, title, subjects }) {
           {subjects.map((s) => (
             <div
               key={s.code}
-              className="border border-white/80 bg-[#16257f] px-4 py-4 text-[17px] text-white"
+              className="border border-white/80 bg-[#16257f] px-4 py-4 text-[17px] text-white dark:border-slate-700 dark:bg-slate-900/90"
             >
               <span className="font-bold">{s.code}:</span> {s.name}
             </div>
@@ -44,10 +44,10 @@ function Column({ items }) {
 
 export default function Ciri() {
   return (
-    <section className="w-full bg-[#0b1a6e] p-4 font-['Poppins',sans-serif] sm:p-6">
+    <section data-aos="fade-up" className="w-full bg-[#0b1a6e] dark:bg-slate-950 p-4 font-['Poppins',sans-serif] sm:p-6 rounded-2xl border border-transparent dark:border-slate-800">
       {/* Title bar */}
-      <div className="bg-white py-3 text-center">
-        <h2 className="text-2xl font-extrabold text-[#0b1a6e] sm:text-3xl">
+      <div data-aos="fade-down" className="bg-white py-3 text-center dark:bg-slate-900 dark:border dark:border-slate-800 rounded-lg">
+        <h2 className="text-2xl font-extrabold text-[#0b1a6e] sm:text-3xl dark:text-sky-300">
           Accounting Technician Qualification
         </h2>
       </div>
@@ -55,13 +55,13 @@ export default function Ciri() {
       {/* Diagram */}
       <div className="mt-6 flex flex-col gap-6 lg:flex-row lg:items-stretch lg:gap-3">
         {/* Principles */}
-        <div className="flex flex-1 gap-2">
+        <div data-aos="fade-right" data-aos-delay="150" className="flex flex-1 gap-2">
           <SideLabel>PRINCIPLES</SideLabel>
           <Column items={principles} />
         </div>
 
         {/* Arrow */}
-        <div className="flex items-center justify-center self-center">
+        <div data-aos="zoom-in" data-aos-delay="250" className="flex items-center justify-center self-center">
           <svg
             viewBox="0 0 40 36"
             className="h-9 w-10 rotate-90 text-white lg:rotate-0"
@@ -72,7 +72,7 @@ export default function Ciri() {
         </div>
 
         {/* Technician */}
-        <div className="flex flex-1 gap-2">
+        <div data-aos="fade-left" data-aos-delay="150" className="flex flex-1 gap-2">
           <SideLabel>TECHNICIAN</SideLabel>
           <Column items={technician} />
         </div>
