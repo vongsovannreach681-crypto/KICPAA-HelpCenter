@@ -14,7 +14,7 @@ const internshipProviders = [
     name: "Reach and Parters Co., Ltd",
     short: "Reach & Partners",
     tagline: "Consulting & Advisory",
-    accentColor: "#0284c7",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -22,7 +22,7 @@ const internshipProviders = [
     name: "BANHJI FINTECH Co., LTD.",
     short: "BANHJI FINTECH",
     tagline: "Financial Technology",
-    accentColor: "#00b4d8",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -30,7 +30,7 @@ const internshipProviders = [
     name: "K Professional Accountants Co., Ltd.",
     short: "K Professional",
     tagline: "Chartered Accountants",
-    accentColor: "#0b1a6e",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -38,7 +38,7 @@ const internshipProviders = [
     name: "LRS Henderson (Cambodia) Co., Ltd.",
     short: "LRS Henderson",
     tagline: "Audit & Advisory",
-    accentColor: "#2563eb",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -46,7 +46,7 @@ const internshipProviders = [
     name: "3S CONSULTING Co., LTD.",
     short: "3S CONSULTING",
     tagline: "Business Advisory",
-    accentColor: "#d97706",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -54,7 +54,7 @@ const internshipProviders = [
     name: "Fii & Associates Co., Ltd",
     short: "Fii & Associates",
     tagline: "Audit, Tax & Corporate",
-    accentColor: "#0d9488",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -62,7 +62,7 @@ const internshipProviders = [
     name: "Grant Thornton (Cambodia) Limited",
     short: "Grant Thornton",
     tagline: "Audit, Tax & Advisory",
-    accentColor: "#7c3aed",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -70,7 +70,7 @@ const internshipProviders = [
     name: "Advance Grand Formula Co., Ltd.",
     short: "Grand Formula",
     tagline: "Accounting Services",
-    accentColor: "#e11d48",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -78,7 +78,7 @@ const internshipProviders = [
     name: "ECOVIS VSDK & Partners Co., Ltd",
     short: "ECOVIS VSDK",
     tagline: "Audit & Advisory Network",
-    accentColor: "#b91c1c",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -86,7 +86,7 @@ const internshipProviders = [
     name: "Allnison Auditing and Consulting Co., Ltd.",
     short: "Allnison",
     tagline: "Auditing & Consulting",
-    accentColor: "#0369a1",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -94,7 +94,7 @@ const internshipProviders = [
     name: "BDO (Cambodia) Limited",
     short: "BDO Cambodia",
     tagline: "Audit & Assurance",
-    accentColor: "#dc2626",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -102,7 +102,7 @@ const internshipProviders = [
     name: "ATAP & PARTNERS Company Limited",
     short: "ATAP & PARTNERS",
     tagline: "Accounting & Tax",
-    accentColor: "#059669",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -110,7 +110,7 @@ const internshipProviders = [
     name: "Donasco & Company Ltd",
     short: "Donasco & Co",
     tagline: "Auditing & Services",
-    accentColor: "#4f46e5",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -118,7 +118,7 @@ const internshipProviders = [
     name: "Lochan & Co (Cambodia) Company Limited",
     short: "Lochan & Co",
     tagline: "Chartered Accountants",
-    accentColor: "#ea580c",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {
@@ -126,7 +126,7 @@ const internshipProviders = [
     name: "SOTA Professional Company Limited",
     short: "SOTA Professional",
     tagline: "Accounting & Compliance",
-    accentColor: "#0891b2",
+    accentColor: "#1e3a8a",
     logo: null,
   },
   {

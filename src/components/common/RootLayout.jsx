@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Footer from "../footer/Footer";
 
 export default function RootLayout() {
   const location = useLocation();
@@ -36,5 +37,10 @@ export default function RootLayout() {
     return () => clearTimeout(timer);
   }, [location.pathname, location.hash]);
 
-  return <Outlet />;
+  return (
+    <>
+      <Outlet />
+      <Footer />
+    </>
+  );
 }

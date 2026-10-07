@@ -449,7 +449,7 @@ const AIChatbot = ({ isOpen: controlledIsOpen, setIsOpen: controlledSetIsOpen })
         {
           id: `agent-${Date.now()}`,
           sender: "bot",
-          text: `🧑‍💼 **Connecting with KICPAA Education Team**\n\nOur education officers are ready to assist you directly:\n\n- 📱 **Telegram / Phone**: [+855 17 493 140](tel:+85517493140)\n- ✉️ **Email**: [Education@kicpaa.org](mailto:Education@kicpaa.org) / [ATQ@kicpaa.org](mailto:ATQ@kicpaa.org)\n- 🏢 **Office Hours**: Monday – Friday (8:00 AM – 5:00 PM)`,
+          text: `🧑‍💼 **Connecting with KICPAA ATQ Team**\n\nOur education officers are ready to assist you directly:\n\n- 📱 **Telegram / Phone**: [+855 17 493 140](tel:+85517493140)\n- ✉️ **Email**: [Education@kicpaa.org](mailto:Education@kicpaa.org) / [ATQ@kicpaa.org](mailto:ATQ@kicpaa.org)\n- 🏢 **Office Hours**: Monday – Friday (8:00 AM – 5:00 PM)`,
           isAgentContact: true,
           suggestions: language === "km" ? ["កាលវិភាគប្រឡង", "របៀបចុះឈ្មោះប្រឡង"] : ["When can I take exams?", "How can I enter for exams?"],
           time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
@@ -544,10 +544,8 @@ const AIChatbot = ({ isOpen: controlledIsOpen, setIsOpen: controlledSetIsOpen })
               </div>
               <div>
                 <div className="flex items-center gap-1.5">
-                  <h4 className="text-base font-bold text-slate-800 tracking-tight dark:text-slate-100">ATQ Assistant</h4>
-                  <span className="rounded-full bg-sky-100 px-1.5 py-0.2 text-[9px] font-bold text-[#03A9f4] dark:bg-sky-950/70">Beta</span>
+                  <h4 className="text-base font-bold text-slate-800 tracking-tight dark:text-slate-100">KICPAA FAQ </h4>
                 </div>
-                <p className="text-xs text-slate-500 font-medium dark:text-slate-400">KICPAA Virtual Assistant • Online</p>
               </div>
             </div>
 
@@ -716,6 +714,19 @@ const AIChatbot = ({ isOpen: controlledIsOpen, setIsOpen: controlledSetIsOpen })
 
       {/* 2. Floating Circular Close/Toggle Button at Bottom Right (Matches reference screenshot) */}
       <div className="fixed bottom-5 right-4 sm:right-6 z-50">
+        {!isOpen && (
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="qa-session-bubble absolute bottom-[calc(100%+0.9rem)] right-0 rounded-2xl rounded-br-sm border border-slate-200 bg-white px-5 py-3 text-sm font-medium text-slate-700 shadow-xl shadow-slate-900/10 transition hover:bg-sky-50 hover:text-sky-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-sky-300"
+          >
+            Q&amp;A session
+            <span
+              className="absolute -bottom-1.5 right-5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
+              aria-hidden="true"
+            />
+          </button>
+        )}
         <button
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close ATQ Chatbot" : "Open ATQ Chatbot"}

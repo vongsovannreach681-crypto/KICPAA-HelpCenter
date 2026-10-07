@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { FaCircleQuestion } from "react-icons/fa6";
 import helpCenterImage from "../../assets/images/help.png";
-
+import {
+  FaArrowRight
+  
+} from "react-icons/fa6";
 const HomeSection = () => {
   const canvasRef = useRef(null);
 
@@ -94,7 +97,7 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <section className="poppins relative mt-20 overflow-hidden bg-gradient-to-br from-sky-100 via-blue-100 to-cyan-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900">
+    <section className="poppins relative mt-20 overflow-hidden bg-gradient-to-br from-sky-100 via-blue-200 to-cyan-200 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900">
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full"
@@ -121,15 +124,9 @@ const HomeSection = () => {
               href="/atq-program"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#03A9f4] px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
             >
-              ATQ Program
+              Browse ATQ Program <FaArrowRight aria-hidden="true" className="text-xs" />
             </a>
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent("open-atq-chatbot"))}
-              className="cursor-pointer inline-flex items-center justify-center gap-2 rounded-xl bg-gray-400/20 px-6 py-3 text-sm font-medium text-blue-900 transition-colors hover:bg-blue-800 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800 dark:text-blue-200 dark:hover:bg-[#03A9f4] dark:hover:text-white"
-            >
-              <FaCircleQuestion aria-hidden="true" />
-              Ask a question
-            </button>
+         
           </div>
         </div>
 

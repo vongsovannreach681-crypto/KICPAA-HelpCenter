@@ -6,6 +6,8 @@ import './index.css';
 import ATQProgram from './pages/ATQProgram';
 import SubjectCourse from './pages/SubjectCourse';
 import RootLayout from './components/common/RootLayout';
+import ATQexam from './pages/ATQexam';
+import NotFoundPage from './pages/NotFoundPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: '/subject-course',
         element: <SubjectCourse />,
+      },
+      {
+        path: '/atq-examination',
+        element: <ATQexam />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },

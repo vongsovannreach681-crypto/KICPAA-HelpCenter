@@ -24,7 +24,7 @@ const navItems = [
   {
     id: 4,
     name: "ATQ Exam",
-    link: "/#atq-exam",
+    link: "/atq-examination",
   },
 ];
 
@@ -68,8 +68,12 @@ const Header = () => {
     if (item.link === "/") {
       return currentPath === "/" && (!currentHash || currentHash === "");
     }
-    if (item.link === "/#atq-exam" || item.name === "ATQ Exam") {
-      return currentHash === "#atq-exam" || currentPath === "/atq-exam";
+    if (item.link === "/atq-examination" || item.name === "ATQ Exam") {
+      return (
+        currentPath === "/atq-examination" ||
+        currentPath === "/atq-exam" ||
+        currentHash === "#atq-exam"
+      );
     }
     if (item.link.startsWith("/#")) {
       return currentPath === "/" && currentHash === item.link.substring(1);
@@ -174,12 +178,7 @@ const Header = () => {
           </button>
 
           {/* Q&A Chatbot Trigger */}
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent("open-atq-chatbot"))}
-            className="cursor-pointer inline-flex items-center gap-1.5 rounded-xl bg-gray-400/20 dark:bg-slate-800 px-3.5 py-2 text-sm font-medium text-blue-900 dark:text-sky-300 shadow-sm transition hover:bg-blue-800 hover:text-white dark:hover:bg-slate-700"
-          >
-            <FaCircleQuestion aria-hidden="true" /> Q&A
-          </button>
+          
         </div>
 
         {/* Mobile Right Actions: Search + Dark Mode + Q&A + Menu */}
@@ -209,13 +208,7 @@ const Header = () => {
           </button>
 
           {/* Mobile Q&A Trigger */}
-          <button
-            onClick={() => window.dispatchEvent(new CustomEvent("open-atq-chatbot"))}
-            className="cursor-pointer inline-flex items-center gap-1 rounded-xl bg-gray-400/20 dark:bg-slate-800 px-2.5 py-1.5 text-xs font-medium text-blue-900 dark:text-sky-300 transition hover:bg-blue-800 hover:text-white"
-            aria-label="Open Q&A Chatbot"
-          >
-            <FaCircleQuestion aria-hidden="true" /> Q&A
-          </button>
+          
 
           {/* Mobile Menu Toggle */}
           <button

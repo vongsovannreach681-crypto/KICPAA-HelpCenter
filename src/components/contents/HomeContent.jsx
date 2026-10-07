@@ -16,6 +16,7 @@ const HomeContent = () => {
       glow: "group-hover:shadow-[#29b6e8]/40",
       title: "ATQ Program",
       text: "Learn more about the Accounting Technician Qualification program, its structure, and requirements.",
+      href:"/atq-program"
     },
     {
       icon: FaFilePen,
@@ -23,6 +24,7 @@ const HomeContent = () => {
       glow: "group-hover:shadow-[#00cdb6]/40",
       title: "ATQ Examination",
       text: "Find information about the ATQ examination, including format, duration, and preparation resources.",
+      href:"/atq-examination"
     },
     {
       icon: FaListCheck,
@@ -30,6 +32,7 @@ const HomeContent = () => {
       glow: "group-hover:shadow-[#5b72ee]/40",
       title: "ATQ Subjects & Course Specification",
       text: "Explore the subjects covered in the ATQ program and access detailed course specifications for each subject.",
+      href:"/subject-course"
     },
     {
       icon: FaRegCalendarDays,
@@ -37,13 +40,7 @@ const HomeContent = () => {
       glow: "group-hover:shadow-[#f5a524]/40",
       title: "Important Dates for ATQ Exam",
       text: "Stay updated with important dates related to the ATQ examination, including registration deadlines and exam schedules.",
-    },
-    {
-      icon: FaCircleQuestion,
-      color: "bg-[#f0527a]",
-      glow: "group-hover:shadow-[#f0527a]/40",
-      title: "Frequently Asked Questions",
-      text: "Find answers to commonly asked questions about the ATQ program, examination, and related topics.",
+      href:"/atq-examination"
     },
   ];
 
@@ -72,13 +69,14 @@ const HomeContent = () => {
                 transition-all duration-300 ease-out
                 hover:shadow-xl hover:shadow-blue-900/10 dark:hover:shadow-sky-500/5
                 motion-safe:hover:-translate-y-2
-                lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""} ${
+                lg:col-span-2 ${i === 3 ? "lg:col-start-3" : ""} ${
                   i === 4
                     ? "sm:col-span-2 sm:mx-auto sm:w-1/2 lg:col-span-2 lg:mx-0 lg:w-auto"
                     : ""
                 }`}
-            >
-              {/* Icon badge: pops and tilts, with a soft colored glow */}
+            > 
+            <a href={item.href}>
+
               <span
                 className={`absolute -top-8 left-1/2 flex h-16 w-16 -translate-x-1/2 items-center justify-center rounded-full text-2xl text-white
                   transition-all duration-300 ease-out
@@ -105,6 +103,8 @@ const HomeContent = () => {
                   aria-hidden="true"
                 />
               </button>
+            </a>
+              {/* Icon badge: pops and tilts, with a soft colored glow */}
             </article>
             );
           })}
