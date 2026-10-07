@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaCircleQuestion } from "react-icons/fa6";
-import helpCenterImage from "../../assets/images/help.png";
+import helpCenterImage from "../../assets/images/Help.png";
 import {
   FaArrowRight
   
