@@ -280,8 +280,7 @@ const InternshipOpportunities = () => {
                   <div className="flex w-full flex-col items-center justify-center px-2 text-center">
                     <div className="w-full">
                       <span
-                        className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight transition-colors sm:text-[15px]"
-                        style={{ color: provider.accentColor }}
+                        className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]"
                       >
                         {provider.name}
                       </span>
@@ -331,8 +330,7 @@ const InternshipOpportunities = () => {
                 <div className="flex w-full flex-col items-center justify-center px-2 text-center">
                   <div className="w-full">
                     <span
-                      className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight transition-colors"
-                      style={{ color: provider.accentColor }}
+                      className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white"
                     >
                       {provider.name}
                     </span>
