@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import book from "../../assets/TQbook.png";
+import book from "../../assets/images/exam.png";
 import {
   FaArrowRight,
   FaCalendarDays,
   FaGraduationCap,
   FaLocationDot,
-  FaFileLines,
   FaLaptopCode,
   FaChartPie,
   FaScaleUnbalanced,
@@ -21,8 +20,6 @@ const ExamBanner = ({
   description = "Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA) is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from February 2023 for principal level TQ1 to TQ4 at KICPAA office.",
   ctaLabel = "Exam Schedule",
   ctaHref = "#important-dates",
-  secondaryCtaLabel = "Exam Guidelines",
-  secondaryCtaHref = "/atq-program#admission",
   imageSrc = book,
   imageAlt = "KICPAA ATQ Examination Announcement",
   bookImages = {},
@@ -170,7 +167,7 @@ const ExamBanner = ({
   return (
     <section
       ref={sectionRef}
-      className="relative mt-20 overflow-hidden bg-gradient-to-br from-slate-50 via-sky-50 to-white transition-colors dark:from-slate-950 dark:via-slate-900 dark:to-slate-950"
+      className="relative mt-20 overflow-hidden bg-gradient-to-br from-white via-sky-50 to-[#f3f7ff] transition-colors dark:from-slate-950 dark:via-slate-900 dark:to-[#101a32]"
     >
       <canvas
         ref={canvasRef}
@@ -179,6 +176,10 @@ const ExamBanner = ({
       />
       <div
         className="pointer-events-none absolute -right-24 top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-sky-100/70 blur-3xl dark:bg-sky-900/20"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -left-40 -top-48 h-[32rem] w-[32rem] rounded-full bg-cyan-200/20 blur-3xl dark:bg-sky-500/10"
         aria-hidden="true"
       />
 
@@ -191,7 +192,7 @@ const ExamBanner = ({
           <div className="lg:col-span-6 xl:col-span-7" data-aos="fade-right">
             {/* Kicker / Welcome Badge */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/80 px-3.5 py-1 text-xs font-semibold text-[#18307d] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/80 dark:text-sky-300 sm:text-sm">
-              <span className="h-2 w-2 rounded-full bg-[#f5a524]" />
+              <span className="exam-banner-status h-2 w-2 rounded-full bg-[#f5a524]" />
               <span>{welcomeBadge}</span>
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <span className="font-normal text-slate-600 dark:text-slate-400">
@@ -202,8 +203,9 @@ const ExamBanner = ({
             {/* Headline with 2-Tone Colors (Navy & Yellow/Amber like the reference UI) */}
             <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#18307d] dark:text-white sm:text-5xl lg:text-[3.5rem]">
               <span>{titlePart1}</span>{" "}
-              <span className="text-cyan-400">{titlePart2}</span> <br />
-              <span className="text-cyan-400">{titlePart3}</span>{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{titlePart2}</span>{" "}
+              <br />
+              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{titlePart3}</span>{" "}
               <span>{titlePart4}</span>
             </h1>
 
@@ -230,18 +232,6 @@ const ExamBanner = ({
                 />
               </a>
 
-              {secondaryCtaLabel && (
-                <a
-                  href={secondaryCtaHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/90 px-5 py-3.5 text-base font-medium text-slate-700 shadow-sm transition-all duration-300 hover:bg-slate-100 hover:text-[#18307d] hover:-translate-y-0.5 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-                >
-                  <FaFileLines
-                    className="text-sky-500 text-sm"
-                    aria-hidden="true"
-                  />
-                  <span>{secondaryCtaLabel}</span>
-                </a>
-              )}
             </div>
 
             {/* Quick Info Badges */}
@@ -259,11 +249,19 @@ const ExamBanner = ({
           >
             {imageSrc ? (
               /* Single Custom Banner Image (User can activate anytime) */
-              <div className="relative mx-auto flex max-w-md items-center justify-center">
+              <div className="relative mx-auto flex min-h-[300px] w-full max-w-[540px] items-center justify-center sm:min-h-[380px] lg:min-h-[440px]">
+                <div
+                  className="exam-banner-image-glow absolute left-1/2 top-1/2 h-[68%] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-sky-300/40 via-cyan-200/25 to-indigo-300/35 blur-3xl dark:from-sky-500/20 dark:via-cyan-400/10 dark:to-indigo-500/20"
+                  aria-hidden="true"
+                />
+                <div
+                  className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[76%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-sky-300/40 dark:border-sky-400/20"
+                  aria-hidden="true"
+                />
                 <img
                   src={imageSrc}
                   alt={imageAlt}
-                  className="max-h-[680px] w-auto max-w-full rounded-2xl object-contain  transition-transform duration-500 hover:scale-105"
+                  className="exam-banner-float relative z-10 max-h-[620px] w-full max-w-[680px] object-contain drop-shadow-[0_24px_32px_rgba(30,64,175,0.16)] transition-transform duration-500 hover:scale-[1.04] dark:drop-shadow-[0_24px_32px_rgba(14,165,233,0.12)]"
                 />
               </div>
             ) : (

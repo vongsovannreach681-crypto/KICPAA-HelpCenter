@@ -13,41 +13,50 @@ const organizations = [
     name: "CamEd Business School",
     shortName: "CamEd",
     logo: camed,
+    url:"https://cam-ed.edu.kh/"
   },
   {
     name: "Vanda Institute",
     shortName: "Vanda",
     logo: vanda,
+    url:"https://vanda.edu.kh/"
   },
   {
     name: "Build Bright University",
     shortName: "BBU",
     logo: bbu,
+    url:"https://bbu.edu.kh/"
   },
   {
     name: "Acleda University of Business",
     shortName: "AUB",
     logo: aub,
+    url:"https://www.aub.edu.kh/tc/eng/"
   },
   {
     name: "Paññāsāstra University of Cambodia",
     shortName: "PUC",
     logo: panhasas,
+    url:"https://www.puc.edu.kh/"
+
   },
   {
     name: "Institute of Finance and Accounting",
     shortName: "IFA",
     logo: ifa,
+    url:"https://www.ifa.edu.kh/"
   },
   {
     name: "Cambodia Accounting Club",
     shortName: "CaC",
     logo: cac,
+    url:"https://cac-center.edu.kh/"
   },
   {
     name: "university of economics and finance",
     shortName: "UEF",
     logo: UEF,
+    url:"https://uef.edu.kh/"
   },
 ];
 
@@ -116,14 +125,17 @@ const Marque = () => {
                   {organizations.map((org) => (
                     <div
                       key={org.shortName}
-                      className="group flex h-28 w-52 shrink-0 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10 sm:h-32 sm:w-60 sm:px-5 sm:py-4"
+                      className="group cursor-pointer flex h-28 w-52 shrink-0 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10 sm:h-32 sm:w-60 sm:px-5 sm:py-4"
                     >
+                      <a href={org.url} target="blank">
+
                       <img
                         src={org.logo}
                         alt={group === 1 ? "" : org.name}
                         className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
                         loading="lazy"
                       />
+                      </a>
                       <span className="mt-2 line-clamp-1 text-center text-xs font-semibold text-slate-600 transition-colors group-hover:text-[#0b1a6e] dark:text-slate-200 dark:group-hover:text-sky-300">
                         {org.name}
                       </span>
@@ -141,12 +153,15 @@ const Marque = () => {
               key={org.shortName}
               className="group flex min-h-36 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10"
             >
+              <a href={org.url} target="blank">
+
               <img
                 src={org.logo}
                 alt={org.name}
                 className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
               />
+              </a>
               <span className="mt-3 text-center text-xs font-semibold text-slate-600 transition-colors group-hover:text-[#0b1a6e] dark:text-slate-200 dark:group-hover:text-sky-300">
                 {org.name}
               </span>

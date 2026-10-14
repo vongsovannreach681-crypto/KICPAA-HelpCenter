@@ -87,6 +87,19 @@ html {
   animation: qa-session-bubble 4s ease-in-out infinite;
 }
 
+.exam-banner-float {
+  animation: exam-banner-float 6s ease-in-out infinite;
+}
+
+.exam-banner-image-glow {
+  animation: exam-banner-glow 8s ease-in-out infinite alternate;
+}
+
+.exam-banner-status {
+  box-shadow: 0 0 0 0 rgb(245 165 36 / 45%);
+  animation: exam-banner-status 2.4s ease-out infinite;
+}
+
 @keyframes chat-window-enter {
   from {
     opacity: 0;
@@ -122,6 +135,36 @@ html {
   }
 }
 
+@keyframes exam-banner-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes exam-banner-glow {
+  from {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+
+@keyframes exam-banner-status {
+  70%,
+  100% {
+    box-shadow: 0 0 0 7px rgb(245 165 36 / 0%);
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -146,6 +189,12 @@ html {
   }
 
   .qa-session-bubble {
+    animation: none;
+  }
+
+  .exam-banner-float,
+  .exam-banner-image-glow,
+  .exam-banner-status {
     animation: none;
   }
 }
