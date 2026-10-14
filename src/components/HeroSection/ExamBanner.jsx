@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import book from "../../assets/images/TQbook.png";
+import book from "../../assets/TQbook.png";
 import {
   FaArrowRight,
   FaCalendarDays,
@@ -263,7 +263,7 @@ const ExamBanner = ({
                 <img
                   src={imageSrc}
                   alt={imageAlt}
-                  className="max-h-[480px] w-auto max-w-full rounded-2xl object-contain  transition-transform duration-500 hover:scale-105"
+                  className="max-h-[680px] w-auto max-w-full rounded-2xl object-contain  transition-transform duration-500 hover:scale-105"
                 />
               </div>
             ) : (
