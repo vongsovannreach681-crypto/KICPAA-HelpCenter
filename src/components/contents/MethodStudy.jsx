@@ -1,5 +1,5 @@
 import React from "react";
-import SelfStudy from "../../assets/Learn.jpg";
+import SelfStudy from "../../assets/learn.jpg";
 import training from "../../assets/images/Training.png";
 
 const methods = [
