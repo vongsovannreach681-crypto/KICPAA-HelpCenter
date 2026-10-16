@@ -1,15 +1,14 @@
 import React from "react";
 
 const examSessions = [
-  { number: 1, date: "29–30 Mar", days: "Wed–Thu" },
-  { number: 2, date: "26–27 Apr", days: "Wed–Thu" },
-  { number: 3, date: "30–31 May", days: "Tue–Wed" },
-  { number: 4, date: "28–29 Jun", days: "Wed–Thu" },
-  { number: 5, date: "26–27 Jul", days: "Wed–Thu" },
-  { number: 6, date: "30–31 Aug", days: "Wed–Thu" },
-  { number: 7, date: "27–28 Sep", days: "Wed–Thu" },
-  { number: 8, date: "25–26 Oct", days: "Wed–Thu" },
-  { number: 9, date: "22–23 Nov", days: "Wed–Thu" },
+  { batch: 10, month: "October", subject: "TQ1", dates: ["Fri, 23-Oct-2026", "Tue, 27-Oct-2026"], time: "9 - 11 AM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ2", dates: ["Fri, 23-Oct-2026", "Tue, 27-Oct-2026"], time: "2 - 4 PM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ3", dates: ["Mon, 26-Oct-2026", "Wed, 28-Oct-2026"], time: "9 - 11 AM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ4", dates: ["Mon, 26-Oct-2026", "Wed, 28-Oct-2026"], time: "2 - 4 PM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ5", dates: ["Mon, 26-Oct-2026", "Tue, 27-Oct-2026"], time: "9 - 11 AM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ6", dates: ["Mon, 26-Oct-2026", "Tue, 27-Oct-2026"], time: "2 - 4 PM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ7", dates: ["Fri, 23-Oct-2026", "Wed, 28-Oct-2026"], time: "9 - 11 AM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
+  { batch: 10, month: "October", subject: "TQ8", dates: ["Fri, 23-Oct-2026", "Wed, 28-Oct-2026"], time: "2 - 4 PM", venue: "KICPAA", registrationCloses: "15-Oct-26" },
 ];
 
 const ExamSdech = () => (
@@ -23,38 +22,37 @@ const ExamSdech = () => (
       </h2>
 
       <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base">
-        For 2026, exams are offered for TQ1 to TQ4 and will be conducted at
-        KICPAA&apos;s office at the end of each month, starting in February.
+        Batch 10 exams will be held in October 2026 at KICPAA.
       </p>
 
       <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
-        <table className="w-full min-w-[680px] border-collapse text-left">
+        <table className="w-full min-w-[760px] border-collapse text-center">
           <thead>
-            <tr className="bg-blue-950 text-xs font-bold uppercase text-white">
-              <th scope="col" className="w-16 bg-blue-950 px-6 py-3.5">No</th>
-              <th scope="col" className="bg-blue-950 px-6 py-3.5">Date</th>
-              <th scope="col" className="bg-blue-950 px-6 py-3.5">Time</th>
-              <th scope="col" className="bg-blue-950 px-6 py-3.5">Venue</th>
-              <th scope="col" className="bg-blue-950 px-6 py-3.5 text-right">Subjects</th>
+            <tr className="bg-blue-950 dark:bg-sky-500 text-sm font-bold text-white sm:text-base">
+              <th scope="col" className="border border-slate-500 px-3 py-2">Batch</th>
+              <th scope="col" className="border border-slate-500 px-3 py-2">Month</th>
+              <th scope="col" className="border border-slate-500 px-3 py-2">Subject</th>
+              <th scope="col" colSpan={2} className="border border-slate-500 px-3 py-2">Date</th>
+              <th scope="col" className="border border-slate-500 px-3 py-2">Time</th>
+              <th scope="col" className="border border-slate-500 px-3 py-2">Venue</th>
+              <th scope="col" className="border border-slate-500 px-3 py-2">Close Registration</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-200 text-[#0c1a6e] dark:divide-slate-800 dark:text-blue-100">
-            {examSessions.map((session) => (
-              <tr key={session.number}>
-                <td className="px-6 py-5 text-sm">{session.number}</td>
-                <td className="px-6 py-5 text-sm font-semibold sm:text-base">
-                  {session.date}
-                  <span className="ml-2 text-sm font-normal opacity-70">
-                    ({session.days})
-                  </span>
+          <tbody className="text-[#0c1a6e] dark:text-blue-100">
+            {examSessions.map((session, index) => (
+              <tr key={session.subject} className="bg-white dark:bg-slate-900">
+                {index === 0 && <td rowSpan={examSessions.length} className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base">{session.batch}</td>}
+                {index === 0 && <td rowSpan={examSessions.length} className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base">{session.month}</td>}
+                <td className="border border-slate-400 px-3 py-3 text-sm font-semibold sm:text-base">{session.subject}</td>
+                <td className="border border-slate-400 px-3 py-2 text-sm sm:text-base">
+                  {session.dates.map((date) => <div key={date} className="whitespace-nowrap">{date.split(",")[0]}</div>)}
                 </td>
-                <td className="px-6 py-5 text-sm sm:text-base">
-                  9–11 am | 2–4 pm
+                <td className="border border-slate-400 px-3 py-2 text-sm sm:text-base">
+                  {session.dates.map((date) => <div key={date} className="whitespace-nowrap">{date.split(", ")[1]}</div>)}
                 </td>
-                <td className="px-6 py-5 text-sm sm:text-base">KICPAA</td>
-                <td className="px-6 py-5 text-right text-sm font-bold sm:text-base">
-                  TQ1 – TQ4
-                </td>
+                <td className="border border-slate-400 px-3 py-3 text-sm font-medium sm:text-base">{session.time}</td>
+                {index === 0 && <td rowSpan={examSessions.length} className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base">{session.venue}</td>}
+                {index === 0 && <td rowSpan={examSessions.length} className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base">{session.registrationCloses}</td>}
               </tr>
             ))}
           </tbody>
