@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { FaArrowRight } from "react-icons/fa6";
-import course from "../../assets/images/bot.png";
+import course from "../../assets/Course-01-01.png";
 
 const SubjectCoursesBanner = () => {
   const canvasRef = useRef(null);

@@ -85,7 +85,7 @@ const ExamSdech = () => (
           these steps:
         </p>
         <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
-          <li>Go to the Learning Hub.</li>
+          <li>Go to the <a href="https://education.kicpaa.org/student/login" target="blank" className="text-blue-900 underline">Learning Hub</a>.</li>
           <li>
             Go to <span className="font-semibold">Examination</span> and select
             your next examination date.

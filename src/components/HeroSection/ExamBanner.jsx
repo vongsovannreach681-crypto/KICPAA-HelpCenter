@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import book from "../../assets/images/exam.png";
+import book from "../../assets/ATQExam-02.png";
 import {
   FaArrowRight,
   FaCalendarDays,
@@ -17,7 +17,7 @@ const ExamBanner = ({
   titlePart2 = "Technician",
   titlePart3 = "Qualification",
   titlePart4 = "Exam",
-  description = "Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA) is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from February 2023 for principal level TQ1 to TQ4 at KICPAA office.",
+  description = " is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from January to December 2026 for TQ1-TQ8 at KICPAA office.",
   ctaLabel = "Exam Schedule",
   ctaHref = "#important-dates",
   imageSrc = book,
@@ -210,7 +210,8 @@ const ExamBanner = ({
             </h1>
 
             {/* Announcement Paragraph */}
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg text-left">
+              <span className="text-blue-900 dark:text-cyan-300 font-semibold">Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA)</span>
               {description}
             </p>
 

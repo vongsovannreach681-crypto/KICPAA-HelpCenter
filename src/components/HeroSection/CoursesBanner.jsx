@@ -29,7 +29,7 @@ const symbols = [
 
 const CoursesBanner = ({
   heading = "ATQ Program",
-  text = "Accounting Technician Qualification (ATQ) is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia.",
+  text = " is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia. It enables students to shorten their study time and they can study at their own place. Students from everywhere in Cambodia can study with training organizations or by themselves through a LEARNING HUB.",
   imageSrc = "https://central-college.ca/wp-content/uploads/2026/03/photo-portrait-young-smiling-female-college-school-student-holding-books-with-backpack-1157x1536-1-771x1024-1.webp",
   ctaLabel = "About ATQ Program",
   ctaHref = "#courses",
@@ -51,15 +51,10 @@ const CoursesBanner = ({
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
-            {text}
+           <span className="text-blue-950 font-semibold dark:text-cyan-300">Accounting Technician Qualification (ATQ) </span>{text}
           </p>
 
-          <a
-            href={ctaHref}
-            className="mt-8 inline-flex items-center justify-center rounded-lg bg-[#03A9f4] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[#081f50] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b2a6b]"
-          >
-            {ctaLabel} <FaArrowRight aria-hidden="true" className="ml-2" />
-          </a>
+        
         </div>
 
         {/* Right: student panel */}

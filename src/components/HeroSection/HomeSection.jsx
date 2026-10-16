@@ -97,7 +97,7 @@ const HomeSection = () => {
   }, []);
 
   return (
-    <section className="poppins relative mt-20 overflow-hidden bg-gradient-to-br from-sky-100 via-blue-200 to-cyan-200 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900">
+    <section className="poppins relative mt-20 overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900">
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 h-full w-full"
@@ -110,11 +110,11 @@ const HomeSection = () => {
             Welcome to
           </p>
 
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-blue-950 sm:text-4xl lg:text-5xl dark:text-white" data-aos="fade-up" data-aos-delay="200">
+          <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl dark:text-white" data-aos="fade-up" data-aos-delay="200">
             Accounting Technician Qualification help center
           </h1>
 
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-600 lg:mx-0 dark:text-gray-300" data-aos="fade-up" data-aos-delay="300">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-100 lg:mx-0 dark:text-gray-300" data-aos="fade-up" data-aos-delay="300">
             Questions about the ATQ Program or the exam? Find what you need
             here, or reach out and we&apos;ll help you directly.
           </p>

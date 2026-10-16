@@ -41,7 +41,7 @@ const ATQprogram = () => {
           Curriculum
         </h3>
         <p data-aos="fade-up" data-aos-delay="100" className="text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9 pt-5">
-          TQ Program is divided into 2 levels: principal level and technical level. Each level is further divided into 2 parts.
+          ATQ Program is divided into 2 levels: principal level and technical level. Each level is further divided into 2 parts.
         </p>
         <div className="mt-10"></div>
         
