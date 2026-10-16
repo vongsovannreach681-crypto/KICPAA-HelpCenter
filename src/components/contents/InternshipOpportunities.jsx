@@ -11,11 +11,11 @@ import {
 const internshipProviders = [
   {
     id: 1,
-    name: "Reach and Parters Co., Ltd",
+    name: "Reach and Partners Co., Ltd",
     short: "Reach & Partners",
     tagline: "Consulting & Advisory",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: "https://img.magnific.com/free-vector/navy-arrows-circle_78370-7812.jpg?semt=ais_hybrid&w=740&q=80",
   },
   {
     id: 2,
@@ -83,8 +83,8 @@ const internshipProviders = [
   },
   {
     id: 10,
-    name: "Allnison Auditing and Consulting Co., Ltd.",
-    short: "Allnison",
+    name: "Allison Auditing and Consulting Co., Ltd.",
+    short: "Allison",
     tagline: "Auditing & Consulting",
     accentColor: "#1e3a8a",
     logo: null,
@@ -123,17 +123,57 @@ const internshipProviders = [
   },
   {
     id: 15,
-    name: "SOTA Professional Company Limited",
-    short: "SOTA Professional",
-    tagline: "Accounting & Compliance",
+    name: "HLB AUDIT & PARTNERS Co.,Ltd.",
+    short: "HLB AUDIT & PARTNERS",
+    tagline: "Audit & Assurance",
     accentColor: "#1e3a8a",
     logo: null,
   },
   {
     id: 16,
-    name: "DAS & Partners Co, Ltd.",
+    name: "CAS-BIZ TECHNOLOGY CO., LTD",
+    short: "CAS-BIZ TECHNOLOGY",
+    tagline: "Business Technology",
+    accentColor: "#4338ca",
+    logo: null,
+  },
+  {
+    id: 17,
+    name: "DAS & Partners Co, Ltd",
     short: "DAS & Partners",
     tagline: "Audit, Tax & Advisory",
+    accentColor: "#4338ca",
+    logo: null,
+  },
+  {
+    id: 18,
+    name: "P A T Professional",
+    short: "P A T Professional",
+    tagline: "Professional Services",
+    accentColor: "#4338ca",
+    logo: null,
+  },
+  {
+    id: 19,
+    name: "FUNAN CONSULTING CO., LTD",
+    short: "FUNAN CONSULTING",
+    tagline: "Consulting Services",
+    accentColor: "#4338ca",
+    logo: null,
+  },
+  {
+    id: 20,
+    name: "POSCAR Digital Co., Ltd.",
+    short: "POSCAR Digital",
+    tagline: "Digital Services",
+    accentColor: "#4338ca",
+    logo: null,
+  },
+  {
+    id: 21,
+    name: "Localize Tech Solution Co., LTD.",
+    short: "Localize Tech Solution",
+    tagline: "Technology Solutions",
     accentColor: "#4338ca",
     logo: null,
   },
@@ -176,11 +216,12 @@ const InternshipOpportunities = () => {
     return () => clearInterval(interval);
   }, [totalPages, isPaused, viewMode]);
 
-  const safeCurrentPage = currentPage >= totalPages ? Math.max(0, totalPages - 1) : currentPage;
+  const safeCurrentPage =
+    currentPage >= totalPages ? Math.max(0, totalPages - 1) : currentPage;
   const startIndex = safeCurrentPage * itemsPerPage;
   const currentProviders = internshipProviders.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   const prevSlide = () => {
@@ -192,19 +233,28 @@ const InternshipOpportunities = () => {
   };
 
   return (
-    <div id="internship-opportunities" data-aos="fade-up" className="mt-16 sm:mt-20 scroll-mt-24 font-['Poppins',sans-serif]">
+    <div
+      id="internship-opportunities"
+      data-aos="fade-up"
+      className="mt-16 sm:mt-20 scroll-mt-24 font-['Poppins',sans-serif]"
+    >
       {/* Title & Requirements Intro */}
       <div data-aos="fade-up">
         <h3 className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
           Internship Opportunities
         </h3>
         <p className="text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9 pt-5">
-          In the ATQ program curriculum, students must pass all subjects and have minimum experience to get the ATQ certificate.
+          In the ATQ program curriculum, students must pass all subjects and
+          have minimum experience to get the ATQ certificate.
         </p>
       </div>
 
       {/* Centered Category Heading matching the UI in screenshot */}
-      <div data-aos="fade-up" data-aos-delay="100" className="mt-12 flex flex-col items-center justify-center text-center">
+      <div
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="mt-12 flex flex-col items-center justify-center text-center"
+      >
         <div className="inline-flex items-center gap-2.5 text-xs sm:text-sm font-extrabold tracking-widest text-[#0b1a6e] dark:text-sky-300 uppercase">
           <span className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#0b1a6e] dark:border-sky-400">
             <span className="h-1.5 w-1.5 rounded-full bg-[#03A9f4]" />
@@ -233,12 +283,11 @@ const InternshipOpportunities = () => {
                 : "text-slate-500 dark:text-slate-400 hover:text-[#0b1a6e] dark:hover:text-sky-300"
             }`}
           >
-            <FaTableCells className="mr-1" aria-hidden="true" /> View All (16)
+            <FaTableCells className="mr-1" aria-hidden="true" /> View All
           </button>
         </div>
       </div>
 
-      {/* UI MODE 1: CAROUSEL SLIDER (EXACT UI FROM SCREENSHOT) */}
       {viewMode === "slider" && (
         <div
           className="relative mt-6 px-3 sm:px-0"
@@ -266,29 +315,34 @@ const InternshipOpportunities = () => {
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
             {currentProviders.map((provider) => {
               return (
-              <div
-                key={provider.id}
-                className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
-              >
-                {provider.logo ? (
-                  <img
-                    src={provider.logo}
-                    alt={provider.name}
-                    className="max-h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="flex w-full flex-col items-center justify-center px-2 text-center">
-                    <div className="w-full">
-                      <span
-                        className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]"
-                      >
+                <div
+                  key={provider.id}
+                  className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
+                >
+                  {provider.logo ? (
+                    <div className="group flex items-center gap-3">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center">
+                        <img
+                          src={provider.logo}
+                          alt={provider.name}
+                          loading="lazy"
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <span className="min-w-0 flex-1 break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
                         {provider.name}
                       </span>
                     </div>
-                   
-                  </div>
-                )}
-              </div>
+                  ) : (
+                    <div className="flex w-full flex-col items-center justify-center px-2 text-center">
+                      <div className="w-full">
+                        <span className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
+                          {provider.name}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </div>
               );
             })}
           </div>
@@ -316,29 +370,34 @@ const InternshipOpportunities = () => {
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {internshipProviders.map((provider) => {
             return (
-            <div
-              key={provider.id}
-              className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
-            >
-              {provider.logo ? (
-                <img
-                  src={provider.logo}
-                  alt={provider.name}
-                  className="max-h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              ) : (
-                <div className="flex w-full flex-col items-center justify-center px-2 text-center">
-                  <div className="w-full">
-                    <span
-                      className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white"
-                    >
-                      {provider.name}
-                    </span>
+              <div
+                key={provider.id}
+                className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
+              >
+                {provider.logo ? (
+                  <div className="group flex items-center gap-3">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center">
+                        <img
+                          src={provider.logo}
+                          alt={provider.name}
+                          loading="lazy"
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      <span className="min-w-0 flex-1 break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
+                        {provider.name}
+                      </span>
+                    </div>
+                ) : (
+                  <div className="flex w-full flex-col items-center justify-center px-2 text-center">
+                    <div className="w-full">
+                      <span className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white">
+                        {provider.name}
+                      </span>
+                    </div>
                   </div>
-
-                </div>
-              )}
-            </div>
+                )}
+              </div>
             );
           })}
         </div>

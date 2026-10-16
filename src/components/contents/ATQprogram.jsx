@@ -20,9 +20,9 @@ const ATQprogram = () => {
         </div>
         <div className="max-w-2xl" data-aos="fade-left">
           <h2 className="border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
-            About ATQ Program
+            ATQ learning resources and tests
           </h2>
-          <p className="mt-6 text-justify leading-8 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9">
+          {/* <p className="mt-6 text-justify leading-8 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9">
             <span className="font-semibold text-[#0b1a6e] dark:text-sky-400">
               Accounting Technician Qualification (ATQ)
             </span>{" "}
@@ -33,7 +33,7 @@ const ATQprogram = () => {
             they can study at their own place. Students from everywhere in
             Cambodia can study with training organizations or by themselves
             through a LEARNING HUB.
-          </p>
+          </p> */}
         </div>
       </div>
       <div id="curriculum" className="mt-20 container scroll-mt-24">
