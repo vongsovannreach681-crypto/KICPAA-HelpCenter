@@ -218,7 +218,7 @@ const HomeContent = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSe3-KoESsq9hyve0Zv-GSehYXkF6c4bz-x8MmlXzI-LSGMclA/viewform"
+              href="https://forms.gle/PDMCkAfyvMqpwwsZ7"
               className="
                 mt-6 inline-flex
                 cursor-pointer

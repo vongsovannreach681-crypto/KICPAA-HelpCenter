@@ -729,7 +729,7 @@ const AIChatbot = ({
       id: "welcome-main",
       sender: "bot",
       isWelcome: true,
-      text: `Hi there / សួស្តី! 👋\nI'm ATQ Assistant, your virtual assistant (Beta). I'm still learning, so I might not have all the answers yet, but I'll try to assist you the best I can nah!\nSelect your language, or connect with an agent right away.\n\nខ្ញុំឈ្មោះ ATQ Assistant ជាជំនួយការឆ្លាតវៃរបស់អ្នក (ដំណាក់កាលសាកល្បង)។ ខ្ញុំនៅតែសិក្សា ដូច្នេះខ្ញុំអាចមិនមានចម្លើយទាំងអស់នៅឡើយទេ ប៉ុន្តែខ្ញុំនឹងព្យាយាមជួយអ្នកអោយបានល្អបំផុតណា!\nជ្រើសរើសភាសា ឬភ្ជាប់ជាមួយភ្នាក់ងារភ្លាមៗ`,
+      text: `Hi there / សួស្តី! 👋\nI'm ATQ Assistant, your virtual assistant. I'm still learning, so I might not have all the answers yet, but I'll try to assist you the best I can nah!\nSelect your language, or connect with an agent right away.\n\nខ្ញុំឈ្មោះ ATQ Assistant ជាជំនួយការឆ្លាតវៃរបស់អ្នក ។ ខ្ញុំនៅតែសិក្សា ដូច្នេះខ្ញុំអាចមិនមានចម្លើយទាំងអស់នៅឡើយទេ ប៉ុន្តែខ្ញុំនឹងព្យាយាមជួយអ្នកអោយបានល្អបំផុតណា!\nជ្រើសរើសភាសា ឬភ្ជាប់ជាមួយភ្នាក់ងារភ្លាមៗ`,
       time: "Oct 6, 1:12 PM",
     },
   ];
