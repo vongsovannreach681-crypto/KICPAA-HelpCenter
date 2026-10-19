@@ -211,7 +211,7 @@ const ExamSdech = () => {
             ATQ exam in 2026
           </h2>
           <Dropdown/>
-        </div>5
+        </div>
         <div
           data-aos="fade-right"
           className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"

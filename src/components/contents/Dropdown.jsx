@@ -173,63 +173,6 @@ const Dropdown = () => {
           })}
         </div>
 
-        <div
-          data-aos="fade-right"
-          className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
-        >
-          <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
-            Exam requirements
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            To be eligible to take the ATQ Exam, candidates must:
-          </p>
-          <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
-            <li>Be a student member of KICPAA.</li>
-            <li>Have paid all due fees, including the examination fee.</li>
-            <li>Have an account in the Learning Hub.</li>
-          </ol>
-        </div>
-
-        <div
-          data-aos="fade-left"
-          data-aos-delay="100"
-          className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
-        >
-          <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
-            Booking your ATQ Exam
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            Candidates can register for an exam 30 days in advance by following
-            these steps:
-          </p>
-          <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
-            <li>
-              Go to the{" "}
-              <a
-                href="https://education.kicpaa.org/student/login"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-900 underline dark:text-cyan-200"
-              >
-                Learning Hub
-              </a>
-              .
-            </li>
-            <li>
-              Go to <span className="font-semibold">Examination</span> and
-              select your next examination date.
-            </li>
-            <li>
-              Select a subject, then choose your desired examination date from
-              the list.
-            </li>
-            <li>Click Save to confirm your booking.</li>
-          </ol>
-          <p className="mt-5 rounded-lg border-l-4 border-[#0c1a6e] bg-blue-50 px-4 py-3 text-sm font-medium leading-6 text-[#0c1a6e] dark:border-blue-400 dark:bg-blue-950/50 dark:text-blue-200 sm:text-base">
-            Be sure to book your exam schedule by the Standard Exam Booking
-            Deadline.
-          </p>
-        </div>
       </div>
     </section>
   );
