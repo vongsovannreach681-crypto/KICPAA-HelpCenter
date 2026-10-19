@@ -28,8 +28,8 @@ const symbols = [
 ];
 
 const CoursesBanner = ({
-  heading = "ATQ Program",
-  text = " is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia. It enables students to shorten their study time and they can study at their own place. Students from everywhere in Cambodia can study with training organizations or by themselves through a LEARNING HUB.",
+  heading = " ATQ Program",
+  text = " is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia. ",
   imageSrc = "https://central-college.ca/wp-content/uploads/2026/03/photo-portrait-young-smiling-female-college-school-student-holding-books-with-backpack-1157x1536-1-771x1024-1.webp",
   ctaLabel = "About ATQ Program",
   ctaHref = "#courses",
@@ -46,8 +46,8 @@ const CoursesBanner = ({
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-0 px-6 lg:min-h-[420px] lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
         {/* Left: copy */}
         <div className="self-center py-12 lg:py-16" data-aos="fade-right">
-          <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] dark:text-sky-300 sm:text-5xl lg:text-6xl">
-            {heading}
+          <h1 className="border-l-10 rounded-[0px 10px 0px 10px]  border-blue-800 pl-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] dark:text-sky-300 sm:text-5xl lg:text-6xl">
+            <span className="">About</span> {heading}
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">

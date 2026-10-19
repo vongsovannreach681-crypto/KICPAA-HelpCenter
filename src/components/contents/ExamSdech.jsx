@@ -17,15 +17,25 @@ const ExamSdech = () => (
     className="bg-white px-4 py-12 font-['Poppins',sans-serif] dark:bg-slate-950 sm:px-6 sm:py-16"
   >
     <div className="mx-auto max-w-6xl">
-      <h2 className="text-2xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-3xl">
-        ATQ exam schedule
-      </h2>
+      <div data-aos="fade-up">
+        <h2 className="text-2xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-3xl">
+          ATQ exam schedule
+        </h2>
 
-      <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base">
-        Batch 10 exams will be held in October 2026 at KICPAA.
-      </p>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base"
+        >
+          Batch 10 exams will be held in October 2026 at KICPAA.
+        </p>
+      </div>
 
-      <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="150"
+        className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+      >
         <table className="w-full min-w-[760px] border-collapse text-center">
           <thead>
             <tr className="bg-blue-950 dark:bg-sky-500 text-sm font-bold text-white sm:text-base">
@@ -59,7 +69,10 @@ const ExamSdech = () => (
         </table>
       </div>
 
-      <div className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      <div
+        data-aos="fade-right"
+        className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
+      >
         <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
           Exam requirements
         </h3>
@@ -74,7 +87,11 @@ const ExamSdech = () => (
       
       </div>
 
-      <div className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8">
+      <div
+        data-aos="fade-left"
+        data-aos-delay="100"
+        className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
+      >
         <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
           Booking your ATQ Exam
         </h3>
@@ -83,7 +100,7 @@ const ExamSdech = () => (
           these steps:
         </p>
         <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
-          <li>Go to the <a href="https://education.kicpaa.org/student/login" target="blank" className="text-blue-900 underline">Learning Hub</a>.</li>
+          <li>Go to the <a href="https://education.kicpaa.org/student/login" target="blank" className="text-blue-900 underline dark:text-cyan-200">Learning Hub</a>.</li>
           <li>
             Go to <span className="font-semibold">Examination</span> and select
             your next examination date.

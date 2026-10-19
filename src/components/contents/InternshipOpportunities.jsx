@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import RP from "../../assets/internship/R&P.png";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -6,8 +7,6 @@ import {
   FaTableCells,
 } from "react-icons/fa6";
 
-// List of Partner Internship Providers
-// When you upload images later, simply import them and assign to the `logo` property
 const internshipProviders = [
   {
     id: 1,
@@ -15,7 +14,7 @@ const internshipProviders = [
     short: "Reach & Partners",
     tagline: "Consulting & Advisory",
     accentColor: "#1e3a8a",
-    logo: "https://img.magnific.com/free-vector/navy-arrows-circle_78370-7812.jpg?semt=ais_hybrid&w=740&q=80",
+    logo: RP,
   },
   {
     id: 2,
@@ -179,6 +178,39 @@ const internshipProviders = [
   },
 ];
 
+// Show the firm logo when available; otherwise show its name.
+const ProviderCard = ({ provider }) => {
+  const [imgFailed, setImgFailed] = useState(false);
+  const showLogo = Boolean(provider.logo) && !imgFailed;
+
+  return (
+    <div
+      className="group relative flex min-h-32 sm:min-h-36 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
+    >
+      {showLogo && (
+        <div className="flex h-14 w-14 items-center justify-center">
+          <img
+            src={provider.logo}
+            alt={provider.name}
+            loading="lazy"
+            onError={() => setImgFailed(true)}
+            className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+      )}
+
+      {!showLogo && (
+        <span
+          title={provider.name}
+          className="block w-full truncate text-center text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]"
+        >
+          {provider.name}
+        </span>
+      )}
+    </div>
+  );
+};
+
 const InternshipOpportunities = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(5);
@@ -249,7 +281,7 @@ const InternshipOpportunities = () => {
         </p>
       </div>
 
-      {/* Centered Category Heading matching the UI in screenshot */}
+      {/* Centered Category Heading */}
       <div
         data-aos="fade-up"
         data-aos-delay="100"
@@ -288,6 +320,7 @@ const InternshipOpportunities = () => {
         </div>
       </div>
 
+      {/* UI MODE 1: SLIDER */}
       {viewMode === "slider" && (
         <div
           className="relative mt-6 px-3 sm:px-0"
@@ -298,7 +331,7 @@ const InternshipOpportunities = () => {
           <button
             onClick={prevSlide}
             aria-label="Previous slide"
-            className="absolute left-0 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-md transition-all hover:bg-[#0b1a6e] hover:text-white hover:border-[#0b1a6e] dark:border-slate-700 dark:bg-slate-850 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-[#03A9f4] dark:hover:text-slate-950 dark:hover:border-[#03A9f4]"
+            className="absolute left-0 sm:-left-5 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white/95 text-slate-700 shadow-md transition-all hover:bg-[#0b1a6e] hover:text-white hover:border-[#0b1a6e] dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-[#03A9f4] dark:hover:text-slate-950 dark:hover:border-[#03A9f4]"
           >
             <FaChevronLeft className="text-xs" aria-hidden="true" />
           </button>
@@ -311,43 +344,14 @@ const InternshipOpportunities = () => {
             <FaChevronRight className="text-xs" aria-hidden="true" />
           </button>
 
-          {/* Cards Track (5 cards in a row matching the screenshot) */}
+          {/* Cards Track */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-            {currentProviders.map((provider) => {
-              return (
-                <div
-                  key={provider.id}
-                  className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
-                >
-                  {provider.logo ? (
-                    <div className="group flex items-center gap-3">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center">
-                        <img
-                          src={provider.logo}
-                          alt={provider.name}
-                          loading="lazy"
-                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                      <span className="min-w-0 flex-1 break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
-                        {provider.name}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="flex w-full flex-col items-center justify-center px-2 text-center">
-                      <div className="w-full">
-                        <span className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
-                          {provider.name}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {currentProviders.map((provider) => (
+              <ProviderCard key={provider.id} provider={provider} />
+            ))}
           </div>
 
-          {/* Pagination Dots matching screenshot (Active: Cyan #03A9f4, Inactive: Slate) */}
+          {/* Pagination Dots */}
           <div className="mt-6 flex items-center justify-center gap-2">
             {Array.from({ length: totalPages }).map((_, index) => (
               <button
@@ -368,38 +372,9 @@ const InternshipOpportunities = () => {
       {/* UI MODE 2: ALL PARTNERS GRID */}
       {viewMode === "grid" && (
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {internshipProviders.map((provider) => {
-            return (
-              <div
-                key={provider.id}
-                className="group relative flex min-h-28 sm:min-h-32 items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
-              >
-                {provider.logo ? (
-                  <div className="group flex items-center gap-3">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center">
-                        <img
-                          src={provider.logo}
-                          alt={provider.name}
-                          loading="lazy"
-                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                      <span className="min-w-0 flex-1 break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white sm:text-[15px]">
-                        {provider.name}
-                      </span>
-                    </div>
-                ) : (
-                  <div className="flex w-full flex-col items-center justify-center px-2 text-center">
-                    <div className="w-full">
-                      <span className="block w-full whitespace-normal break-words text-sm font-extrabold tracking-tight text-[#1e3a8a] transition-colors dark:text-white">
-                        {provider.name}
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          {internshipProviders.map((provider) => (
+            <ProviderCard key={provider.id} provider={provider} />
+          ))}
         </div>
       )}
     </div>

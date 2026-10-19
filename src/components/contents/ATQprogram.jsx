@@ -22,21 +22,12 @@ const ATQprogram = () => {
           <h2 className="border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
             ATQ learning resources and tests
           </h2>
-          {/* <p className="mt-6 text-justify leading-8 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9">
-            <span className="font-semibold text-[#0b1a6e] dark:text-sky-400">
-              Accounting Technician Qualification (ATQ)
-            </span>{" "}
-            is the examination-based qualification for the skill recognizing at
-            the technician level of accounting. Developed by KICPAA with
-            technical support from ICAEW and funded by Russian Federation and
-            UNDP Cambodia. It enables students to shorten their study time and
-            they can study at their own place. Students from everywhere in
-            Cambodia can study with training organizations or by themselves
-            through a LEARNING HUB.
-          </p> */}
+          <p className="mt-6 text-left leading-8 text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-8">
+            It enables students to shorten their study time and they can study at their own place. Students from everywhere in Cambodia can study with training organizations or by themselves through a <span className="text-blue-800 underline text-semibold"><a href="https://education.kicpaa.org/student/login" target="blank"> LEARNING HUB</a></span>.
+          </p>
         </div>
       </div>
-      <div id="curriculum" className="mt-20 container scroll-mt-24">
+      <div id="curriculum" className="mt-15 container scroll-mt-24">
         <h3 data-aos="fade-up" className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
           Curriculum
         </h3>
