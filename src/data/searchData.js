@@ -369,7 +369,7 @@ export const searchableItems = [
     keywords: ["vanda", "camed", "bbu", "aub", "panhasas", "ifa", "cac", "universities", "tuition"],
     badge: "Universities",
   },
-
+  
   // --- CONTACT & SUPPORT ---
   {
     id: "contact-support",

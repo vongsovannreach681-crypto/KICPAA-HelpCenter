@@ -206,12 +206,7 @@ const ExamSdech = () => {
             </button>
           ))}
         </div>
-        <div className="mt-10">
-             <h2 className="text-2xl border-l-5 border-l-blue-900 pl-5 font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-3xl">
-            ATQ exam in 2026
-          </h2>
-          <Dropdown/>
-        </div>
+       x
         <div
           data-aos="fade-right"
           className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
