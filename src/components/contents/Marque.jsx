@@ -1,62 +1,129 @@
 import React, { useState } from "react";
 import { FaTableCells } from "react-icons/fa6";
 import aub from "../../assets/marquee/aub.png";
+import asiaEurope from "../../assets/marquee/AsiaEurpe.png";
 import bbu from "../../assets/marquee/bbu.png";
 import cac from "../../assets/marquee/CaC.png";
 import camed from "../../assets/marquee/Camed.png";
+import dfc from "../../assets/marquee/DFC.png";
 import ifa from "../../assets/marquee/IFA.png";
+import lpbs from "../../assets/marquee/LPBS.png";
+import mekong from "../../assets/marquee/Mekong.png";
 import panhasas from "../../assets/marquee/Panhasas.png";
+import paragon from "../../assets/marquee/Paragon.png";
+import pollo from "../../assets/marquee/Pollo.png";
+import samdech from "../../assets/marquee/Samdech.png";
+import spnvs from "../../assets/marquee/spnvs.png";
+import tbongKmum from "../../assets/marquee/TbongKmum.png";
 import vanda from "../../assets/marquee/Vanda.png";
-import UEF from "../../assets/marquee/UEF.png"
+import uef from "../../assets/marquee/UEF.png";
+import western from "../../assets/marquee/Western.png";
 const organizations = [
   {
-    name: "CamEd Business School",
-    shortName: "CamEd",
-    logo: camed,
-    url:"https://cam-ed.edu.kh/"
-  },
-  {
-    name: "Vanda Institute",
-    shortName: "Vanda",
-    logo: vanda,
-    url:"https://vanda.edu.kh/"
+    name: "Acleda University of Business",
+    shortName: "AUB",
+    logo: aub,
+    url: "https://www.aub.edu.kh/tc/eng/",
   },
   {
     name: "Build Bright University",
     shortName: "BBU",
     logo: bbu,
-    url:"https://bbu.edu.kh/"
-  },
-  {
-    name: "Acleda University of Business",
-    shortName: "AUB",
-    logo: aub,
-    url:"https://www.aub.edu.kh/tc/eng/"
-  },
-  {
-    name: "Paññāsāstra University of Cambodia",
-    shortName: "PUC",
-    logo: panhasas,
-    url:"https://www.puc.edu.kh/"
-
-  },
-  {
-    name: "Institute of Finance and Accounting",
-    shortName: "IFA",
-    logo: ifa,
-    url:"https://www.ifa.edu.kh/"
+    url: "https://bbu.edu.kh/",
   },
   {
     name: "Cambodia Accounting Club",
     shortName: "CaC",
     logo: cac,
-    url:"https://cac-center.edu.kh/"
+    url: "https://cac-center.edu.kh/",
   },
   {
-    name: "university of economics and finance",
+    name: "CamEd Business School",
+    shortName: "CamEd",
+    logo: camed,
+    url: "https://cam-ed.edu.kh/",
+  },
+  {
+    name: "Institute of Finance and Accounting",
+    shortName: "IFA",
+    logo: ifa,
+    url: "https://www.ifa.edu.kh/",
+  },
+  {
+    name: "Paññāsāstra University of Cambodia",
+    shortName: "PUC",
+    logo: panhasas,
+    url: "https://www.puc.edu.kh/",
+  },
+  {
+    name: "University of Economics and Finance",
     shortName: "UEF",
-    logo: UEF,
-    url:"https://uef.edu.kh/"
+    logo: uef,
+    url: "https://uef.edu.kh/",
+  },
+  {
+    name: "Vanda Institute",
+    shortName: "Vanda",
+    logo: vanda,
+    url: "https://vanda.edu.kh/",
+  },
+  {
+    name: "Apollo Business School",
+    shortName: "Apollo",
+    logo: pollo,
+  },
+  {
+    name: "LA PAIX Business School",
+    shortName: "LPBS",
+    logo: lpbs,
+  },
+  {
+    name: "Royal University of Law and Economics",
+    shortName: "RULE",
+    logo: spnvs,
+    url:"https://www.rule.edu.kh/"
+  },
+  {
+    name: "Cambodian Mekong University",
+    shortName: "Mekong",
+    logo: mekong,
+    url:"https://mekong.edu.kh/"
+  },
+  {
+    name: "DFC Learning",
+    shortName: "DFC",
+    logo: dfc,
+    url:"https://dfc.com.kh/"
+  },
+  {
+    name: "Paragon International University",
+    shortName: "Paragon",
+    logo: paragon,
+    url: "https://www.paragoniu.edu.kh/",
+  },
+  {
+    name: "Samdech Preah Mahasangharajah Bour Kry University",
+    shortName: "Samdech",
+    logo: samdech,
+    url:"https://www.sbku.edu.kh/"
+  },
+  {
+    name: "University of Heng Samrin Tbong Khmum",
+    shortName: "Tbong Khmum",
+    logo: tbongKmum,
+    url:"https://uhst.edu.kh/"
+  },
+  {
+    name: "Asia Europe University",
+    shortName: "Asia Euro",
+    logo: asiaEurope,
+    url:"https://www.aeu.edu.kh/kh"
+  },
+  {
+    name: "Western University",
+    shortName: "Western",
+    logo: western,
+    url:"https://westernuniversity.edu.kh/kh"
   },
 ];
 
@@ -67,7 +134,7 @@ const Marque = () => {
     <section id="partners" data-aos="fade-up" className="mt-16 font-['Poppins',sans-serif] sm:mt-20 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h3 className="border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
-          Recognized Training Organizations
+          Training Organization
         </h3>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9">
           KICPAA partners with leading universities and training institutes across Cambodia to deliver quality ATQ tuition, classroom preparation, and academic mentorship.
@@ -125,17 +192,25 @@ const Marque = () => {
                   {organizations.map((org) => (
                     <div
                       key={org.shortName}
-                      className="group cursor-pointer flex h-28 w-52 shrink-0 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10 sm:h-32 sm:w-60 sm:px-5 sm:py-4"
+                      className={`group ${org.url ? "cursor-pointer" : ""} flex h-28 w-52 shrink-0 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-3 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10 sm:h-32 sm:w-60 sm:px-5 sm:py-4`}
                     >
-                      <a href={org.url} target="blank">
-
-                      <img
-                        src={org.logo}
-                        alt={group === 1 ? "" : org.name}
-                        className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
-                        loading="lazy"
-                      />
-                      </a>
+                      {org.url ? (
+                        <a href={org.url} target="_blank" rel="noreferrer">
+                          <img
+                            src={org.logo}
+                            alt={group === 1 ? "" : org.name}
+                            className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
+                            loading="lazy"
+                          />
+                        </a>
+                      ) : (
+                        <img
+                          src={org.logo}
+                          alt={group === 1 ? "" : org.name}
+                          className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
+                          loading="lazy"
+                        />
+                      )}
                       <span className="mt-2 line-clamp-1 text-center text-xs font-semibold text-slate-600 transition-colors group-hover:text-[#0b1a6e] dark:text-slate-200 dark:group-hover:text-sky-300">
                         {org.name}
                       </span>
@@ -151,17 +226,25 @@ const Marque = () => {
           {organizations.map((org) => (
             <div
               key={org.shortName}
-              className="group flex min-h-36 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10"
+              className={`group ${org.url ? "cursor-pointer" : ""} flex min-h-36 flex-col items-center justify-center rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg dark:border-slate-700/80 dark:bg-slate-800 dark:hover:shadow-sky-500/10`}
             >
-              <a href={org.url} target="blank">
-
-              <img
-                src={org.logo}
-                alt={org.name}
-                className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-              </a>
+              {org.url ? (
+                <a href={org.url} target="_blank" rel="noreferrer">
+                  <img
+                    src={org.logo}
+                    alt={org.name}
+                    className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={org.logo}
+                  alt={org.name}
+                  className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              )}
               <span className="mt-3 text-center text-xs font-semibold text-slate-600 transition-colors group-hover:text-[#0b1a6e] dark:text-slate-200 dark:group-hover:text-sky-300">
                 {org.name}
               </span>

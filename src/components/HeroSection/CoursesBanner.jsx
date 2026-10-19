@@ -1,6 +1,6 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
-
+import student from '../../assets/images/student.png'
 // Small decorative dots scattered around the student (% of the right panel)
 const dots = [
   { top: 18, left: 8 },
@@ -30,7 +30,7 @@ const symbols = [
 const CoursesBanner = ({
   heading = " ATQ Program",
   text = " is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia. ",
-  imageSrc = "https://central-college.ca/wp-content/uploads/2026/03/photo-portrait-young-smiling-female-college-school-student-holding-books-with-backpack-1157x1536-1-771x1024-1.webp",
+  imageSrc = student,
   ctaLabel = "About ATQ Program",
   ctaHref = "#courses",
 }) => {
@@ -93,7 +93,7 @@ const CoursesBanner = ({
               aria-hidden="true"
               className="absolute inset-0 translate-x-3 -translate-y-3 rounded-t-full border-[3px] border-[#ffb703]"
             />
-            <div className="relative h-full w-full overflow-hidden rounded-t-full bg-[#0b2a6b]">
+            <div className="relative h-full w-full overflow-hidden rounded-t-full bg-blue-800">
               <img
                 src={imageSrc}
                 alt="Smiling student holding books with a backpack"
