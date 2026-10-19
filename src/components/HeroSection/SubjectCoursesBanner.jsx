@@ -163,16 +163,7 @@ const SubjectCoursesBanner = () => {
             journey through the Accounting Technician Qualification.
           </p>
 
-          <a
-            href="#courses"
-            className="group mt-8 inline-flex items-center gap-3 rounded-lg bg-[#03A9f4] px-6 py-3.5 font-semibold text-white shadow-lg shadow-sky-500/30 transition-colors hover:bg-[#0288d1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            Explore TQ Books
-            <FaArrowRight
-              className="transition-transform group-hover:translate-x-1"
-              aria-hidden="true"
-            />
-          </a>
+       
         </div>
 
         {/* Image, framed by orbit rings */}
