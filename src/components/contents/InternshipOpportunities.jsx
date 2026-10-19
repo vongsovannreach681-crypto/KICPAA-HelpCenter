@@ -188,7 +188,7 @@ const ProviderCard = ({ provider }) => {
       className="group relative flex min-h-32 sm:min-h-36 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
     >
       {showLogo && (
-        <div className="flex h-14 w-14 items-center justify-center">
+        <div className="flex h-24 w-full max-w-64 items-center justify-center">
           <img
             src={provider.logo}
             alt={provider.name}
