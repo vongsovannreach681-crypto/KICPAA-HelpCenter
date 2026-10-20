@@ -5,31 +5,50 @@ import {
   examSessionsByMonth,
 } from "../../data/examSessions";
 import Dropdown from "./Dropdown";
+
 const examSessions = MONTHS.flatMap((month) =>
   examSessionsByMonth[month].map((session) => ({ ...session, month })),
 );
+
 const availableMonths = MONTHS.filter(
   (month) => examSessionsByMonth[month].length > 0,
 );
-const getDefaultExamMonth = () => {
+
+// for highlight date in examination
+
+const HIGHLIGHT_CLASS =
+  "bg-amber-200 text-[#0c1a6e] dark:bg-amber-400 dark:text-slate-900";
+
+const parseExamDate = (date) => {
+  const [day, monthAbbreviation, year] = date.split(", ")[1].split("-");
+  const monthIndex = MONTH_ABBREVIATIONS.indexOf(monthAbbreviation);
+  return new Date(Number(year), monthIndex, Number(day));
+};
+
+const isSameDay = (a, b) => a.getTime() === b.getTime();
+
+const getToday = () => {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+  return today;
+};
+
+const getDefaultExamMonth = () => {
+  const today = getToday();
   const upcomingMonth = availableMonths.find((month) =>
     examSessionsByMonth[month].some((session) =>
-      session.dates.some((date) => {
-        const [day, monthAbbreviation, year] = date.split(", ")[1].split("-");
-        const monthIndex = MONTH_ABBREVIATIONS.indexOf(monthAbbreviation);
-        return new Date(Number(year), monthIndex, Number(day)) >= today;
-      }),
+      session.dates.some((date) => parseExamDate(date) >= today),
     ),
   );
 
   return upcomingMonth ?? availableMonths.at(-1) ?? MONTHS[0];
 };
+
 const startsGroup = (sessions, index, property) =>
   index === 0 ||
   sessions[index - 1].month !== sessions[index].month ||
   sessions[index - 1][property] !== sessions[index][property];
+
 const getGroupRowSpan = (sessions, index, property) => {
   let rowSpan = 1;
   while (
@@ -44,6 +63,7 @@ const getGroupRowSpan = (sessions, index, property) => {
 
 const ExamSdech = () => {
   const [selectedMonth, setSelectedMonth] = useState(getDefaultExamMonth);
+  const today = getToday();
   const selectedSessions = examSessions.filter(
     (session) => session.month === selectedMonth,
   );
@@ -104,88 +124,113 @@ const ExamSdech = () => {
               </tr>
             </thead>
             <tbody className="text-[#0c1a6e] dark:text-blue-100">
-              {selectedSessions.map((session, index) => (
-                <tr
-                  key={`${session.month}-${session.subject}`}
-                  className="bg-white dark:bg-slate-900"
-                >
-                  {startsGroup(selectedSessions, index, "batch") && (
+              {selectedSessions.map((session, index) => {
+                const isExamDay = session.dates.some((date) =>
+                  isSameDay(parseExamDate(date), today),
+                );
+                const highlight = isExamDay ? HIGHLIGHT_CLASS : "";
+
+                return (
+                  <tr
+                    key={`${session.month}-${session.subject}`}
+                    className="bg-white dark:bg-slate-900"
+                  >
+                    {startsGroup(selectedSessions, index, "batch") && (
+                      <td
+                        rowSpan={getGroupRowSpan(
+                          selectedSessions,
+                          index,
+                          "batch",
+                        )}
+                        className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      >
+                        {session.batch}
+                      </td>
+                    )}
+                    {startsGroup(selectedSessions, index, "month") && (
+                      <td
+                        rowSpan={getGroupRowSpan(
+                          selectedSessions,
+                          index,
+                          "month",
+                        )}
+                        className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      >
+                        {session.month}
+                      </td>
+                    )}
+
+                    {/* Subject */}
                     <td
-                      rowSpan={getGroupRowSpan(
-                        selectedSessions,
-                        index,
-                        "batch",
-                      )}
-                      className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      className={`border border-slate-400 px-3 py-3 text-sm font-semibold sm:text-base ${highlight}`}
                     >
-                      {session.batch}
+                      {session.subject}
                     </td>
-                  )}
-                  {startsGroup(selectedSessions, index, "month") && (
+
+                    {/* Date: day name */}
                     <td
-                      rowSpan={getGroupRowSpan(
-                        selectedSessions,
-                        index,
-                        "month",
-                      )}
-                      className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      className={`border border-slate-400 px-3 py-2 text-sm sm:text-base ${highlight}`}
                     >
-                      {session.month}
+                      {session.dates.map((date) => (
+                        <div key={date} className="whitespace-nowrap">
+                          {date.split(",")[0]}
+                        </div>
+                      ))}
                     </td>
-                  )}
-                  <td className="border border-slate-400 px-3 py-3 text-sm font-semibold sm:text-base">
-                    {session.subject}
-                  </td>
-                  <td className="border border-slate-400 px-3 py-2 text-sm sm:text-base">
-                    {session.dates.map((date) => (
-                      <div key={date} className="whitespace-nowrap">
-                        {date.split(",")[0]}
-                      </div>
-                    ))}
-                  </td>
-                  <td className="border border-slate-400 px-3 py-2 text-sm sm:text-base">
-                    {session.dates.map((date) => (
-                      <div key={date} className="whitespace-nowrap">
-                        {date.split(", ")[1]}
-                      </div>
-                    ))}
-                  </td>
-                  <td className="border border-slate-400 px-3 py-3 text-sm font-medium sm:text-base">
-                    {session.time}
-                  </td>
-                  {startsGroup(selectedSessions, index, "venue") && (
+
+                    {/* Date: day-month-year */}
                     <td
-                      rowSpan={getGroupRowSpan(
-                        selectedSessions,
-                        index,
-                        "venue",
-                      )}
-                      className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      className={`border border-slate-400 px-3 py-2 text-sm sm:text-base ${highlight}`}
                     >
-                      {session.venue}
+                      {session.dates.map((date) => (
+                        <div key={date} className="whitespace-nowrap">
+                          {date.split(", ")[1]}
+                        </div>
+                      ))}
                     </td>
-                  )}
-                  {startsGroup(
-                    selectedSessions,
-                    index,
-                    "registrationCloses",
-                  ) && (
+
+                    {/* Time */}
                     <td
-                      rowSpan={getGroupRowSpan(
-                        selectedSessions,
-                        index,
-                        "registrationCloses",
-                      )}
-                      className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      className={`border border-slate-400 px-3 py-3 text-sm font-medium sm:text-base ${highlight}`}
                     >
-                      {session.registrationCloses}
+                      {session.time}
                     </td>
-                  )}
-                </tr>
-              ))}
+
+                    {startsGroup(selectedSessions, index, "venue") && (
+                      <td
+                        rowSpan={getGroupRowSpan(
+                          selectedSessions,
+                          index,
+                          "venue",
+                        )}
+                        className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      >
+                        {session.venue}
+                      </td>
+                    )}
+                    {startsGroup(
+                      selectedSessions,
+                      index,
+                      "registrationCloses",
+                    ) && (
+                      <td
+                        rowSpan={getGroupRowSpan(
+                          selectedSessions,
+                          index,
+                          "registrationCloses",
+                        )}
+                        className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
+                      >
+                        {session.registrationCloses}
+                      </td>
+                    )}
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
+
         <div
           className="mt-4 flex gap-2 overflow-x-auto px-1 py-1 sm:flex-wrap sm:justify-center sm:overflow-x-visible"
           aria-label="Exam schedule months"
@@ -206,7 +251,7 @@ const ExamSdech = () => {
             </button>
           ))}
         </div>
-       
+
         <div
           data-aos="fade-right"
           className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
@@ -241,7 +286,8 @@ const ExamSdech = () => {
               Go to the{" "}
               <a
                 href="https://education.kicpaa.org/student/login"
-                target="blank"
+                target="_blank"
+                rel="noreferrer"
                 className="text-blue-900 underline dark:text-cyan-200"
               >
                 Learning Hub
