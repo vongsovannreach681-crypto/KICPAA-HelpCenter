@@ -112,7 +112,7 @@ const Header = () => {
         <div className="flex items-center gap-3">
           <Link to="/" className="block">
             <img
-              className="h-20 sm:h-15 w-auto md:h-18"
+              className="h-18 sm:h-10 w-auto md:h-18"
               src={isDarkMode ? darkLogo : logo}
               alt="KICPAA Logo"
             />
