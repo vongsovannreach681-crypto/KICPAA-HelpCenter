@@ -49,17 +49,17 @@ const fees = [
   {
     name: "Application fee",
     frequency: "One-time payment",
-    amount: "riel 21,000",
+    amount: " 21,000",
   },
   {
     name: "Annual student membership fee",
     frequency: "Paid annually",
-    amount: "riel 42,000",
+    amount: " 42,000",
   },
   {
     name: "Examination fee",
     frequency: "Per subject",
-    amount: "riel 63,000",
+    amount: " 63,000",
   },
 ];
 
@@ -182,9 +182,10 @@ const AdmissionFees = () => {
                       {fee.name}
                     </th>
                     <td className="px-4 py-4">{fee.frequency}</td>
-                    <td className="px-4 py-4 text-right text-lg font-bold text-[#0b1a6e] dark:text-sky-300">
-                      {fee.amount}
-                    </td>
+                   <td className="px-3 py-3 sm:px-6 sm:py-4 text-right whitespace-nowrap text-xs sm:text-sm md:text-base font-bold text-[#0b1a6e] dark:text-sky-300">
+  <span className="font-medium opacity-70">Riel</span>{" "}
+  {fee.amount}
+</td>
                   </tr>
                 ))}
               </tbody>
