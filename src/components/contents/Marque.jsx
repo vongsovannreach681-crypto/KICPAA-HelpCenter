@@ -70,7 +70,7 @@ const organizations = [
   {
     name: "Apollo Business School",
     shortName: "Apollo",
-    logo: pollo,
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXBsv-KScy68h3AKclwH5gl_00JR9kPVsd187cva_iJ-kmBsdacrEl5pG3&s=10",
   },
   {
     name: "LA PAIX Business School",
@@ -80,7 +80,7 @@ const organizations = [
   {
     name: "Royal University of Law and Economics",
     shortName: "RULE",
-    logo: spnvs,
+    logo: "https://nica.team/wp-content/uploads/2020/02/225px-Logo_of_Rule_Cambodia-5.png",
     url:"https://www.rule.edu.kh/"
   },
   {
@@ -98,7 +98,7 @@ const organizations = [
   {
     name: "Paragon International University",
     shortName: "Paragon",
-    logo: paragon,
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6DCSqS7VN35gczvR2jW0U0XvpXUIp7YeTJIIvWGwncCCtazAgJm1OLRE&s=10",
     url: "https://www.paragoniu.edu.kh/",
   },
   {
@@ -122,7 +122,7 @@ const organizations = [
   {
     name: "Western University",
     shortName: "Western",
-    logo: western,
+    logo: "https://westernuniversity.edu.kh/assets/img/seo-og-image.png",
     url:"https://westernuniversity.edu.kh/kh"
   },
 ];
@@ -199,7 +199,7 @@ const Marque = () => {
                           <img
                             src={org.logo}
                             alt={group === 1 ? "" : org.name}
-                            className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
+                            className="h-16 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-[4.5rem]"
                             loading="lazy"
                           />
                         </a>
@@ -207,7 +207,7 @@ const Marque = () => {
                         <img
                           src={org.logo}
                           alt={group === 1 ? "" : org.name}
-                          className="h-12 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-14"
+                          className="h-16 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105 sm:h-[4.5rem]"
                           loading="lazy"
                         />
                       )}
@@ -233,7 +233,7 @@ const Marque = () => {
                   <img
                     src={org.logo}
                     alt={org.name}
-                    className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                    className="h-16 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
                 </a>
@@ -241,7 +241,7 @@ const Marque = () => {
                 <img
                   src={org.logo}
                   alt={org.name}
-                  className="h-14 w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="h-16 w-auto max-w-[90%] object-contain transition-transform duration-300 group-hover:scale-105"
                   loading="lazy"
                 />
               )}

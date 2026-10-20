@@ -49,17 +49,17 @@ const fees = [
   {
     name: "Application fee",
     frequency: "One-time payment",
-    amount: "$5",
+    amount: "riel 21,000",
   },
   {
     name: "Annual student membership fee",
     frequency: "Paid annually",
-    amount: "$10",
+    amount: "riel 42,000",
   },
   {
     name: "Examination fee",
     frequency: "Per subject",
-    amount: "$15",
+    amount: "riel 63,000",
   },
 ];
 

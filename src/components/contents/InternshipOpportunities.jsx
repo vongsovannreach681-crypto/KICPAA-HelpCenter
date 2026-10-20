@@ -1,5 +1,25 @@
 import React, { useState, useEffect } from "react";
-import RP from "../../assets/internship/R&P.png";
+import logo3S from "../../assets/IntershipLogo/3S Logo-01.png";
+import logoAdvance from "../../assets/IntershipLogo/advance_logo-01.png";
+import logoAllison from "../../assets/IntershipLogo/Allison.jpg";
+import logoATAP from "../../assets/IntershipLogo/ATAP.png";
+import logoBanji from "../../assets/IntershipLogo/Banji.png";
+import logoBDO from "../../assets/IntershipLogo/BDO.png";
+import logoCAS from "../../assets/IntershipLogo/cas.png";
+import logoDAS from "../../assets/IntershipLogo/DAS.png";
+import logoDonasco from "../../assets/IntershipLogo/donasco-01.jpg";
+import logoECOVIS from "../../assets/IntershipLogo/ECOVIS.png";
+import logoFii from "../../assets/IntershipLogo/fii.png";
+import logoFunan from "../../assets/IntershipLogo/Funan.jpg";
+import logoGrantThornton from "../../assets/IntershipLogo/Grant.png";
+import logoHLB from "../../assets/IntershipLogo/HLB.png";
+import logoKPA from "../../assets/IntershipLogo/KPA.png";
+import logoLocalize from "../../assets/IntershipLogo/Localize.jpg";
+import logoLochan from "../../assets/IntershipLogo/Lochan.png";
+import logoPAT from "../../assets/IntershipLogo/PAT.jpg";
+import logoReach from "../../assets/IntershipLogo/Reach.png";
+import logoLRS from "../../assets/IntershipLogo/las.png";
+import logoVITHEAN from "../../assets/IntershipLogo/VIT.png";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -14,7 +34,7 @@ const internshipProviders = [
     short: "Reach & Partners",
     tagline: "Consulting & Advisory",
     accentColor: "#1e3a8a",
-    logo: RP,
+    logo: logoReach,
   },
   {
     id: 2,
@@ -22,7 +42,7 @@ const internshipProviders = [
     short: "BANHJI FINTECH",
     tagline: "Financial Technology",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoBanji,
   },
   {
     id: 3,
@@ -30,7 +50,7 @@ const internshipProviders = [
     short: "K Professional",
     tagline: "Chartered Accountants",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoKPA,
   },
   {
     id: 4,
@@ -38,7 +58,7 @@ const internshipProviders = [
     short: "LRS Henderson",
     tagline: "Audit & Advisory",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoLRS,
   },
   {
     id: 5,
@@ -46,7 +66,7 @@ const internshipProviders = [
     short: "3S CONSULTING",
     tagline: "Business Advisory",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logo3S,
   },
   {
     id: 6,
@@ -54,7 +74,7 @@ const internshipProviders = [
     short: "Fii & Associates",
     tagline: "Audit, Tax & Corporate",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoFii,
   },
   {
     id: 7,
@@ -62,7 +82,7 @@ const internshipProviders = [
     short: "Grant Thornton",
     tagline: "Audit, Tax & Advisory",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoGrantThornton,
   },
   {
     id: 8,
@@ -70,7 +90,7 @@ const internshipProviders = [
     short: "Grand Formula",
     tagline: "Accounting Services",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoAdvance,
   },
   {
     id: 9,
@@ -78,7 +98,7 @@ const internshipProviders = [
     short: "ECOVIS VSDK",
     tagline: "Audit & Advisory Network",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoECOVIS,
   },
   {
     id: 10,
@@ -86,7 +106,7 @@ const internshipProviders = [
     short: "Allison",
     tagline: "Auditing & Consulting",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoAllison,
   },
   {
     id: 11,
@@ -94,7 +114,7 @@ const internshipProviders = [
     short: "BDO Cambodia",
     tagline: "Audit & Assurance",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoBDO,
   },
   {
     id: 12,
@@ -102,7 +122,7 @@ const internshipProviders = [
     short: "ATAP & PARTNERS",
     tagline: "Accounting & Tax",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoATAP,
   },
   {
     id: 13,
@@ -110,7 +130,7 @@ const internshipProviders = [
     short: "Donasco & Co",
     tagline: "Auditing & Services",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoDonasco,
   },
   {
     id: 14,
@@ -118,7 +138,7 @@ const internshipProviders = [
     short: "Lochan & Co",
     tagline: "Chartered Accountants",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoLochan,
   },
   {
     id: 15,
@@ -126,7 +146,7 @@ const internshipProviders = [
     short: "HLB AUDIT & PARTNERS",
     tagline: "Audit & Assurance",
     accentColor: "#1e3a8a",
-    logo: null,
+    logo: logoHLB,
   },
   {
     id: 16,
@@ -134,7 +154,7 @@ const internshipProviders = [
     short: "CAS-BIZ TECHNOLOGY",
     tagline: "Business Technology",
     accentColor: "#4338ca",
-    logo: null,
+    logo: logoCAS,
   },
   {
     id: 17,
@@ -142,7 +162,7 @@ const internshipProviders = [
     short: "DAS & Partners",
     tagline: "Audit, Tax & Advisory",
     accentColor: "#4338ca",
-    logo: null,
+    logo: logoDAS,
   },
   {
     id: 18,
@@ -150,7 +170,7 @@ const internshipProviders = [
     short: "P A T Professional",
     tagline: "Professional Services",
     accentColor: "#4338ca",
-    logo: null,
+    logo: logoPAT,
   },
   {
     id: 19,
@@ -158,7 +178,7 @@ const internshipProviders = [
     short: "FUNAN CONSULTING",
     tagline: "Consulting Services",
     accentColor: "#4338ca",
-    logo: null,
+    logo: logoFunan,
   },
   {
     id: 20,
@@ -166,7 +186,7 @@ const internshipProviders = [
     short: "POSCAR Digital",
     tagline: "Digital Services",
     accentColor: "#4338ca",
-    logo: null,
+    logo: logoVITHEAN,
   },
   {
     id: 21,
@@ -174,8 +194,8 @@ const internshipProviders = [
     short: "Localize Tech Solution",
     tagline: "Technology Solutions",
     accentColor: "#4338ca",
-    logo: null,
-  },
+    logo: logoLocalize,
+  }
 ];
 
 // Show the firm logo when available; otherwise show its name.
@@ -188,7 +208,7 @@ const ProviderCard = ({ provider }) => {
       className="group relative flex min-h-32 sm:min-h-36 items-center justify-center rounded-2xl border border-slate-200/80 bg-white p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-[#03A9f4] hover:shadow-lg hover:shadow-blue-950/5 dark:border-slate-800 dark:bg-slate-900"
     >
       {showLogo && (
-        <div className="flex h-24 w-full max-w-64 items-center justify-center">
+        <div className="flex h-34 w-full max-w-74 items-center justify-center">
           <img
             src={provider.logo}
             alt={provider.name}
@@ -213,15 +233,15 @@ const ProviderCard = ({ provider }) => {
 
 const InternshipOpportunities = () => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [itemsPerPage, setItemsPerPage] = useState(4);
   const [isPaused, setIsPaused] = useState(false);
   const [viewMode, setViewMode] = useState("slider"); // 'slider' | 'grid'
 
   // Responsive items count per slide
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1200) {
-        setItemsPerPage(5);
+      if (window.innerWidth >= 1024) {
+        setItemsPerPage(4);
       } else if (window.innerWidth >= 768) {
         setItemsPerPage(3);
       } else if (window.innerWidth >= 540) {
@@ -345,7 +365,7 @@ const InternshipOpportunities = () => {
           </button>
 
           {/* Cards Track */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {currentProviders.map((provider) => (
               <ProviderCard key={provider.id} provider={provider} />
             ))}
