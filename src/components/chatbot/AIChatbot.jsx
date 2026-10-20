@@ -32,9 +32,9 @@ const faqKnowledgeBase = [
       "សម័យប្រឡង",
     ],
     answerEn:
-      "Students can take session-based exams during our **monthly exam session**. These take place over **4 days every month**.",
+      "Students can take the exams during ** KICPAA’s monthly **exam sessions, which run for four days each month.",
     answerKm:
-      "សិស្សអាចចូលរួមការប្រឡងតាមសម័យប្រឡងប្រចាំខែរបស់យើង ដែលប្រព្រឹត្តទៅក្នុងរយៈពេល **៤ ថ្ងៃជារៀងរាល់ខែ**។",
+      "សិស្សអាចចូលរួមការប្រឡងតាមសម័យប្រឡងប្រចាំខែរបស់យើង ដែលប្រព្រឹត្តទៅក្នុងរយៈពេល** ៤ ថ្ងៃជារៀងរាល់ខែ។ **",
     suggestionsEn: [
       "What exams will be available?",
       "How can I enter for exams?",
@@ -49,8 +49,8 @@ const faqKnowledgeBase = [
   {
     id: "session-available",
     category: "Exam Session",
-    question: "What exams will be available at each session?",
-    questionKm: "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងសម័យនីមួយៗ?",
+    question: "What subjects will be available at each month?",
+    questionKm: "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ?",
     keywords: [
       "available",
       "which exams",
@@ -63,9 +63,9 @@ const faqKnowledgeBase = [
       "៨ មុខ",
     ],
     answerEn:
-      "For 2024, KICPAA offers **all 8 subjects** for examination every month starting from February. Please check the ATQ Program subjects, exam schedule, and exam important dates for more information.",
+      "Every year, KICPAA offers all eight subjects for examination each month, from January to December. Please refer to the​ ** ATQ Program Subjects, Exam Schedule, and Important Exam Dates ** for more information.",
     answerKm:
-      "សម្រាប់ឆ្នាំ២០២៤ KICPAA ផ្តល់ជូននូវ **មុខវិជ្ជាទាំង ៨** សម្រាប់ការប្រឡងជារៀងរាល់ខែ ចាប់ពីខែកុម្ភៈតទៅ។ សូមពិនិត្យមើលមុខវិជ្ជាកម្មវិធី ATQ និងកាលបរិច្ឆេទសំខាន់ៗសម្រាប់ការប្រឡង។",
+      "ជារៀងរាល់ឆ្នាំ​ ** វ.គ.ស.ក.ផ្តល់ជូននូវ មុខវិជ្ជាទាំង ៨ ** សម្រាប់ការប្រឡងជារៀងរាល់ខែ ចាប់ពីខែមករា ដល់ ខែធ្នូ។ សូមពិនិត្យមើលមុខវិជ្ជាកម្មវិធី ATQ និងកាលបរិច្ឆេទសំខាន់ៗសម្រាប់ការប្រឡង។",
     suggestionsEn: [
       "Can I take exams in any order?",
       "How many exams can I take per session?",
@@ -97,9 +97,9 @@ const faqKnowledgeBase = [
       "principles",
     ],
     answerEn:
-      "You may take the exam in **any order as long as it stays within the same level**. However, you **must pass the Principles Level first** before you can sit for the Technical Level exam.",
+      "Yes! You may take the exam in any order.",
     answerKm:
-      "អ្នកអាចប្រឡងតាម **លំដាប់ណាមួយក៏បាន ឲ្យតែស្ថិតក្នុងកម្រិតដូចគ្នា**។ ប៉ុន្តែ អ្នក **ត្រូវតែប្រឡងជាប់កម្រិត Principles Level ជាមុនសិន** ទើបអាចអង្គុយប្រឡងកម្រិត Technical Level បាន។",
+      "Yes! You may take the exam in any order.	បាទ/ចាស៎! លោកអ្នកអាចប្រឡងតាម លំដាប់ណាមួយក៏បាន។ ",
     suggestionsEn: [
       "How many exams can I take per session?",
       "How can I enter for exams?",
@@ -110,8 +110,8 @@ const faqKnowledgeBase = [
   {
     id: "booking-deadlines",
     category: "Registration & Booking",
-    question: "When are the booking deadlines?",
-    questionKm: "តើកាលបរិច្ឆេទផុតកំណត់នៃការកក់ការប្រឡងនៅពេលណា?",
+    question: "When is the registration deadline?",
+    questionKm: "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
     keywords: [
       "deadline",
       "booking deadline",
@@ -123,9 +123,9 @@ const faqKnowledgeBase = [
       "ថ្ងៃចុងក្រោយ",
     ],
     answerEn:
-      "For exam registration deadlines and key dates for upcoming exam sessions, please visit the **Important Dates for ATQ Exam** or check the Examination tab on the **Learning Hub**.",
+      "The exam registration deadline is the 15th of each month.",
     answerKm:
-      "សម្រាប់កាលបរិច្ឆេទផុតកំណត់ចុះឈ្មោះប្រឡង និងកាលបរិច្ឆេទសំខាន់ៗ សូមពិនិត្យមើលក្នុងតារាង **Important Dates for ATQ Exam** ឬមើលក្នុងផ្ទាំង Examination លើ **Learning Hub**។",
+      "កាលបរិច្ឆេទផុតកំណត់ចុះឈ្មោះប្រឡងគឺនៅរៀងរាល់ថ្ងៃទី១៥ នៃខែនីមួយៗ។",
     suggestionsEn: [
       "Can I still sit if I miss deadline?",
       "How do I know booking is successful?",
@@ -154,9 +154,9 @@ const faqKnowledgeBase = [
       "អតិបរមា",
     ],
     answerEn:
-      "You can enter a **maximum of four (4) exams per exam session** and a **maximum of eight (8) different exams each calendar year**.",
+      "You can register for a maximum of eight (8) subjects per exam session..",
     answerKm:
-      "អ្នកអាចចុះឈ្មោះប្រឡងបាន **អតិបរមា ៤ មុខវិជ្ជាក្នុងមួយសម័យប្រឡង** និង **អតិបរមា ៨ មុខវិជ្ជាផ្សេងគ្នាក្នុងមួយឆ្នាំ**។",
+      "អ្នកអាចចុះឈ្មោះប្រឡងបានទាំង ៨មុខវិជ្ជា ក្នុង មួយសម័យប្រឡង។",
     suggestionsEn: [
       "Can I take exams in any order?",
       "Where can I take my exams?",
@@ -172,7 +172,7 @@ const faqKnowledgeBase = [
     id: "booking-fail-resit",
     category: "Registration & Booking",
     question:
-      "If I fail an exam, will I be able to amend my entry so I can resit at this session?",
+      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
     questionKm:
       "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
     keywords: [
@@ -187,9 +187,9 @@ const faqKnowledgeBase = [
       "កែប្រែ",
     ],
     answerEn:
-      "**No.** If you failed this exam session, you have to resit your exam in the **next session only**.",
+      "No. If you fail an exam, you must resit it in the next exam session..",
     answerKm:
-      "**មិនបានទេ។** ប្រសិនបើអ្នកធ្លាក់ក្នុងសម័យប្រឡងនេះ អ្នកត្រូវតែប្រឡងសងនៅ **សម័យប្រឡងបន្ទាប់ប៉ុណ្ណោះ**។",
+      "**មិនបានទេ។** ប្រសិនបើអ្នកធ្លាក់ក្នុងសម័យប្រឡងនេះ អ្នកត្រូវតែប្រឡងសងនៅ សម័យប្រឡងបន្ទាប់ប៉ុណ្ណោះ។",
     suggestionsEn: [
       "When are results issued?",
       "What if results are incorrect?",
@@ -220,9 +220,9 @@ const faqKnowledgeBase = [
       "មណ្ឌល",
     ],
     answerEn:
-      "Your examination center can be found in your **Examination Identification Document** available to print after your registration.",
+      "Your examination center can be found in your Examination Identification Document available to print after your registration.",
     answerKm:
-      "មណ្ឌលប្រឡងរបស់អ្នកមានបញ្ជាក់ក្នុង **Examination Identification Document** ដែលអ្នកអាចបោះពុម្ពបានបន្ទាប់ពីចុះឈ្មោះរួច។",
+      "មណ្ឌលប្រឡងរបស់អ្នកមានបញ្ជាក់ក្នុង ** Examination Identification Document ** ដែលអ្នកអាចបោះពុម្ពបានបន្ទាប់ពីចុះឈ្មោះរួច។",
     suggestionsEn: [
       "What happens on exam day?",
       "What documents are required?",
@@ -251,9 +251,9 @@ const faqKnowledgeBase = [
       "របៀបកក់",
     ],
     answerEn:
-      "To enter for exams:\n1. You must be a **student member of KICPAA** and have paid your exam fee.\n2. Register **30 days in advance** on the **Learning Hub**.\n3. Go to **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**.\n4. Select your desired date from the list.",
+      "To enter for exams:\n1. You must be a **student member of KICPAA** and have paid your exam fee.\n2.Register 15-30 days in advance through the Learning Hub.\n3. Go to **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**.\n4. Select your desired date from the list.",
     answerKm:
-      "ដើម្បីចុះឈ្មោះប្រឡង៖\n១. អ្នកត្រូវតែជា **សមាជិកសិស្សរបស់ KICPAA** និងបានបង់ថ្លៃប្រឡងរួចរាល់។\n២. អ្នកអាចចុះឈ្មោះមុន **៣០ ថ្ងៃ** តាមរយៈ **Learning Hub**។\n៣. ចូលទៅ **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**។\n៤. ជ្រើសរើសកាលបរិច្ឆេទដែលអ្នកចង់ប្រឡង។",
+      "ដើម្បីចុះឈ្មោះប្រឡង៖\n១. អ្នកត្រូវតែជា **សមាជិកសិស្សរបស់ វ.គ.ស.ក** និងបានបង់ថ្លៃប្រឡងរួចរាល់។\n២. អ្នកអាចចុះឈ្មោះមុន ១៥-៣០ ថ្ងៃ តាមរយៈ Learning Hub។\n៣. ចូលទៅ **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**។\n៤. ជ្រើសរើសកាលបរិច្ឆេទដែលអ្នកចង់ប្រឡង។",
     suggestionsEn: [
       "When can I take exams?",
       "What are booking deadlines?",
@@ -312,9 +312,9 @@ const faqKnowledgeBase = [
       "ពិនិត្យ",
     ],
     answerEn:
-      "When booking for an exam, ensure you **saved the exam schedule**. Once saved, you will see your exam booking on the **Examination Tab**.\n\nMoreover, KICPAA sends the **Exam Identification Document** and details via your registered email address.",
+      "After registering for an exam, make sure to save your exam booking. Once saved, your booking will appear under the Examination tab. The KICPAA team will send your Exam Identification Document and exam details via Telegram 1–2 days before the exam date.",
     answerKm:
-      "នៅពេលកក់ការប្រឡង សូមប្រាកដថាអ្នកបាន **Save the exam schedule**។ នៅពេលរក្សាទុករួច អ្នកនឹងឃើញការកក់នៅលើ **Examination Tab**។\n\nលើសពីនេះ KICPAA នឹងផ្ញើ **Exam Identification Document** ទៅកាន់អ៊ីមែលរបស់អ្នក។",
+      "បន្ទប់ពីចុះឈ្មោះប្រឡង សូមប្រាកដថាអ្នកបានចុចរក្សាទុកនូវកាលបរិច្ឆេទប្រឡង។ នៅពេលរក្សាទុករួចរាល់ អ្នកនឹងឃើញការកក់នៅលើ Examination Tap ហើយក្រុមកាងារ នឹងផ្ញើ Exam Identification Document ទៅកាន់តេលេក្រាមរបស់លោកអ្នក ១ ទៅ ២ថ្ងៃ មុនថ្ងៃប្រឡង។",
     suggestionsEn: [
       "Where can I take exams?",
       "Can I change my booking?",
@@ -325,8 +325,8 @@ const faqKnowledgeBase = [
   {
     id: "booking-change",
     category: "Registration & Booking",
-    question: "I would like to change my exam booking, is this possible?",
-    questionKm: "តើខ្ញុំអាចផ្លាស់ប្តូរការកក់ប្រឡងបានទេ?",
+    question: "I would like to change my exam date, is this possible?",
+    questionKm: "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
     keywords: [
       "change",
       "cancel",
@@ -338,9 +338,9 @@ const faqKnowledgeBase = [
       "លុបចោល",
     ],
     answerEn:
-      "Yes, you can make changes up to the **Late Exam Booking Deadline** by emailing `education@kicpaa.org` with:\n- Full name, Student ID, Subject, Phone number, specific reason, and relevant subjects.\n- Allowed requests: **Exam cancelation** or **Change exam schedule**.\n*(Any request after the Late Exam Booking Deadline is invalid.)*",
+      "Yes, you can make changes up to the **Late Exam Booking Deadline** by emailing `education@kicpaa.org` with:\n- Full name, Student ID, Subject, Phone number, specific reason, and relevant subjects.\n- Allowed requests: **Exam cancelation** or **Change exam schedule**.\n*(Any request after the Late Exam Booking Deadline is invalid.)* \n- Note:** Requests to change the exam schedule must be submitted at least one week before the exam date.",
     answerKm:
-      "បាទ/ចាស អ្នកអាចស្នើសុំកែប្រែរហូតដល់ **Late Exam Booking Deadline** ដោយផ្ញើអ៊ីមែលទៅ `education@kicpaa.org` ដោយបញ្ជាក់៖\n- ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ, មូលហេតុ និងមុខវិជ្ជាពាក់ព័ន្ធ។\n- ការស្នើសុំដែលអនុញ្ញាត៖ **លុបចោលការប្រឡង (Cancelation)** ឬ **ប្តូរកាលវិភាគ (Reschedule)**។",
+      "បាទ/ចាស អ្នកអាចស្នើសុំកែប្រែរហូតដល់ **Late Exam Booking Deadline** ដោយផ្ញើអ៊ីមែលទៅ `education@kicpaa.org` ដោយបញ្ជាក់៖\n- ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ, មូលហេតុ និងមុខវិជ្ជាពាក់ព័ន្ធ។\n- ការស្នើសុំដែលអនុញ្ញាត៖ **លុបចោលការប្រឡង (Cancelation)** ឬ **ប្តូរកាលវិភាគ (Reschedule)**។ \n** ចំណាំ៖ ** ការស្នើសុំកែប្រែនេះ ត្រូវធ្វើឡើងមុនថ្ងៃប្រឡងមួយសប្តាហ៍",
     suggestionsEn: [
       "Can I change entry on exam day?",
       "When are booking deadlines?",
@@ -729,7 +729,7 @@ const AIChatbot = ({
       id: "welcome-main",
       sender: "bot",
       isWelcome: true,
-      text: `Hi there / សួស្តី! 👋\nI'm ATQ Assistant, your virtual assistant. I'm still learning, so I might not have all the answers yet, but I'll try to assist you the best I can nah!\nSelect your language, or connect with an agent right away.\n\nខ្ញុំឈ្មោះ ATQ Assistant ជាជំនួយការឆ្លាតវៃរបស់អ្នក ។ ខ្ញុំនៅតែសិក្សា ដូច្នេះខ្ញុំអាចមិនមានចម្លើយទាំងអស់នៅឡើយទេ ប៉ុន្តែខ្ញុំនឹងព្យាយាមជួយអ្នកអោយបានល្អបំផុតណា!\nជ្រើសរើសភាសា ឬភ្ជាប់ជាមួយភ្នាក់ងារភ្លាមៗ`,
+      text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ ឬលទ្ធផលប្រឡងបាន!"`,
       time: "Oct 6, 1:12 PM",
     },
   ];
