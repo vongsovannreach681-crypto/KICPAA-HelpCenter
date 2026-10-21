@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   FaEnvelope,
   FaHeadset,
@@ -28,7 +28,7 @@ const faqKnowledgeBase = [
       "four days",
       "take exams",
       "exam session dates",
-      "កាលបរិច្ឆេទប្រឡង",
+      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
       "ពេលណា",
       "កាលវិភាគ",
       "សម័យប្រឡង",
@@ -40,14 +40,14 @@ const faqKnowledgeBase = [
     answerKm:
       "សិស្សអាចចូលរួមការប្រឡងតាមសម័យប្រឡងប្រចាំខែរបស់យើង ដែលប្រព្រឹត្តទៅក្នុងរយៈពេល **៤ ថ្ងៃជារៀងរាល់ខែ**។",
     suggestionsEn: [
-      "What exams will be available?",
+      "What subjects will be available at each month?",
       "How can I enter for exams?",
-      "When are booking deadlines?",
+      "When is the registration deadline?",
     ],
     suggestionsKm: [
-      "តើមានមុខវិជ្ជាអ្វីខ្លះ?",
-      "របៀបចុះឈ្មោះប្រឡង",
-      "កាលបរិច្ឆេទផុតកំណត់",
+      "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ?",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
+      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
     ],
   },
   {
@@ -75,14 +75,14 @@ const faqKnowledgeBase = [
     answerKm:
       "ជារៀងរាល់ឆ្នាំ **វ.គ.ស.ក. ផ្តល់ជូននូវមុខវិជ្ជាទាំង ៨** សម្រាប់ការប្រឡងជារៀងរាល់ខែ ចាប់ពីខែមករា ដល់ ខែធ្នូ។ សូមពិនិត្យមើលមុខវិជ្ជាកម្មវិធី ATQ និងកាលបរិច្ឆេទសំខាន់ៗសម្រាប់ការប្រឡង។",
     suggestionsEn: [
-      "Can I take exams in any order?",
-      "How many exams can I take per session?",
-      "When are booking deadlines?",
+      "Can I take the ATQ Qualification exams in any order?",
+      "How many exams can I take at each exam session?",
+      "When is the registration deadline?",
     ],
     suggestionsKm: [
-      "តើអាចប្រឡងតាមលំដាប់ណា?",
-      "តើប្រឡងបានប៉ុន្មានមុខក្នុង១សម័យ?",
-      "របៀបចុះឈ្មោះ",
+      "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា ATQ តាមលំដាប់ណាមួយក៏បានមែនទេ?",
+      "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ?",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
     ],
   },
 
@@ -113,11 +113,11 @@ const faqKnowledgeBase = [
     answerKm:
       "បាទ/ចាស! លោកអ្នកអាចប្រឡងតាមលំដាប់ណាមួយក៏បាននៅក្នុងកម្រិតដូចគ្នា។ ប៉ុន្តែលោកអ្នកត្រូវតែប្រឡងជាប់កម្រិតមូលដ្ឋាន (Principles Level: TQ1–TQ4) ជាមុនសិន មុននឹងអាចប្រឡងកម្រិតបច្ចេកទេស (Technician Level: TQ5–TQ8)។",
     suggestionsEn: [
-      "How many exams can I take per session?",
+      "How many exams can I take at each exam session?",
       "How can I enter for exams?",
-      "What if I fail an exam?",
+      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
     ],
-    suggestionsKm: ["តើប្រឡងបានប៉ុន្មានមុខ?", "របៀបចុះឈ្មោះ", "បើប្រឡងធ្លាក់"],
+    suggestionsKm: ["តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ?", "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?", "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?"],
   },
   {
     id: "booking-deadlines",
@@ -136,7 +136,7 @@ const faqKnowledgeBase = [
       "key dates",
       "ផុតកំណត់",
       "ថ្ងៃចុងក្រោយ",
-      "កាលបរិច្ឆេទផុតកំណត់",
+      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
       "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា",
     ],
     answerEn:
@@ -144,14 +144,14 @@ const faqKnowledgeBase = [
     answerKm:
       "កាលបរិច្ឆេទផុតកំណត់ចុះឈ្មោះប្រឡងស្តង់ដារគឺនៅរៀងរាល់ **ថ្ងៃទី១៥ នៃខែនីមួយៗ** (១៥ ទៅ ៣០ ថ្ងៃមុនសម័យប្រឡង) តាមរយៈ Learning Hub។",
     suggestionsEn: [
-      "Can I still sit if I miss deadline?",
-      "How do I know booking is successful?",
+      "Can I still sit my exams if I miss the standard exam booking deadline?",
+      "How do I know if my exam booking has been successful?",
       "How can I enter for exams?",
     ],
     suggestionsKm: [
-      "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ?",
-      "ដឹងថាកក់បានជោគជ័យដោយរបៀបណា?",
-      "របៀបចុះឈ្មោះ",
+      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
+      "តើខ្ញុំដឹងដោយរបៀបណាថាការកក់ប្រឡងបានជោគជ័យ?",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
     ],
   },
   {
@@ -182,14 +182,14 @@ const faqKnowledgeBase = [
     answerKm:
       "អ្នកអាចចុះឈ្មោះប្រឡងបានអតិបរមា ៤ មុខវិជ្ជាក្នុងមួយសម័យប្រឡងប្រចាំខែ និងរហូតដល់ ៨ មុខវិជ្ជាក្នុងមួយឆ្នាំប្រតិទិន។",
     suggestionsEn: [
-      "Can I take exams in any order?",
+      "Can I take the ATQ Qualification exams in any order?",
       "Where can I take my exams?",
-      "What if I fail an exam?",
+      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
     ],
     suggestionsKm: [
-      "តើអាចប្រឡងតាមលំដាប់ណា?",
-      "ទីតាំងប្រឡងនៅឯណា?",
-      "បើប្រឡងធ្លាក់",
+      "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា ATQ តាមលំដាប់ណាមួយក៏បានមែនទេ?",
+      "តើខ្ញុំអាចប្រឡងនៅទីណា?",
+      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
     ],
   },
   {
@@ -211,8 +211,8 @@ const faqKnowledgeBase = [
       "ធ្លាក់",
       "ប្រឡងសង",
       "កែប្រែ",
-      "បើប្រឡងធ្លាក់",
-      "បើធ្លាក់",
+      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
+      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
       "បើធ្លាក់តើអាចប្រឡងសងពេលណា",
     ],
     answerEn:
@@ -221,12 +221,12 @@ const faqKnowledgeBase = [
       "**មិនបានទេ។** ប្រសិនបើអ្នកធ្លាក់ក្នុងសម័យប្រឡងនេះ អ្នកត្រូវតែប្រឡងសងនៅសម័យប្រឡងបន្ទាប់ប៉ុណ្ណោះ។",
     suggestionsEn: [
       "When are results issued?",
-      "What if results are incorrect?",
-      "How many exams can I take?",
+      "What can I do if I think that my results are incorrect?",
+      "How many exams can I take at each exam session?",
     ],
     suggestionsKm: [
-      "លទ្ធផលចេញពេលណា?",
-      "បើលទ្ធផលមិនត្រឹមត្រូវ?",
+      "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
+      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
       "ចំនួនមុខវិជ្ជាប្រឡង",
     ],
   },
@@ -249,7 +249,7 @@ const faqKnowledgeBase = [
       "កន្លែងប្រឡង",
       "ទីតាំង",
       "មណ្ឌល",
-      "ទីតាំងប្រឡង",
+      "តើខ្ញុំអាចប្រឡងនៅទីណា?",
       "ទីតាំងប្រឡងនៅឯណា",
       "តើខ្ញុំអាចប្រឡងនៅទីណា",
     ],
@@ -258,14 +258,14 @@ const faqKnowledgeBase = [
     answerKm:
       "មណ្ឌលប្រឡងរបស់អ្នកមានបញ្ជាក់ក្នុង **Examination Identification Document** ដែលអ្នកអាចបោះពុម្ពបានបន្ទាប់ពីចុះឈ្មោះរួច។ ការប្រឡងប្រព្រឹត្តទៅនៅមណ្ឌលប្រឡងការិយាល័យ វ.គ.ស.ក. រាជធានីភ្នំពេញ។",
     suggestionsEn: [
-      "What happens on exam day?",
-      "What documents are required?",
-      "Contact information",
+      "What happens on the exam day?",
+      "What documents do I need to bring on exam day?",
+      "How can I contact KICPAA ATQ support?",
     ],
     suggestionsKm: [
       "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?",
-      "ឯកសារចាំបាច់",
-      "ទំនាក់ទំនង",
+      "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?",
+      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
     ],
   },
   {
@@ -284,8 +284,8 @@ const faqKnowledgeBase = [
       "steps",
       "learning hub",
       "exam fee",
-      "របៀបចុះឈ្មោះប្រឡង",
-      "របៀបចុះឈ្មោះ",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
       "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច",
       "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា",
       "របៀបកក់",
@@ -296,13 +296,13 @@ const faqKnowledgeBase = [
       "ដើម្បីចុះឈ្មោះប្រឡង៖\n១. អ្នកត្រូវតែជា **សមាជិកសិស្សរបស់ វ.គ.ស.ក** និងបានបង់ថ្លៃប្រឡងរួចរាល់។\n២. អ្នកអាចចុះឈ្មោះមុន ១៥-៣០ ថ្ងៃ តាមរយៈ Learning Hub។\n៣. ចូលទៅ **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**។\n៤. ជ្រើសរើសកាលបរិច្ឆេទដែលអ្នកចង់ប្រឡង។",
     suggestionsEn: [
       "When can I take exams?",
-      "What are booking deadlines?",
-      "Can I do late booking?",
+      "When is the registration deadline?",
+      "Can I still sit my exams if I miss the standard exam booking deadline?",
     ],
     suggestionsKm: [
-      "តើប្រឡងនៅពេលណា?",
-      "កាលបរិច្ឆេទផុតកំណត់",
-      "ការចុះឈ្មោះយឺតយ៉ាវ",
+      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
+      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
+      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
     ],
   },
   {
@@ -325,22 +325,22 @@ const faqKnowledgeBase = [
       "ខកខាន",
       "ហួសពេល",
       "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ",
-      "ការចុះឈ្មោះយឺតយ៉ាវ",
-      "បើខកខានប្រឡង",
+      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
+      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
     ],
     answerEn:
       'If you are a student member and already paid your exam fee, you may request **Late Exam Booking**:\n- **Email**: `education@kicpaa.org`\n- **Subject**: *"Request for Late Exam Booking"*\n- **Provide**: Full name, Student ID, Subject, Phone number, and specific reason.\n*(Note: Other means of communication besides email are deemed invalid.)*',
     answerKm:
       'ប្រសិនបើអ្នកជាសមាជិកសិស្ស និងបានបង់ថ្លៃប្រឡងរួចហើយ អ្នកអាចស្នើសុំ **Late Exam Booking**៖\n- **អ៊ីមែល**: `education@kicpaa.org`\n- **ចំណងជើង**: *"Request for Late Exam Booking"*\n- **ផ្ញើព័ត៌មាន**: ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ និងមូលហេតុជាក់លាក់។\n*(ចំណាំ៖ ការទំនាក់ទំនងក្រៅពីអ៊ីមែល គឺមិនមានសុពលភាពឡើយ)*',
     suggestionsEn: [
-      "Can I change my booking?",
-      "How do I know booking succeeded?",
-      "Contact KICPAA support",
+      "I would like to change my exam date, is this possible?",
+      "How do I know if my exam booking has been successful?",
+      "How can I contact KICPAA ATQ support?",
     ],
     suggestionsKm: [
-      "តើអាចផ្លាស់ប្តូរការកក់បានទេ?",
+      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
       "ដឹងថាកក់ជោគជ័យដោយរបៀបណា?",
-      "ទំនាក់ទំនង",
+      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
     ],
   },
   {
@@ -369,11 +369,11 @@ const faqKnowledgeBase = [
     answerKm:
       "បន្ទាប់ពីចុះឈ្មោះប្រឡង សូមប្រាកដថាអ្នកបានចុចរក្សាទុកនូវកាលវិភាគប្រឡង។ នៅពេលរក្សាទុករួចរាល់ អ្នកនឹងឃើញការកក់នៅលើ Examination Tab ហើយក្រុមការងារនឹងផ្ញើ Exam Identification Document ទៅកាន់តេលេក្រាមរបស់លោកអ្នក ១ ទៅ ២ ថ្ងៃ មុនថ្ងៃប្រឡង។",
     suggestionsEn: [
-      "Where can I take exams?",
-      "Can I change my booking?",
-      "What happens on exam day?",
+      "Where can I take my exams?",
+      "I would like to change my exam date, is this possible?",
+      "What happens on the exam day?",
     ],
-    suggestionsKm: ["ទីតាំងប្រឡង", "តើអាចផ្លាស់ប្តូរការកក់បានទេ?", "ថ្ងៃប្រឡង"],
+    suggestionsKm: ["តើខ្ញុំអាចប្រឡងនៅទីណា?", "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?", "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?"],
   },
   {
     id: "booking-change",
@@ -393,7 +393,7 @@ const faqKnowledgeBase = [
       "ប្តូរថ្ងៃ",
       "លុបចោល",
       "តើអាចផ្លាស់ប្តូរការកក់បានទេ",
-      "ផ្លាស់ប្តូរការកក់មុនថ្ងៃកំណត់",
+      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
       "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ",
     ],
     answerEn:
@@ -401,14 +401,14 @@ const faqKnowledgeBase = [
     answerKm:
       "បាទ/ចាស អ្នកអាចស្នើសុំកែប្រែរហូតដល់ **Late Exam Booking Deadline** ដោយផ្ញើអ៊ីមែលទៅ `education@kicpaa.org` ដោយបញ្ជាក់៖\n- ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ, មូលហេតុ និងមុខវិជ្ជាពាក់ព័ន្ធ។\n- ការស្នើសុំដែលអនុញ្ញាត៖ **លុបចោលការប្រឡង (Cancelation)** ឬ **ប្តូរកាលវិភាគ (Reschedule)**។\n- **ចំណាំ**៖ ការស្នើសុំកែប្រែនេះ ត្រូវធ្វើឡើងមុនថ្ងៃប្រឡងមួយសប្តាហ៍។",
     suggestionsEn: [
-      "Can I change entry on exam day?",
-      "When are booking deadlines?",
-      "Contact KICPAA",
+      "Can I change my entry on the day of the exam?",
+      "When is the registration deadline?",
+      "How can I contact KICPAA ATQ support?",
     ],
     suggestionsKm: [
-      "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ?",
-      "កាលបរិច្ឆេទផុតកំណត់",
-      "ទំនាក់ទំនង",
+      "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?",
+      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
+      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
     ],
   },
 
@@ -430,11 +430,11 @@ const faqKnowledgeBase = [
       "what documents are required",
       "what happens on exam day",
       "what happens on the exam day",
-      "ឯកសារចាំបាច់",
+      "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?",
       "នៅថ្ងៃប្រឡង",
       "arrive",
       "check in",
-      "ថ្ងៃប្រឡង",
+      "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?",
       "នីតិវិធី",
       "អត្តសញ្ញាណប័ណ្ណ",
       "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង",
@@ -444,14 +444,14 @@ const faqKnowledgeBase = [
     answerKm:
       "នៅថ្ងៃប្រឡង៖\n១. ឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡងរបស់លោកអ្នក មានបញ្ចូលនូវកាលវិភាគប្រឡង លេខតុ/លេខកៅអី និងអាសយដ្ឋានមណ្ឌលប្រឡង។\n២. សូមយកឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡង និងអត្តសញ្ញាណប័ណ្ណច្បាប់ដើម ឬលិខិតឆ្លងដែនច្បាប់ដើមមកជាមួយ ដើម្បីពិនិត្យផ្ទៀងផ្ទាត់។\n៣. សូមប្រាកដថាអ្នកបានមកដល់មុនពេល ៣០ នាទី និងពិនិត្យមើលការណែនាំផ្សេងៗដែលមានចែងយ៉ាងលម្អិតនៅលើឯកសារ។\n\nលម្អិតអំពីទីតាំង សូមទាក់ទងលេខ 017 493 140 (មាន Telegram)។",
     suggestionsEn: [
-      "Where can I find exam rules?",
-      "Can I change entry on exam day?",
-      "Exam complaints",
+      "Where can I find the rules and regulations in relation to sitting an examination?",
+      "Can I change my entry on the day of the exam?",
+      "If something happens at the exam center that affects my performance, can I make a complaint?",
     ],
     suggestionsKm: [
-      "ច្បាប់និងបទប្បញ្ញត្តិ",
-      "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ?",
-      "ការតវ៉ា",
+      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
+      "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?",
+      "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
     ],
   },
   {
@@ -473,8 +473,8 @@ const faqKnowledgeBase = [
       "ច្បាប់",
       "បទបញ្ជា",
       "វិន័យ",
-      "ច្បាប់និងបទប្បញ្ញត្តិ",
-      "ច្បាប់ប្រឡង",
+      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
+      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
       "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា",
     ],
     answerEn:
@@ -482,11 +482,11 @@ const faqKnowledgeBase = [
     answerKm:
       "ព័ត៌មានលម្អិតអំពីច្បាប់ និងបទប្បញ្ញត្តិ មានបញ្ជាក់នៅលើ **ផ្នែកខាងក្រោយនៃ Examination Identification Document** របស់អ្នក។ សូមអានស្វែងយល់មុនពេលចូលរួមការប្រឡង។",
     suggestionsEn: [
-      "What happens on exam day?",
-      "Can I change entry on exam day?",
-      "Can I file a complaint?",
+      "What happens on the exam day?",
+      "Can I change my entry on the day of the exam?",
+      "If something happens at the exam center that affects my performance, can I make a complaint?",
     ],
-    suggestionsKm: ["ថ្ងៃប្រឡង", "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ?", "ការតវ៉ា"],
+    suggestionsKm: ["តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?", "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?", "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?"],
   },
   {
     id: "sitting-same-day-change",
@@ -510,14 +510,14 @@ const faqKnowledgeBase = [
     answerKm:
       "**មិនបានឡើយ។** សិស្សមិនត្រូវបានអនុញ្ញាតឱ្យផ្លាស់ប្តូរការចុះឈ្មោះរបស់ពួកគេនៅថ្ងៃប្រឡងនោះទេ។",
     suggestionsEn: [
-      "Can I change my booking?",
-      "What if I miss the exam?",
-      "Exam sitting rules",
+      "I would like to change my exam date, is this possible?",
+      "Can I still sit my exams if I miss the standard exam booking deadline?",
+      "Where can I find the rules and regulations in relation to sitting an examination?",
     ],
     suggestionsKm: [
-      "តើអាចផ្លាស់ប្តូរការកក់បានទេ?",
-      "បើខកខានប្រឡង",
-      "ច្បាប់ប្រឡង",
+      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
+      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
+      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
     ],
   },
   {
@@ -540,7 +540,7 @@ const faqKnowledgeBase = [
       "តវ៉ា",
       "ប្តឹង",
       "បញ្ហា",
-      "ការតវ៉ា",
+      "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
       "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ",
     ],
     answerEn:
@@ -549,13 +549,13 @@ const faqKnowledgeBase = [
       "វ.គ.ស.ក. តែងតែខិតខំប្រឹងប្រែងឱ្យអស់ពីសមត្ថភាពដើម្បីធានាលក្ខខណ្ឌប្រឡងល្អបំផុត។ ប្រសិនបើអ្នកមានអារម្មណ៍ថាលក្ខខណ្ឌប៉ះពាល់ដល់ការប្រឡង សូមជូនដំណឹងផ្ទាល់ទៅកាន់ `education@kicpaa.org`។",
     suggestionsEn: [
       "When are results issued?",
-      "What if results are incorrect?",
-      "Contact information",
+      "What can I do if I think that my results are incorrect?",
+      "How can I contact KICPAA ATQ support?",
     ],
     suggestionsKm: [
-      "លទ្ធផលចេញពេលណា?",
-      "បើលទ្ធផលមិនត្រឹមត្រូវ",
-      "ទំនាក់ទំនង",
+      "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
+      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
+      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
     ],
   },
 
@@ -584,14 +584,14 @@ const faqKnowledgeBase = [
     answerKm:
       "លទ្ធផលប្រឡងនឹងមាន **ភ្លាមៗបន្ទាប់ពីអ្នកចុចបញ្ជូន (Submission)** រួចរាល់។",
     suggestionsEn: [
-      "What if results are incorrect?",
-      "If I fail, can I resit?",
-      "Exam session dates",
+      "What can I do if I think that my results are incorrect?",
+      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
+      "When can I take exams?",
     ],
     suggestionsKm: [
-      "បើលទ្ធផលមិនត្រឹមត្រូវ",
-      "បើធ្លាក់តើអាចប្រឡងសងពេលណា?",
-      "កាលបរិច្ឆេទប្រឡង",
+      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
+      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
+      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
     ],
   },
   {
@@ -608,7 +608,7 @@ const faqKnowledgeBase = [
       "re-mark",
       "what if results are incorrect",
       "what can i do if i think that my results are incorrect",
-      "បើលទ្ធផលមិនត្រឹមត្រូវ",
+      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
       "លទ្ធផលមិនត្រឹមត្រូវ",
       "ពិនិត្យឡើងវិញ",
       "មិនត្រឹមត្រូវ",
@@ -621,10 +621,10 @@ const faqKnowledgeBase = [
       "អ្នកអាចស្នើសុំការ **ពិនិត្យលទ្ធផលប្រឡងឡើងវិញ (Exam Result Review)** ដោយផ្ញើអ៊ីមែលទៅកាន់ `education@kicpaa.org` ដោយភ្ជាប់មកជាមួយឈ្មោះពេញ, Student ID, មុខវិជ្ជា និងមូលហេតុ។",
     suggestionsEn: [
       "When are results issued?",
-      "If I fail, can I resit?",
-      "Contact information",
+      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
+      "How can I contact KICPAA ATQ support?",
     ],
-    suggestionsKm: ["លទ្ធផលចេញពេលណា?", "បើធ្លាក់", "ទំនាក់ទំនង"],
+    suggestionsKm: ["តើលទ្ធផលប្រឡងចេញនៅពេលណា?", "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?", "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?"],
   },
   {
     id: "contact-support",
@@ -644,7 +644,7 @@ const faqKnowledgeBase = [
       "contact kicpaa support",
       "contact kicpaa",
       "how can i contact kicpaa atq support",
-      "ទំនាក់ទំនង",
+      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
       "លេខទូរស័ព្ទ",
       "អ៊ីមែល",
       "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ kicpaa atq តាមរបៀបណា",
@@ -656,12 +656,12 @@ const faqKnowledgeBase = [
     suggestionsEn: [
       "When can I take exams?",
       "How can I enter for exams?",
-      "When are booking deadlines?",
+      "When is the registration deadline?",
     ],
     suggestionsKm: [
-      "តើប្រឡងនៅពេលណា?",
-      "របៀបចុះឈ្មោះប្រឡង",
-      "កាលបរិច្ឆេទផុតកំណត់",
+      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
+      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
+      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
     ],
   },
 ];
@@ -669,7 +669,7 @@ const faqKnowledgeBase = [
 // Direct mapping of clickable suggestion pills and quick-prompts to their target FAQ items
 const suggestionTargetMap = {
   // English suggestions -> target FAQ ID
-  "what exams will be available": "session-available",
+  "What subjects will be available at each month?": "session-available",
   "what subjects will be available": "session-available",
   "what subjects will be available at each month": "session-available",
   "how can i enter for exams": "booking-how-to-enter",
@@ -722,11 +722,11 @@ const suggestionTargetMap = {
   // Khmer suggestions -> target FAQ ID
   "តើមានមុខវិជ្ជាអ្វីខ្លះ": "session-available",
   "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ": "session-available",
-  "របៀបចុះឈ្មោះប្រឡង": "booking-how-to-enter",
-  "របៀបចុះឈ្មោះ": "booking-how-to-enter",
+  "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?": "booking-how-to-enter",
+  "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?": "booking-how-to-enter",
   "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា": "booking-how-to-enter",
   "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច": "booking-how-to-enter",
-  "កាលបរិច្ឆេទផុតកំណត់": "booking-deadlines",
+  "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?": "booking-deadlines",
   "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា": "booking-deadlines",
   "តើអាចប្រឡងតាមលំដាប់ណា": "booking-order",
   "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា": "booking-order",
@@ -735,42 +735,42 @@ const suggestionTargetMap = {
   "តើប្រឡងបានប៉ុន្មានមុខ": "booking-max-exams",
   "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ": "booking-max-exams",
   "ចំនួនមុខវិជ្ជាប្រឡង": "booking-max-exams",
-  "បើប្រឡងធ្លាក់": "booking-fail-resit",
+  "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?": "booking-fail-resit",
   "បើធ្លាក់តើអាចប្រឡងសងពេលណា": "booking-fail-resit",
-  "បើធ្លាក់": "booking-fail-resit",
+  "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?": "booking-fail-resit",
   "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ": "booking-fail-resit",
   "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ": "booking-late",
   "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់": "booking-late",
-  "ការចុះឈ្មោះយឺតយ៉ាវ": "booking-late",
+  "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?": "booking-late",
   "ដឹងថាកក់បានជោគជ័យដោយរបៀបណា": "booking-success",
   "ដឹងថាកក់ជោគជ័យដោយរបៀបណា": "booking-success",
   "តើខ្ញុំដឹងដោយរបៀបណាថាការកក់ប្រឡងបានជោគជ័យ": "booking-success",
   "ទីតាំងប្រឡងនៅឯណា": "booking-location",
-  "ទីតាំងប្រឡង": "booking-location",
+  "តើខ្ញុំអាចប្រឡងនៅទីណា?": "booking-location",
   "តើខ្ញុំអាចប្រឡងនៅទីណា": "booking-location",
   "លទ្ធផលចេញពេលណា": "result-when",
   "តើលទ្ធផលប្រឡងចេញនៅពេលណា": "result-when",
-  "បើលទ្ធផលមិនត្រឹមត្រូវ": "result-incorrect",
+  "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?": "result-incorrect",
   "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ": "result-incorrect",
   "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង": "sitting-exam-day",
-  "ឯកសារចាំបាច់": "sitting-exam-day",
-  "ថ្ងៃប្រឡង": "sitting-exam-day",
+  "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?": "sitting-exam-day",
+  "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?": "sitting-exam-day",
   "តើប្រឡងនៅពេលណា": "session-when",
   "តើខ្ញុំអាចប្រឡងនៅពេលណា": "session-when",
   "កាលវិភាគប្រឡង": "session-when",
-  "កាលបរិច្ឆេទប្រឡង": "session-when",
+  "តើខ្ញុំអាចប្រឡងនៅពេលណា?": "session-when",
   "តើអាចផ្លាស់ប្តូរការកក់បានទេ": "booking-change",
   "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ": "booking-change",
-  "ផ្លាស់ប្តូរការកក់មុនថ្ងៃកំណត់": "booking-change",
-  "ទំនាក់ទំនង": "contact-support",
+  "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?": "booking-change",
+  "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?": "contact-support",
   "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ kicpaa atq តាមរបៀបណា": "contact-support",
   "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
   "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
-  "បើខកខានប្រឡង": "booking-late",
-  "ច្បាប់និងបទប្បញ្ញត្តិ": "sitting-rules",
+  "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?": "booking-late",
+  "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?": "sitting-rules",
   "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា": "sitting-rules",
-  "ច្បាប់ប្រឡង": "sitting-rules",
-  "ការតវ៉ា": "sitting-complaint",
+  "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?": "sitting-rules",
+  "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?": "sitting-complaint",
   "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ": "sitting-complaint",
 };
 
@@ -815,9 +815,9 @@ function findBestAnswer(rawQuery, lang = "en") {
         text: "សួស្តី! 👋 ខ្ញុំជា **ATQ Assistant** ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ ឬលទ្ធផលប្រឡងបាន!",
         suggestions: [
           "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-          "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច?",
+          "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
           "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-          "ទំនាក់ទំនង",
+          "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
         ],
       };
     }
@@ -826,7 +826,7 @@ function findBestAnswer(rawQuery, lang = "en") {
       suggestions: [
         "When can I take exams?",
         "How can I enter for exams?",
-        "Can I take exams in any order?",
+        "Can I take the ATQ Qualification exams in any order?",
         "When are results issued?",
       ],
     };
@@ -943,10 +943,10 @@ function findBestAnswer(rawQuery, lang = "en") {
       text: "ខ្ញុំមិនបានរកឃើញចម្លើយជាក់លាក់សម្រាប់សំណួរនេះទេ។ ប៉ុន្តែអ្នកអាចជ្រើសរើសប្រធានបទពេញនិយមខាងក្រោម ឬទាក់ទងផ្ទាល់មកកាន់ក្រុមការងារ KICPAA តាមរយៈ **Education@kicpaa.org** ឬទូរស័ព្ទ **+855 17 493 140** (មាន Telegram)។",
       suggestions: [
         "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-        "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច?",
+        "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
         "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា?",
         "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-        "ទំនាក់ទំនង",
+        "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
       ],
     };
   }
@@ -956,7 +956,7 @@ function findBestAnswer(rawQuery, lang = "en") {
     suggestions: [
       "When can I take exams?",
       "How can I enter for exams?",
-      "Can I take exams in any order?",
+      "Can I take the ATQ Qualification exams in any order?",
       "When are results issued?",
       "How can I contact KICPAA ATQ support?",
     ],
@@ -1023,7 +1023,7 @@ const AIChatbot = ({
             text: "សូមស្វាគមន៍មកកាន់ **ភាសាខ្មែរ**! 🇰🇭\nតើអ្នកចង់សាកសួរអំពីអ្វីដែរទាក់ទងនឹងកម្មវិធីប្រឡង ATQ? សូមជ្រើសរើសប្រធានបទ ឬវាយសំណួររបស់អ្នកខាងក្រោម៖",
             suggestions: [
               "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-              "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច?",
+              "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
               "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា?",
               "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
              
@@ -1044,7 +1044,7 @@ const AIChatbot = ({
             suggestions: [
               "When can I take exams?",
               "How can I enter for exams?",
-              "Can I take exams in any order?",
+              "Can I take the ATQ Qualification exams in any order?",
               "When are results issued?",
               "How can I contact KICPAA ATQ support?",
             ],
@@ -1072,7 +1072,7 @@ const AIChatbot = ({
           isAgentContact: true,
           suggestions:
             language === "km"
-              ? ["កាលវិភាគប្រឡង", "របៀបចុះឈ្មោះប្រឡង"]
+              ? ["កាលវិភាគប្រឡង", "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?"]
               : ["When can I take exams?", "How can I enter for exams?"],
           time: new Date().toLocaleTimeString([], {
             hour: "2-digit",

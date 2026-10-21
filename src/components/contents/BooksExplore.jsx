@@ -21,7 +21,7 @@ const ExamMonthSelect = ({ subject }) => {
   const months = Object.entries(examSessionsByMonth).filter(([, sessions]) =>
     sessions.some((monthSession) => monthSession.subject === subject),
   );
-
+  // for select monthly exam
   return (
     <div className="mt-6">
       <label
