@@ -546,7 +546,7 @@ const faqKnowledgeBase = [
     answerEn:
       "KICPAA makes every effort to ensure fair conditions. If you feel conditions affected your performance, inform KICPAA directly by email to `education@kicpaa.org`.",
     answerKm:
-      "KICPAA តែងតែខិតខំប្រឹងប្រែងឱ្យអស់ពីសមត្ថភាពដើម្បីធានាលក្ខខណ្ឌប្រឡងល្អបំផុត។ ប្រសិនបើអ្នកមានអារម្មណ៍ថាលក្ខខណ្ឌប៉ះពាល់ដល់ការប្រឡង សូមជូនដំណឹងផ្ទាល់ទៅកាន់ `education@kicpaa.org`។",
+      "វ.គ.ស.ក. តែងតែខិតខំប្រឹងប្រែងឱ្យអស់ពីសមត្ថភាពដើម្បីធានាលក្ខខណ្ឌប្រឡងល្អបំផុត។ ប្រសិនបើអ្នកមានអារម្មណ៍ថាលក្ខខណ្ឌប៉ះពាល់ដល់ការប្រឡង សូមជូនដំណឹងផ្ទាល់ទៅកាន់ `education@kicpaa.org`។",
     suggestionsEn: [
       "When are results issued?",
       "What if results are incorrect?",
