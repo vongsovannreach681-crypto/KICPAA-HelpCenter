@@ -3,7 +3,7 @@ export const searchableItems = [
   // --- PAGES & SECTIONS ---
   {
     id: "page-home",
-    title: "Home / ATQ Help Center",
+    title: "Home ",
     category: "Pages",
     path: "/",
     keywords: ["home", "help center", "kicpaa", "overview", "welcome", "accounting technician qualification"],
@@ -24,6 +24,14 @@ export const searchableItems = [
     path: "/subject-course",
     keywords: ["subject course", "course specification", "syllabus", "modules", "assessment", "learning outcomes", "books"],
     badge: "Courses",
+  },
+  {
+    id: "page-aqt-exam",
+    title: "ATQ Exam",
+    category: "Pages",
+    path: "/atq-examination",
+    keywords: ["atq", "exam", "date", "modules", "assessment", "learning outcomes", "books"],
+    badge: "Exam",
   },
   {
     id: "page-curriculum",
@@ -146,7 +154,7 @@ export const searchableItems = [
     title: "ATQ Exam Schedule",
     category: "Exam & FAQs",
     path: "/atq-examination#important-dates",
-    keywords: ["when to take exam", "exam dates", "monthly sessions", "schedule", "timetable", "March", "April", "May", "June", "July", "August", "September", "October", "November", "KICPAA", "TQ1", "TQ2", "TQ3", "TQ4"],
+    keywords: ["aqt", "aqt exam", "when to take exam", "exam dates", "monthly sessions", "schedule", "timetable", "March", "April", "May", "June", "July", "August", "September", "October", "November", "KICPAA", "TQ1", "TQ2", "TQ3", "TQ4"],
     badge: "Exam Schedule",
   },
   {
@@ -154,7 +162,7 @@ export const searchableItems = [
     title: "What exams are available at each session?",
     category: "Exam & FAQs",
     path: "/atq-examination#important-dates",
-    keywords: ["available exams", "subjects offered", "exam sessions", "TQ1 to TQ4", "principles level"],
+    keywords: ["aqt", "aqt exam", "available exams", "subjects offered", "exam sessions", "TQ1 to TQ4", "principles level"],
     badge: "Exam FAQ",
   },
   {
@@ -162,7 +170,7 @@ export const searchableItems = [
     title: "ATQ Exam Requirements",
     category: "Exam & FAQs",
     path: "/atq-examination#important-dates",
-    keywords: ["exam requirements", "eligibility", "eligible", "student member", "KICPAA membership", "fees paid", "examination fee", "Learning Hub account"],
+    keywords: ["aqt", "aqt exam", "exam requirements", "eligibility", "eligible", "student member", "KICPAA membership", "fees paid", "examination fee", "Learning Hub account"],
     badge: "Exam Requirements",
   },
   {
@@ -170,7 +178,7 @@ export const searchableItems = [
     title: "How to Book an ATQ Exam",
     category: "Exam & FAQs",
     path: "/atq-examination#important-dates",
-    keywords: ["book exam", "exam booking", "register exam", "30 days in advance", "Learning Hub", "Examination", "select subject", "select date", "Save", "Standard Exam Booking Deadline"],
+    keywords: ["aqt", "aqt exam", "book exam", "exam booking", "register exam", "30 days in advance", "Learning Hub", "Examination", "select subject", "select date", "Save", "Standard Exam Booking Deadline"],
     badge: "Exam Booking",
   },
   {
@@ -178,7 +186,7 @@ export const searchableItems = [
     title: "Can I take ATQ exams in any order?",
     category: "Exam & FAQs",
     path: "/atq-program#admission",
-    keywords: ["exam order", "sequence", "principles first", "prerequisite", "can i take any order"],
+    keywords: ["aqt", "aqt exam", "exam order", "sequence", "principles first", "prerequisite", "can i take any order"],
     badge: "Exam FAQ",
   },
   {
@@ -186,7 +194,7 @@ export const searchableItems = [
     title: "Standard Exam Booking Deadline",
     category: "Exam & FAQs",
     path: "/atq-examination#important-dates",
-    keywords: ["deadline", "booking deadline", "standard exam booking deadline", "exam registration deadline", "30 days in advance"],
+    keywords: ["aqt", "aqt exam", "deadline", "booking deadline", "standard exam booking deadline", "exam registration deadline", "30 days in advance"],
     badge: "Exam FAQ",
   },
   {
@@ -194,7 +202,7 @@ export const searchableItems = [
     title: "How many exams can I sit per session?",
     category: "Exam & FAQs",
     path: "/atq-program#admission",
-    keywords: ["max exams", "how many exams", "four exams", "limit per session", "calendar year"],
+    keywords: ["aqt", "aqt exam", "max exams", "how many exams", "four exams", "limit per session", "calendar year"],
     badge: "Exam FAQ",
   },
   {
@@ -202,7 +210,7 @@ export const searchableItems = [
     title: "If I fail, can I resit in the same session?",
     category: "Exam & FAQs",
     path: "/atq-program#admission",
-    keywords: ["fail exam", "resit", "retake", "next session", "failed", "amend entry"],
+    keywords: ["aqt", "aqt exam", "fail exam", "resit", "retake", "next session", "failed", "amend entry"],
     badge: "Exam FAQ",
   },
   {
@@ -210,7 +218,7 @@ export const searchableItems = [
     title: "Where can I take my exams? (Exam Center)",
     category: "Exam & FAQs",
     path: "/atq-program#admission",
-    keywords: ["exam center", "location", "venue", "where to take", "exam docket", "identification document"],
+    keywords: ["aqt", "aqt exam", "exam center", "location", "venue", "where to take", "exam docket", "identification document"],
     badge: "Exam FAQ",
   },
   {
@@ -218,7 +226,7 @@ export const searchableItems = [
     title: "When are exam results issued?",
     category: "Exam & FAQs",
     path: "/atq-program#admission",
-    keywords: ["results", "exam score", "immediately", "when are results issued", "pass mark", "result review"],
+    keywords: ["aqt", "aqt exam", "results", "exam score", "immediately", "when are results issued", "pass mark", "result review"],
     badge: "Exam FAQ",
   },
 
@@ -244,7 +252,7 @@ export const searchableItems = [
     title: "Principles Level Exam Fee (riel 63000 / subject)",
     category: "Fees & Admission",
     path: "/atq-program#admission",
-    keywords: ["principles exam fee", "riel 63000", "tq1 fee", "tq2 fee", "tq3 fee", "tq4 fee", "subject cost"],
+    keywords: ["aqt", "aqt exam", "principles exam fee", "riel 63000", "tq1 fee", "tq2 fee", "tq3 fee", "tq4 fee", "subject cost"],
     badge: "",
   },
   {
@@ -252,7 +260,7 @@ export const searchableItems = [
     title: "Technician Level Exam Fee (riel 63000 / subject)",
     category: "Fees & Admission",
     path: "/atq-program#admission",
-    keywords: ["technician exam fee", "$35", "tq5 fee", "tq6 fee", "tq7 fee", "tq8 fee", "advanced cost"],
+    keywords: ["aqt", "aqt exam", "technician exam fee", "$35", "tq5 fee", "tq6 fee", "tq7 fee", "tq8 fee", "advanced cost"],
     badge: "",
   },
   

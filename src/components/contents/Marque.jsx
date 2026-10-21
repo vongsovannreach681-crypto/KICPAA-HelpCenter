@@ -15,7 +15,7 @@ import pollo from "../../assets/marquee/Pollo.png";
 import samdech from "../../assets/marquee/Samdech.png";
 import spnvs from "../../assets/marquee/spnvs.png";
 import tbongKmum from "../../assets/marquee/TbongKmum.png";
-import vanda from "../../assets/marquee/Vanda.png";
+import vanda from "../../assets/marquee/Vannda.png";
 import uef from "../../assets/marquee/UEF.png";
 import western from "../../assets/marquee/Western.png";
 const organizations = [
@@ -62,7 +62,7 @@ const organizations = [
     url: "https://uef.edu.kh/",
   },
   {
-    name: "Vanda Institute",
+    name: "Vanda University",
     shortName: "Vanda",
     logo: vanda,
     url: "https://vanda.edu.kh/",
@@ -108,7 +108,7 @@ const organizations = [
     url:"https://www.sbku.edu.kh/"
   },
   {
-    name: "University of Heng Samrin Tbong Khmum",
+    name: "University of Heng Samrin Thbongkhmum ",
     shortName: "Tbong Khmum",
     logo: tbongKmum,
     url:"https://uhst.edu.kh/"
