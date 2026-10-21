@@ -272,29 +272,36 @@ const BooksExplore = () => {
           code: "A",
           topic:
             "The context and purpose of financial accounting",
+            weight:5
         },
         {
           code: "B",
           topic:
             "Qualitative characteristics of financial information",
+          weight:5
         },
         {
           code: "C",
           topic:
             "Recording transactions and events   ",
+            weight:30
+          
         },
         {
           code: "D",
           topic:
             "Preparing an extended trial balance   ",
+          weight:20
         },
         {
           code: "E",
           topic: "Preparing basic financial statements",
+          weight:25
         },
         {
           code: "F",
           topic: "Interpretation of financial statements",
+          weight:15
         },
       ],
     },
