@@ -97,7 +97,6 @@ const SearchModal = ({ isOpen, onClose }) => {
 
         const searchableContent = [
           item.title,
-          item.description,
           item.badge,
           item.category,
           ...(item.keywords || []),
@@ -117,7 +116,6 @@ const SearchModal = ({ isOpen, onClose }) => {
           else if (titleLower.includes(trimmed)) score += 30;
 
           if (item.keywords?.some((k) => k.toLowerCase().includes(trimmed))) score += 20;
-          if (item.description.toLowerCase().includes(trimmed)) score += 10;
         }
         return { ...item, score };
       })
@@ -333,9 +331,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                             </span>
                           )}
                         </div>
-                        <p className="mt-1 line-clamp-2 text-xs text-slate-600 dark:text-slate-400">
-                          {highlightMatch(item.description, query)}
-                        </p>
+                     
                       </div>
                     </div>
 

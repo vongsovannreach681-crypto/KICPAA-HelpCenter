@@ -99,7 +99,7 @@ const faqKnowledgeBase = [
     answerEn:
       "Yes! You may take the exam in any order.",
     answerKm:
-      "Yes! You may take the exam in any order.	បាទ/ចាស៎! លោកអ្នកអាចប្រឡងតាម លំដាប់ណាមួយក៏បាន។ ",
+      "បាទ/ចាស៎! លោកអ្នកអាចប្រឡងតាម លំដាប់ណាមួយក៏បាន។ ",
     suggestionsEn: [
       "How many exams can I take per session?",
       "How can I enter for exams?",
