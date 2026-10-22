@@ -39,25 +39,14 @@ const HomeContent = () => {
       icon: FaListCheck,
       color: "bg-[#5b72ee]",
       glow: "group-hover:shadow-[#5b72ee]/40",
-      title: t("home.atqSubjectsTitle", "ATQ Subjects & Course Specification"),
+      title: t("home.atqSubjectsTitle", "Syllabus"),
       text: t(
         "home.atqSubjectsDesc",
         "Explore the subjects covered in the ATQ program and access detailed course specifications for each subject."
       ),
       href: "/subject-course",
     },
-    {
-      icon: FaRegCalendarDays,
-      color: "bg-[#f5a524]",
-      glow: "group-hover:shadow-[#f5a524]/40",
-      title: t("home.cambodiaAtqTitle", "Cambodia ATQ"),
-      text: t(
-        "home.cambodiaAtqDesc",
-        "Student who passed all ATQ subjects will be recognized by KICPAA as Certified Accounting Technician."
-      ),
-      href: "https://www.kicpaa.org/en/atq-program/cambodia-atq/",
-      target: "blank",
-    },
+   
   ];
 
   return (

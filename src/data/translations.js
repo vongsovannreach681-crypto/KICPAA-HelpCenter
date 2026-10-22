@@ -31,7 +31,7 @@ export const translations = {
       atqExamTitle: "ATQ Examination",
       atqExamDesc:
         "Find information about the ATQ examination, including format, duration, and preparation resources.",
-      atqSubjectsTitle: "ATQ Subjects & Course Specification",
+      atqSubjectsTitle: "Syllabus",
       atqSubjectsDesc:
         "Explore the subjects covered in the ATQ program and access detailed course specifications for each subject.",
       cambodiaAtqTitle: "Cambodia ATQ",
@@ -289,7 +289,7 @@ export const translations = {
       atqExamTitle: "ការប្រឡង ATQ",
       atqExamDesc:
         "ស្វែងរកព័ត៌មានអំពីការប្រឡង ATQ រួមទាំងទម្រង់ រយៈពេលប្រឡង និងធនធានត្រៀមប្រឡង។",
-      atqSubjectsTitle: "មុខវិជ្ជា ATQ និងការបញ្ជាក់វគ្គសិក្សា",
+      atqSubjectsTitle: "មាតិកាមុខវិជ្ជា",
       atqSubjectsDesc:
         "ស្វែងយល់ពីមុខវិជ្ជានានាក្នុងកម្មវិធី ATQ និងមើលសេចក្តីលម្អិតនៃមុខវិជ្ជានីមួយៗ។",
       cambodiaAtqTitle: "កម្មវិធី ATQ កម្ពុជា",
