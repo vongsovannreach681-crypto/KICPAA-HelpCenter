@@ -8,6 +8,7 @@ import camed from "../../assets/marquee/Camed.png";
 import dfc from "../../assets/marquee/DFC.png";
 import ifa from "../../assets/marquee/IFA.png";
 import lpbs from "../../assets/marquee/LPBS.png";
+import { useLanguage } from "../../context/LanguageContext";
 import mekong from "../../assets/marquee/Mekong.png";
 import panhasas from "../../assets/marquee/Panhasas.png";
 import paragon from "../../assets/marquee/Paragon.png";
@@ -129,15 +130,19 @@ const organizations = [
 
 const Marque = () => {
   const [viewMode, setViewMode] = useState("marquee");
+  const { t } = useLanguage();
 
   return (
     <section id="partners" data-aos="fade-up" className="mt-16 font-['Poppins',sans-serif] sm:mt-20 scroll-mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h3 className="border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
-          Training Organization
+          {t("partners.trainingOrganization", "Training Organization")}
         </h3>
         <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9">
-          KICPAA partners with leading universities and training institutes across Cambodia to deliver quality ATQ tuition, classroom preparation, and academic mentorship.
+          {t(
+            "partners.trainingOrganizationDesc",
+            "KICPAA partners with leading universities and training institutes across Cambodia to deliver quality ATQ tuition, classroom preparation, and academic mentorship."
+          )}
         </p>
       </div>
 

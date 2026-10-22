@@ -146,6 +146,12 @@ export const translations = {
       viewAll: "View All",
     },
 
+    partners: {
+      trainingOrganization: "Training Organization",
+      trainingOrganizationDesc:
+        "KICPAA partners with leading universities and training institutes across Cambodia to deliver quality ATQ tuition, classroom preparation, and academic mentorship.",
+    },
+
     // Exam Page & Schedule
     exam: {
       welcomeBadge: "Welcome to",
@@ -272,14 +278,14 @@ export const translations = {
     // Home Page
     home: {
       welcome: "សូមស្វាគមន៍មកកាន់",
-      heroTitle: "មជ្ឈមណ្ឌលជំនួយ កម្មវិធីអ្នកបច្ចេកទេសគណនេយ្យ (ATQ)",
+      heroTitle: "មជ្ឈមណ្ឌលជំនួយ កម្មវិធី​បច្ចេកទេស​គណនេយ្យ (ATQ)",
       heroSubtitle:
         "មានសំណួរ ឬចម្ងល់អំពីកម្មវិធី ATQ ឬការប្រឡងមែនទេ? ស្វែងរកព័ត៌មានដែលអ្នកត្រូវការនៅទីនេះ ឬទាក់ទងមកកាន់ពួកយើងផ្ទាល់។",
       browseAtq: "ស្វែងយល់ពីកម្មវិធី ATQ",
       helpTopics: "ទទួលបានជំនួយលើប្រធានបទសំខាន់ៗ",
       atqProgramTitle: "កម្មវិធី ATQ",
       atqProgramDesc:
-        "ស្វែងយល់បន្ថែមអំពីកម្មវិធីអ្នកបច្ចេកទេសគណនេយ្យ រចនាសម្ព័ន្ធ និងលក្ខខណ្ឌតម្រូវក្នុងការសិក្សា។",
+        "ស្វែងយល់បន្ថែមអំពីកម្មវិធី​បច្ចេកទេស​គណនេយ្យ រចនាសម្ព័ន្ធ និងលក្ខខណ្ឌតម្រូវក្នុងការសិក្សា។",
       atqExamTitle: "ការប្រឡង ATQ",
       atqExamDesc:
         "ស្វែងរកព័ត៌មានអំពីការប្រឡង ATQ រួមទាំងទម្រង់ រយៈពេលប្រឡង និងធនធានត្រៀមប្រឡង។",
@@ -397,6 +403,12 @@ export const translations = {
       viewAll: "មើលទាំងអស់",
     },
 
+    partners: {
+      trainingOrganization: "អង្គការបណ្តុះបណ្តាល",
+      trainingOrganizationDesc:
+        "KICPAA សហការជាមួយសាកលវិទ្យាល័យ និងវិទ្យាស្ថានបណ្តុះបណ្តាលឈានមុខនៅទូទាំងប្រទេសកម្ពុជា ដើម្បីផ្តល់ការបង្រៀនកម្មវិធី ATQ ប្រកបដោយគុណភាព ការត្រៀមខ្លួនក្នុងថ្នាក់រៀន និងការណែនាំផ្នែកសិក្សា។",
+    },
+
     // Exam Page & Schedule
     exam: {
       welcomeBadge: "សូមស្វាគមន៍មកកាន់",
@@ -439,7 +451,7 @@ export const translations = {
       titlePart1: "សេចក្តីលម្អិតមុខវិជ្ជា",
       titlePart2: "កម្មវិធី ATQ",
       subtitle:
-        "ស្វែងយល់ពីមុខវិជ្ជា ប្រធានបទ និងលទ្ធផលនៃការសិក្សាដែលណែនាំមាគ៌ារបស់អ្នកតាមរយៈកម្មវិធីអ្នកបច្ចេកទេសគណនេយ្យ។",
+        "ស្វែងយល់ពីមុខវិជ្ជា ប្រធានបទ និងលទ្ធផលនៃការសិក្សាដែលណែនាំមាគ៌ារបស់អ្នកតាមរយៈកម្មវិធី​បច្ចេកទេស​គណនេយ្យ។",
       sectionTitle: "សេចក្តីលម្អិតមុខវិជ្ជា និងវគ្គសិក្សា ATQ",
       principlesTitle: "កម្រិតមូលដ្ឋាន (Principles Level)",
       principlesDesc:
@@ -461,14 +473,14 @@ export const translations = {
     // Footer
     footer: {
       tagline:
-        "មជ្ឈមណ្ឌលជំនួយរបស់អ្នកសម្រាប់កម្មវិធីអ្នកបច្ចេកទេសគណនេយ្យ មុខវិជ្ជា និងការប្រឡង។",
+        "មជ្ឈមណ្ឌលជំនួយរបស់អ្នកសម្រាប់កម្មវិធី​បច្ចេកទេស​គណនេយ្យ មុខវិជ្ជា និងការប្រឡង។",
       explore: "តំណភ្ជាប់",
       studentResources: "ធនធានសម្រាប់សិស្ស",
       contactTeam: "ទំនាក់ទំនងក្រុមការងារ ATQ",
       learningHub: "ប្រព័ន្ធ Learning Hub",
       studentReg: "ការចុះឈ្មោះសិស្ស",
       allRights: "រក្សាសិទ្ធិគ្រប់យ៉ាងដោយវិទ្យាស្ថានគណនេយ្យករជំនាញ និងសវនករកម្ពុជា (វ.គ.ស.ក.)",
-      qualification: "កម្មវិធីអ្នកបច្ចេកទេសគណនេយ្យ (ATQ)",
+      qualification: "កម្មវិធី​បច្ចេកទេស​គណនេយ្យ (ATQ)",
     },
 
     // Search Modal
