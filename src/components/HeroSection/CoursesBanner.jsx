@@ -109,11 +109,11 @@ const CoursesBanner = ({
           <div className="absolute bottom-0 left-1/2 h-[290px] w-[230px] -translate-x-1/2 sm:w-[260px] lg:h-[385px] lg:w-[300px]">
             {/* Outline offset behind the portrait */}
             <div
-              className="absolute inset-0 translate-x-3 -translate-y-3 rounded-t-full border-[3px] border-[#ffb703]"
+              className="absolute inset-0 translate-x-3 -translate-y-3 rounded-t-full  bg-[#ffb703]"
               aria-hidden="true"
             />
             {/* Main portrait */}
-            <div className="relative h-full w-full overflow-hidden rounded-t-full border-[3px] border-[#0b2a6b] bg-white shadow-xl dark:border-slate-700 dark:bg-slate-900">
+            <div className="relative h-full w-full overflow-hidden rounded-t-full border-[3px] border-[#0b2a6b] bg-blue-950 shadow-xl dark:border-slate-700 dark:bg-slate-900">
               <img
                 src={imageSrc}
                 alt="ATQ Student"
