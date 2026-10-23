@@ -238,6 +238,7 @@ const InternshipOpportunities = () => {
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [isPaused, setIsPaused] = useState(false);
   const [viewMode, setViewMode] = useState("slider"); // 'slider' | 'grid'
+  const [animateTrack, setAnimateTrack] = useState(true);
 
   // Responsive items count per slide
   useEffect(() => {
@@ -264,26 +265,42 @@ const InternshipOpportunities = () => {
   useEffect(() => {
     if (isPaused || viewMode !== "slider") return;
     const interval = setInterval(() => {
-      setCurrentPage((prev) => (prev + 1) % totalPages);
+      setCurrentPage((prev) => (prev === totalPages - 1 ? totalPages : prev + 1));
     }, 4500);
 
     return () => clearInterval(interval);
   }, [totalPages, isPaused, viewMode]);
 
-  const safeCurrentPage =
-    currentPage >= totalPages ? Math.max(0, totalPages - 1) : currentPage;
-  const startIndex = safeCurrentPage * itemsPerPage;
-  const currentProviders = internshipProviders.slice(
-    startIndex,
-    startIndex + itemsPerPage,
+  const providerPages = Array.from({ length: totalPages }, (_, pageIndex) =>
+    internshipProviders.slice(
+      pageIndex * itemsPerPage,
+      (pageIndex + 1) * itemsPerPage,
+    ),
   );
 
   const prevSlide = () => {
-    setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+    if (currentPage === totalPages) {
+      setCurrentPage(totalPages - 1);
+      return;
+    }
+    if (currentPage === 0) {
+      setAnimateTrack(false);
+      setCurrentPage(totalPages - 1);
+      requestAnimationFrame(() => requestAnimationFrame(() => setAnimateTrack(true)));
+      return;
+    }
+    setCurrentPage((prev) => prev - 1);
   };
 
   const nextSlide = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages);
+    setCurrentPage((prev) => (prev === totalPages - 1 ? totalPages : prev + 1));
+  };
+
+  const handleTrackTransitionEnd = (event) => {
+    if (event.propertyName !== "transform" || currentPage !== totalPages) return;
+    setAnimateTrack(false);
+    setCurrentPage(0);
+    requestAnimationFrame(() => requestAnimationFrame(() => setAnimateTrack(true)));
   };
 
   return (
@@ -365,11 +382,28 @@ const InternshipOpportunities = () => {
             <FaChevronRight className="text-xs" aria-hidden="true" />
           </button>
 
-          {/* Cards Track */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {currentProviders.map((provider) => (
-              <ProviderCard key={provider.id} provider={provider} />
-            ))}
+          {/* Sliding track */}
+          <div className="overflow-hidden">
+            <div
+              className={`flex ${animateTrack ? "transition-transform duration-500 ease-in-out motion-reduce:transition-none" : ""}`}
+              onTransitionEnd={handleTrackTransitionEnd}
+              style={{
+                width: `${(totalPages + 1) * 100}%`,
+                transform: `translateX(-${currentPage * (100 / (totalPages + 1))}%)`,
+              }}
+            >
+              {[...providerPages, providerPages[0]].map((page, pageIndex) => (
+                <div
+                  key={pageIndex}
+                  className="grid shrink-0 grid-cols-1 gap-4 min-[540px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                style={{ width: `${100 / (totalPages + 1)}%` }}
+                >
+                  {page.map((provider) => (
+                    <ProviderCard key={provider.id} provider={provider} />
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Pagination Dots */}
@@ -380,7 +414,7 @@ const InternshipOpportunities = () => {
                 onClick={() => setCurrentPage(index)}
                 aria-label={`Go to slide ${index + 1}`}
                 className={`cursor-pointer transition-all duration-300 ${
-                  safeCurrentPage === index
+                  (currentPage % totalPages) === index
                     ? "h-2 w-6 rounded-full bg-[#03A9f4]"
                     : "h-2 w-2 rounded-full bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600"
                 }`}
