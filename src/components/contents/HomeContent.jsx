@@ -50,9 +50,9 @@ const HomeContent = () => {
   ];
 
   return (
-    <div className="mt-10">
+    <div className="mx-auto mt-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       {/* Topics Section */}
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div>
         <h2
           data-aos="fade-right"
           className="w-fit rounded-bottom-circle border-b-3 border-blue-700 pb-2 text-2xl font-semibold text-blue-900 transition-colors dark:border-[#03A9f4] dark:text-sky-300"
@@ -61,8 +61,8 @@ const HomeContent = () => {
         </h2>
       </div>
 
-      <section className="px-4 pb-16 pt-14 font-['Poppins',sans-serif]">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-6">
+      <section className="pb-16 pt-14 font-['Poppins',sans-serif]">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-6">
           {items.map((item, i) => {
             const ItemIcon = item.icon;
 
@@ -189,7 +189,7 @@ const HomeContent = () => {
         id="visit-office"
         data-aos="fade-up"
         className="
-          mx-auto mb-20 max-w-7xl
+          mb-20 w-full
           scroll-mt-24
           rounded-3xl
           border border-slate-100

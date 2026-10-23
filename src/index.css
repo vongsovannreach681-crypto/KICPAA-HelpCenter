@@ -70,7 +70,7 @@ html {
 
 .marquee-track {
   width: max-content;
-  animation: marquee-scroll 32s linear infinite;
+  animation: marquee-scroll 40s linear infinite;
 }
 
 .marquee-track:hover {

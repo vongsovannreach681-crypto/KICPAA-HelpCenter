@@ -7,9 +7,9 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("app_language");
-      if (saved === "en" || saved === "km") return saved;
+      if (saved === "km" || saved === "en") return saved;
     }
-    return "en";
+    return "km";
   });
 
   const setLanguage = useCallback((newLang) => {
