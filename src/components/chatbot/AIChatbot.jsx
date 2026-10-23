@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+﻿import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   FaEnvelope,
   FaHeadset,
@@ -11,9 +11,9 @@ import {
 import botAvatar from "../../assets/images/bot.png";
 import { useLanguage } from "../../context/LanguageContext";
 
-// Bilingual Knowledge Base for KICPAA ATQ Program
+// Comprehensive Bilingual Knowledge Base for KICPAA ATQ Program
 const faqKnowledgeBase = [
-  // --- FAQ on Exam Session ---
+  // --- Category: Exam Session ---
   {
     id: "session-when",
     category: "Exam Session",
@@ -37,19 +37,9 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចប្រឡងនៅពេលណា",
     ],
     answerEn:
-      "Students can take the exams during **KICPAA’s monthly exam sessions**, which run for four days each month.",
+      "Students can take the exams during KICPAA’s monthly exam sessions, which run for four days each month.",
     answerKm:
-      "សិស្សអាចចូលរួមការប្រឡងតាមសម័យប្រឡងប្រចាំខែរបស់យើង ដែលប្រព្រឹត្តទៅក្នុងរយៈពេល **៤ ថ្ងៃជារៀងរាល់ខែ**។",
-    suggestionsEn: [
-      "What subjects will be available at each month?",
-      "How can I enter for exams?",
-      "When is the registration deadline?",
-    ],
-    suggestionsKm: [
-      "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ?",
-      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
-    ],
+      "សិស្សអាចចូលរួមការប្រឡងតាមសម័យប្រឡងប្រចាំខែរបស់យើង ដែលប្រព្រឹត្តទៅក្នុងរយៈពេល ៤ ថ្ងៃជារៀងរាល់ខែ។",
   },
   {
     id: "session-available",
@@ -72,26 +62,16 @@ const faqKnowledgeBase = [
       "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ",
     ],
     answerEn:
-      "Every year, KICPAA offers all eight subjects for examination each month, from January to December. Please refer to the **ATQ Program Subjects, Exam Schedule, and Important Exam Dates** for more information.",
+      "Every year, KICPAA offers all eight subjects for examination each month, from January to December. Please refer to the ATQ Program Subjects, Exam Schedule, and Important Exam Dates for more information.",
     answerKm:
-      "ជារៀងរាល់ឆ្នាំ **វ.គ.ស.ក. ផ្តល់ជូននូវមុខវិជ្ជាទាំង ៨** សម្រាប់ការប្រឡងជារៀងរាល់ខែ ចាប់ពីខែមករា ដល់ ខែធ្នូ។ សូមពិនិត្យមើលមុខវិជ្ជាកម្មវិធី ATQ និងកាលបរិច្ឆេទសំខាន់ៗសម្រាប់ការប្រឡង។",
-    suggestionsEn: [
-      "Can I take the ATQ Qualification exams in any order?",
-      "How many exams can I take at each exam session?",
-      "When is the registration deadline?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា ATQ តាមលំដាប់ណាមួយក៏បានមែនទេ?",
-      "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ?",
-      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-    ],
+      "ជារៀងរាល់ឆ្នាំ វ.គ.ស.ក.ផ្តល់ជូននូវ មុខវិជ្ជាទាំង ៨ សម្រាប់ការប្រឡងជារៀងរាល់ខែ ចាប់ពីខែមករា ដល់ ខែធ្នូ។ សូមពិនិត្យមើលមុខវិជ្ជាកម្មវិធី ATQ និងកាលបរិច្ឆេទសំខាន់ៗសម្រាប់ការប្រឡង។",
   },
 
-  // --- FAQ on Exam Registration and Booking ---
+  // --- Category: Registration & Booking ---
   {
     id: "booking-order",
     category: "Registration & Booking",
-    question: "Can I take the ATQ Qualification exams in any order?",
+    question: "Can I take the ATQ exams in any order?",
     questionKm: "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា ATQ តាមលំដាប់ណាមួយក៏បានមែនទេ?",
     keywords: [
       "order",
@@ -110,15 +90,9 @@ const faqKnowledgeBase = [
       "principles",
     ],
     answerEn:
-      "Yes! You may take exams in any order within the same level. However, candidates must pass the Principles Level (TQ1–TQ4) before attempting the Technician Level (TQ5–TQ8).",
+      "Yes! You may take the exam in any order.",
     answerKm:
-      "បាទ/ចាស! លោកអ្នកអាចប្រឡងតាមលំដាប់ណាមួយក៏បាននៅក្នុងកម្រិតដូចគ្នា។ ប៉ុន្តែលោកអ្នកត្រូវតែប្រឡងជាប់កម្រិតមូលដ្ឋាន (Principles Level: TQ1–TQ4) ជាមុនសិន មុននឹងអាចប្រឡងកម្រិតបច្ចេកទេស (Technician Level: TQ5–TQ8)។",
-    suggestionsEn: [
-      "How many exams can I take at each exam session?",
-      "How can I enter for exams?",
-      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
-    ],
-    suggestionsKm: ["តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ?", "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?", "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?"],
+      "បាទ/ចាស! លោកអ្នកអាចប្រឡងតាមលំដាប់ណាមួយក៏បាន។",
   },
   {
     id: "booking-deadlines",
@@ -141,24 +115,14 @@ const faqKnowledgeBase = [
       "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា",
     ],
     answerEn:
-      "The standard exam registration deadline is the **15th of each month** (15 to 30 days before the exam session) through the Learning Hub. Late bookings may be requested via email to `education@kicpaa.org`.",
+      "The exam registration deadline is the 15th of each month.",
     answerKm:
-      "កាលបរិច្ឆេទផុតកំណត់ចុះឈ្មោះប្រឡងស្តង់ដារគឺនៅរៀងរាល់ **ថ្ងៃទី១៥ នៃខែនីមួយៗ** (១៥ ទៅ ៣០ ថ្ងៃមុនសម័យប្រឡង) តាមរយៈ Learning Hub។",
-    suggestionsEn: [
-      "Can I still sit my exams if I miss the standard exam booking deadline?",
-      "How do I know if my exam booking has been successful?",
-      "How can I enter for exams?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
-      "តើខ្ញុំដឹងដោយរបៀបណាថាការកក់ប្រឡងបានជោគជ័យ?",
-      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-    ],
+      "កាលបរិច្ឆេទផុតកំណត់ចុះឈ្មោះប្រឡងគឺនៅរៀងរាល់ថ្ងៃទី១៥ នៃខែនីមួយៗ។",
   },
   {
     id: "booking-max-exams",
     category: "Registration & Booking",
-    question: "How many exams can I take at each exam session?",
+    question: "How many subjects can I take in each exam session?",
     questionKm: "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ?",
     keywords: [
       "how many",
@@ -179,19 +143,9 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ",
     ],
     answerEn:
-      "You can register for a maximum of four (4) exams per monthly exam session, and up to eight (8) subjects per calendar year.",
+      "You can register for a maximum of eight (8) subjects per exam session.",
     answerKm:
-      "អ្នកអាចចុះឈ្មោះប្រឡងបានអតិបរមា ៤ មុខវិជ្ជាក្នុងមួយសម័យប្រឡងប្រចាំខែ និងរហូតដល់ ៨ មុខវិជ្ជាក្នុងមួយឆ្នាំប្រតិទិន។",
-    suggestionsEn: [
-      "Can I take the ATQ Qualification exams in any order?",
-      "Where can I take my exams?",
-      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា ATQ តាមលំដាប់ណាមួយក៏បានមែនទេ?",
-      "តើខ្ញុំអាចប្រឡងនៅទីណា?",
-      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
-    ],
+      "អ្នកអាចចុះឈ្មោះប្រឡងបានទាំង ៨មុខវិជ្ជា ក្នុង មួយសម័យប្រឡង។",
   },
   {
     id: "booking-fail-resit",
@@ -213,23 +167,12 @@ const faqKnowledgeBase = [
       "ប្រឡងសង",
       "កែប្រែ",
       "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
-      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
       "បើធ្លាក់តើអាចប្រឡងសងពេលណា",
     ],
     answerEn:
       "No. If you fail an exam, you must resit it in the next exam session.",
     answerKm:
-      "**មិនបានទេ។** ប្រសិនបើអ្នកធ្លាក់ក្នុងសម័យប្រឡងនេះ អ្នកត្រូវតែប្រឡងសងនៅសម័យប្រឡងបន្ទាប់ប៉ុណ្ណោះ។",
-    suggestionsEn: [
-      "When are results issued?",
-      "What can I do if I think that my results are incorrect?",
-      "How many exams can I take at each exam session?",
-    ],
-    suggestionsKm: [
-      "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
-      "ចំនួនមុខវិជ្ជាប្រឡង",
-    ],
+      "មិនបានទេ។ ប្រសិនបើអ្នកធ្លាក់ក្នុងសម័យប្រឡងនេះ អ្នកត្រូវតែប្រឡងសងនៅ សម័យប្រឡងបន្ទាប់ប៉ុណ្ណោះ។",
   },
   {
     id: "booking-location",
@@ -255,19 +198,9 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចប្រឡងនៅទីណា",
     ],
     answerEn:
-      "Your examination center can be found in your **Examination Identification Document** available to print after your registration. Exams are conducted at the KICPAA Office Exam Center in Phnom Penh.",
+      "Your examination center can be found in your Examination Identification Document available to print after your registration.",
     answerKm:
-      "មណ្ឌលប្រឡងរបស់អ្នកមានបញ្ជាក់ក្នុង **Examination Identification Document** ដែលអ្នកអាចបោះពុម្ពបានបន្ទាប់ពីចុះឈ្មោះរួច។ ការប្រឡងប្រព្រឹត្តទៅនៅមណ្ឌលប្រឡងការិយាល័យ វ.គ.ស.ក. រាជធានីភ្នំពេញ។",
-    suggestionsEn: [
-      "What happens on the exam day?",
-      "What documents do I need to bring on exam day?",
-      "How can I contact KICPAA ATQ support?",
-    ],
-    suggestionsKm: [
-      "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?",
-      "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?",
-      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-    ],
+      "មណ្ឌលប្រឡងរបស់អ្នកមានបញ្ជាក់ក្នុង Examination Identification Document ដែលអ្នកអាចបោះពុម្ពបានបន្ទាប់ពីចុះឈ្មោះរួច។",
   },
   {
     id: "booking-how-to-enter",
@@ -286,32 +219,21 @@ const faqKnowledgeBase = [
       "learning hub",
       "exam fee",
       "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
       "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច",
       "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា",
       "របៀបកក់",
     ],
     answerEn:
-      "To enter for exams:\n1. You must be a **student member of KICPAA** and have paid your exam fee.\n2. Register 15-30 days in advance through the Learning Hub.\n3. Go to **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**.\n4. Select your desired date from the list.",
+      "To enter for exams:\n1. Ensure you are an approved **student member of KICPAA** and have paid your fees.\n2. Log into the **Learning Hub** 15–30 days in advance.\n3. Navigate to **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**.\n4. Choose your preferred date from the available schedule and save.",
     answerKm:
-      "ដើម្បីចុះឈ្មោះប្រឡង៖\n១. អ្នកត្រូវតែជា **សមាជិកសិស្សរបស់ វ.គ.ស.ក** និងបានបង់ថ្លៃប្រឡងរួចរាល់។\n២. អ្នកអាចចុះឈ្មោះមុន ១៥-៣០ ថ្ងៃ តាមរយៈ Learning Hub។\n៣. ចូលទៅ **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**។\n៤. ជ្រើសរើសកាលបរិច្ឆេទដែលអ្នកចង់ប្រឡង។",
-    suggestionsEn: [
-      "When can I take exams?",
-      "When is the registration deadline?",
-      "Can I still sit my exams if I miss the standard exam booking deadline?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
-      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
-    ],
+      "ដើម្បីចុះឈ្មោះប្រឡង៖\n១. អ្នកត្រូវតែជា **សមាជិកសិស្សរបស់ វ.គ.ស.ក.** និងបានបង់ថ្លៃប្រឡងរួចរាល់។\n២. ចូលទៅកាន់ **Learning Hub** មុន ១៥-៣០ ថ្ងៃ។\n៣. ចូលទៅ **Examination** > **SELECT YOUR NEXT EXAMINATION DATE** > **SELECT SUBJECT**។\n៤. ជ្រើសរើសកាលបរិច្ឆេទដែលអ្នកចង់ប្រឡង រួចចុច Save។",
   },
   {
     id: "booking-late",
     category: "Registration & Booking",
     question:
-      "Can I still sit my exams if I miss the standard exam booking deadline?",
-    questionKm: "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
+      "Can I still sit my exams if I miss the standard exam registration deadline?",
+    questionKm: "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានចុះឈ្មោះតាមកាលបរិច្ឆេទកំណត់?",
     keywords: [
       "miss",
       "late",
@@ -327,28 +249,17 @@ const faqKnowledgeBase = [
       "ហួសពេល",
       "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ",
       "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
-      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
     ],
     answerEn:
-      'If you are a student member and already paid your exam fee, you may request **Late Exam Booking**:\n- **Email**: `education@kicpaa.org`\n- **Subject**: *"Request for Late Exam Booking"*\n- **Provide**: Full name, Student ID, Subject, Phone number, and specific reason.\n*(Note: Other means of communication besides email are deemed invalid.)*',
+      'If you have already paid the exam fee, you may request an exam registration form through the following:\n- **Email**: `education@kicpaa.org`\n- **Subject**: *"Request for Late Exam Booking"*\n- **Include**: Full name, Student ID, Subject, Phone number, and specific reason.\n',
     answerKm:
-      'ប្រសិនបើអ្នកជាសមាជិកសិស្ស និងបានបង់ថ្លៃប្រឡងរួចហើយ អ្នកអាចស្នើសុំ **Late Exam Booking**៖\n- **អ៊ីមែល**: `education@kicpaa.org`\n- **ចំណងជើង**: *"Request for Late Exam Booking"*\n- **ផ្ញើព័ត៌មាន**: ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ និងមូលហេតុជាក់លាក់។\n*(ចំណាំ៖ ការទំនាក់ទំនងក្រៅពីអ៊ីមែល គឺមិនមានសុពលភាពឡើយ)*',
-    suggestionsEn: [
-      "I would like to change my exam date, is this possible?",
-      "How do I know if my exam booking has been successful?",
-      "How can I contact KICPAA ATQ support?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
-      "ដឹងថាកក់ជោគជ័យដោយរបៀបណា?",
-      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-    ],
+      'ប្រសិនបើលោកអ្នកបានបង់ថ្លៃប្រឡងរួចហើយ លោកអ្នកអាចស្នើសុំទម្រង់ចុះឈ្មោះប្រឡងតាមរយៈ៖\n- **អ៊ីមែល**: `education@kicpaa.org`\n- **ចំណងជើង**: *"Request for Late Exam Booking"*\n- **ផ្ញើព័ត៌មាន**: ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ និងមូលហេតុជាក់លាក់។',
   },
   {
     id: "booking-success",
     category: "Registration & Booking",
-    question: "How do I know if my exam booking has been successful?",
-    questionKm: "តើខ្ញុំដឹងដោយរបៀបណាថាការកក់ប្រឡងបានជោគជ័យ?",
+    question: "How do I know if my exam registration has been successful?",
+    questionKm: "តើខ្ញុំដឹងដោយរបៀបណាថាការចុះឈ្មោះប្រឡងបានជោគជ័យ?",
     keywords: [
       "successful",
       "confirm",
@@ -368,13 +279,7 @@ const faqKnowledgeBase = [
     answerEn:
       "After registering for an exam, make sure to save your exam booking. Once saved, your booking will appear under the Examination tab. The KICPAA team will send your Exam Identification Document and exam details via Telegram 1–2 days before the exam date.",
     answerKm:
-      "បន្ទាប់ពីចុះឈ្មោះប្រឡង សូមប្រាកដថាអ្នកបានចុចរក្សាទុកនូវកាលវិភាគប្រឡង។ នៅពេលរក្សាទុករួចរាល់ អ្នកនឹងឃើញការកក់នៅលើ Examination Tab ហើយក្រុមការងារនឹងផ្ញើ Exam Identification Document ទៅកាន់តេលេក្រាមរបស់លោកអ្នក ១ ទៅ ២ ថ្ងៃ មុនថ្ងៃប្រឡង។",
-    suggestionsEn: [
-      "Where can I take my exams?",
-      "I would like to change my exam date, is this possible?",
-      "What happens on the exam day?",
-    ],
-    suggestionsKm: ["តើខ្ញុំអាចប្រឡងនៅទីណា?", "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?", "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?"],
+      "បន្ទប់ពីចុះឈ្មោះប្រឡង សូមប្រាកដថាអ្នកបានចុចរក្សាទុកនូវកាលបរិច្ឆេទប្រឡង។ នៅពេលរក្សាទុករួចរាល់ អ្នកនឹងឃើញការកក់នៅលើ Examination Tap ហើយក្រុមកាងារ នឹងផ្ញើ Exam Identification Document ទៅកាន់តេលេក្រាមរបស់លោកអ្នក ១ ទៅ ២ថ្ងៃ មុនថ្ងៃប្រឡង។",
   },
   {
     id: "booking-change",
@@ -395,25 +300,14 @@ const faqKnowledgeBase = [
       "លុបចោល",
       "តើអាចផ្លាស់ប្តូរការកក់បានទេ",
       "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
-      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ",
     ],
     answerEn:
-      "Yes, you can make changes up to the **Late Exam Booking Deadline** by emailing `education@kicpaa.org` with:\n- Full name, Student ID, Subject, Phone number, specific reason, and relevant subjects.\n- Allowed requests: **Exam cancelation** or **Change exam schedule**.\n*(Any request after the Late Exam Booking Deadline is invalid.)*\n- **Note**: Requests to change the exam schedule must be submitted at least one week before the exam date.",
+      "Yes, you can request to change your exam date by contacting us via Telegram and completing the form with the following information:\n- Full name, Student ID, Subject, Phone number, specific reason, and relevant subjects.\n- Allowed requests: Change exam schedule.\n*(Note: Requests to change the exam schedule must be submitted at least one week before the exam date.)*",
     answerKm:
-      "បាទ/ចាស អ្នកអាចស្នើសុំកែប្រែរហូតដល់ **Late Exam Booking Deadline** ដោយផ្ញើអ៊ីមែលទៅ `education@kicpaa.org` ដោយបញ្ជាក់៖\n- ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ, មូលហេតុ និងមុខវិជ្ជាពាក់ព័ន្ធ។\n- ការស្នើសុំដែលអនុញ្ញាត៖ **លុបចោលការប្រឡង (Cancelation)** ឬ **ប្តូរកាលវិភាគ (Reschedule)**។\n- **ចំណាំ**៖ ការស្នើសុំកែប្រែនេះ ត្រូវធ្វើឡើងមុនថ្ងៃប្រឡងមួយសប្តាហ៍។",
-    suggestionsEn: [
-      "Can I change my entry on the day of the exam?",
-      "When is the registration deadline?",
-      "How can I contact KICPAA ATQ support?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?",
-      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
-      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-    ],
+      "បាទ/ចាស អ្នកអាចស្នើសុំកែប្រែកាលបរិច្ឆេទប្រឡង ដោយទំនាក់ទំនងមកកាន់យើងខ្ញុំ និងបំពេញទម្រង់ស្នើសុំជាមួយព័ត៌មានដូចជា៖\n- ឈ្មោះពេញ, Student ID, មុខវិជ្ជា, លេខទូរស័ព្ទ, មូលហេតុ និងមុខវិជ្ជាពាក់ព័ន្ធ។\n- ការស្នើសុំដែលអនុញ្ញាត៖ ប្តូរកាលវិភាគប្រឡង។ ។\n*(ចំណាំ៖ ការស្នើសុំកែប្រែនេះ ត្រូវធ្វើឡើងមុនថ្ងៃប្រឡងមួយសប្តាហ៍)*",
   },
 
-  // --- FAQ about Exam Sitting ---
+  // --- Category: Exam Sitting ---
   {
     id: "sitting-exam-day",
     category: "Exam Sitting",
@@ -436,24 +330,11 @@ const faqKnowledgeBase = [
       "arrive",
       "check in",
       "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?",
-      "នីតិវិធី",
-      "អត្តសញ្ញាណប័ណ្ណ",
-      "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង",
     ],
     answerEn:
-      "On exam day:\n1. Your **Examination Identification Document** has your timetable, seating arrangement, and center address.\n2. Bring your **Exam Identification Document** and **Original National ID/Passport**. These will be checked and verified upon entry.\n3. Make sure to arrive early (at least 30 minutes before) and review the regulations detailed on the document.\n\nNeed help on location? Contact **017 493 140** (Telegram available).",
+      "On exam day:\n1. Your Examination Identification Document has your timetable, seating arrangement, and center address.\n2. Bring your Exam Identification Document and Original National ID/Passport. These will be checked and verified upon entry.\n3. Make sure to arrive 30 minutes early and review the exam instruction detailed on the document.\nNeed help on location? Contact `017 493 140` (Telegram available).",
     answerKm:
-      "នៅថ្ងៃប្រឡង៖\n១. ឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡងរបស់លោកអ្នក មានបញ្ចូលនូវកាលវិភាគប្រឡង លេខតុ/លេខកៅអី និងអាសយដ្ឋានមណ្ឌលប្រឡង។\n២. សូមយកឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡង និងអត្តសញ្ញាណប័ណ្ណច្បាប់ដើម ឬលិខិតឆ្លងដែនច្បាប់ដើមមកជាមួយ ដើម្បីពិនិត្យផ្ទៀងផ្ទាត់។\n៣. សូមប្រាកដថាអ្នកបានមកដល់មុនពេល ៣០ នាទី និងពិនិត្យមើលការណែនាំផ្សេងៗដែលមានចែងយ៉ាងលម្អិតនៅលើឯកសារ។\n\nលម្អិតអំពីទីតាំង សូមទាក់ទងលេខ 017 493 140 (មាន Telegram)។",
-    suggestionsEn: [
-      "Where can I find the rules and regulations in relation to sitting an examination?",
-      "Can I change my entry on the day of the exam?",
-      "If something happens at the exam center that affects my performance, can I make a complaint?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
-      "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?",
-      "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
-    ],
+      "នៅថ្ងៃប្រឡង៖\n១. ឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡងរបស់លោកអ្នក មានបញ្ចូលនូវកាលវិភាគប្រឡង លេខតុ/លេខកៅអី និងអាសយដ្ឋានមណ្ឌលប្រឡង។\n២. សូមយកឯកសារសម្គាល់ខ្លួនសម្រាប់ប្រឡង និងអត្តសញ្ញាណប័ណ្ណច្បាប់ដើម ឬលិខិតឆ្លងដែនច្បាប់ដើមមកជាមួយ ដើម្បីពិនិត្យផ្ទៀងផ្ទាត់។\n៣. សូមប្រាកដថាអ្នកបានមកដល់មុនពេល ៣០ នាទី និងពិនិត្យមើលការណែនាំផ្សេងៗដែលមានចែងយ៉ាងលម្អិតនៅលើឯកសារ។**។\n\nព័ត៌មានទីតាំង សូមទាក់ទង `+855 17 493 140` (មាន Telegram)។",
   },
   {
     id: "sitting-rules",
@@ -475,19 +356,11 @@ const faqKnowledgeBase = [
       "បទបញ្ជា",
       "វិន័យ",
       "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
-      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
-      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា",
     ],
     answerEn:
-      "Full details of the rules and regulations are available on the **reverse side of your Examination Identification Document**. Please familiarise yourself with these prior to attending the examination center.",
+      "Full details of the rules and regulations will be sent along with the Examination Identification Document. Please familiarize yourself with these prior to attending the examination center.",
     answerKm:
-      "ព័ត៌មានលម្អិតអំពីច្បាប់ និងបទប្បញ្ញត្តិ មានបញ្ជាក់នៅលើ **ផ្នែកខាងក្រោយនៃ Examination Identification Document** របស់អ្នក។ សូមអានស្វែងយល់មុនពេលចូលរួមការប្រឡង។",
-    suggestionsEn: [
-      "What happens on the exam day?",
-      "Can I change my entry on the day of the exam?",
-      "If something happens at the exam center that affects my performance, can I make a complaint?",
-    ],
-    suggestionsKm: ["តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?", "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ?", "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?"],
+      "ព័ត៌មានលម្អិតអំពីច្បាប់ និងបទប្បញ្ញត្តិ នឹងផ្ញើជូនជាមួយនឹង Examination Identification Document របស់អ្នក។ សូមអានស្វែងយល់មុនពេលចូលរួមការប្រឡង។",
   },
   {
     id: "sitting-same-day-change",
@@ -507,25 +380,15 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ",
     ],
     answerEn:
-      "**No.** Students are **not allowed** to change their exam entry on the day of the exam.",
+      "No. Students are not allowed to change their exam entry on the day of the exam.",
     answerKm:
-      "**មិនបានឡើយ។** សិស្សមិនត្រូវបានអនុញ្ញាតឱ្យផ្លាស់ប្តូរការចុះឈ្មោះរបស់ពួកគេនៅថ្ងៃប្រឡងនោះទេ។",
-    suggestionsEn: [
-      "I would like to change my exam date, is this possible?",
-      "Can I still sit my exams if I miss the standard exam booking deadline?",
-      "Where can I find the rules and regulations in relation to sitting an examination?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?",
-      "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?",
-      "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?",
-    ],
+      "**មិនបានឡើយ។ សិស្សមិនត្រូវបានអនុញ្ញាតឱ្យផ្លាស់ប្តូរការចុះឈ្មោះរបស់ពួកគេនៅថ្ងៃប្រឡងនោះទេ។",
   },
   {
     id: "sitting-complaint",
     category: "Exam Sitting",
     question:
-      "If something happens at the exam center that affects my performance, can I make a complaint?",
+      ": If something happens at the exam center that affects my performance, can I make a complaint?",
     questionKm:
       "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
     keywords: [
@@ -542,29 +405,18 @@ const faqKnowledgeBase = [
       "ប្តឹង",
       "បញ្ហា",
       "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
-      "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ",
     ],
     answerEn:
-      "KICPAA makes every effort to ensure fair conditions. If you feel conditions affected your performance, inform KICPAA directly by email to `education@kicpaa.org`.",
+      "KICPAA makes every effort to ensure fair examination conditions. If you believe that the examination conditions have affected your performance, please inform KICPAA by emailing `education@kicpaa.org`",
     answerKm:
-      "វ.គ.ស.ក. តែងតែខិតខំប្រឹងប្រែងឱ្យអស់ពីសមត្ថភាពដើម្បីធានាលក្ខខណ្ឌប្រឡងល្អបំផុត។ ប្រសិនបើអ្នកមានអារម្មណ៍ថាលក្ខខណ្ឌប៉ះពាល់ដល់ការប្រឡង សូមជូនដំណឹងផ្ទាល់ទៅកាន់ `education@kicpaa.org`។",
-    suggestionsEn: [
-      "When are results issued?",
-      "What can I do if I think that my results are incorrect?",
-      "How can I contact KICPAA ATQ support?",
-    ],
-    suggestionsKm: [
-      "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
-      "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-    ],
+      "វ.គ.ស.ក. តែងតែខិតខំប្រឹងប្រែងឱ្យអស់ពីសមត្ថភាពដើម្បីធានាលក្ខខណ្ឌប្រឡងល្អបំផុត។ ប្រសិនបើលោកអ្នកមានអារម្មណ៍ថាលក្ខខណ្ឌប៉ះពាល់ដល់ការប្រឡង សូមជូនដំណឹងផ្ទាល់ទៅកាន់  `education@kicpaa.org`។",
   },
 
-  // --- FAQ about Exam Result ---
+  // --- Category: Exam Result ---
   {
     id: "result-when",
     category: "Exam Result",
-    question: "When are results issued?",
+    question: "When is the result issued?",
     questionKm: "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
     keywords: [
       "results",
@@ -581,19 +433,9 @@ const faqKnowledgeBase = [
       "តើលទ្ធផលប្រឡងចេញនៅពេលណា",
     ],
     answerEn:
-      "The exam result will be available **immediately after your submission**.",
+      "The exam result will be available immediately after your submission.",
     answerKm:
-      "លទ្ធផលប្រឡងនឹងមាន **ភ្លាមៗបន្ទាប់ពីអ្នកចុចបញ្ជូន (Submission)** រួចរាល់។",
-    suggestionsEn: [
-      "What can I do if I think that my results are incorrect?",
-      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
-      "When can I take exams?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
-      "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?",
-      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-    ],
+      "លទ្ធផលប្រឡងនឹងមាន ភ្លាមៗបន្ទាប់ពីអ្នកចុចបញ្ជូន (Submission) រួចរាល់។",
   },
   {
     id: "result-incorrect",
@@ -612,21 +454,292 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?",
       "លទ្ធផលមិនត្រឹមត្រូវ",
       "ពិនិត្យឡើងវិញ",
-      "មិនត្រឹមត្រូវ",
-      "ពិន្ទុខុស",
-      "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ",
     ],
     answerEn:
-      "You can request an **exam result review** by emailing `education@kicpaa.org` with your full name, student ID, subject, and reason.",
+      "You can request an **Exam Result Review** by emailing `education@kicpaa.org` with your full name, student ID, subject name, and specific reasons for the appeal.",
     answerKm:
-      "អ្នកអាចស្នើសុំការ **ពិនិត្យលទ្ធផលប្រឡងឡើងវិញ (Exam Result Review)** ដោយផ្ញើអ៊ីមែលទៅកាន់ `education@kicpaa.org` ដោយភ្ជាប់មកជាមួយឈ្មោះពេញ, Student ID, មុខវិជ្ជា និងមូលហេតុ។",
-    suggestionsEn: [
-      "When are results issued?",
-      "If I fail an exam, can I amend my entry to resit the exam in the same session?",
-      "How can I contact KICPAA ATQ support?",
-    ],
-    suggestionsKm: ["តើលទ្ធផលប្រឡងចេញនៅពេលណា?", "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?", "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?"],
+      "អ្នកអាចស្នើសុំការ **ពិនិត្យលទ្ធផលប្រឡងឡើងវិញ (Exam Result Review)** ដោយផ្ញើអ៊ីមែលទៅកាន់ `education@kicpaa.org` ដោយភ្ជាប់មកជាមួយឈ្មោះពេញ, Student ID, មុខវិជ្ជា និងមូលហេតុច្បាស់លាស់។",
   },
+
+  // --- Category: Fees & Costs ---
+  {
+    id: "fees-costs",
+    category: "Fees & Costs",
+    question: "How much are the ATQ fees and exam fees?",
+    questionKm: "តើតម្លៃសិក្សា និងថ្លៃប្រឡង ATQ មានតម្លៃប៉ុន្មាន?",
+    keywords: [
+      "fee",
+      "fees",
+      "cost",
+      "price",
+      "tuition",
+      "how much",
+      "how much does it cost",
+      "amount",
+      "pay",
+      "payment",
+      "application fee",
+      "membership fee",
+      "exam fee",
+      "200000",
+      "120000",
+      "200k",
+      "120k",
+      "khr",
+      "riels",
+      "តម្លៃ",
+      "ថ្លៃ",
+      "ថ្លៃប្រឡង",
+      "ថ្លៃពាក្យ",
+      "តម្លៃប្រឡង",
+      "បង់ប្រាក់",
+      "ប៉ុន្មាន",
+      "តម្លៃប៉ុន្មាន",
+      "ថ្លៃសមាជិក",
+      "តើតម្លៃសិក្សា និងថ្លៃប្រឡង atq មានតម្លៃប៉ុន្មាន",
+    ],
+    answerEn:
+      "The official fees for the ATQ Program are:\n\n- 📝 **Application Fee**: `21,000 KHR` (One-time payment upon registration)\n- 🎓 **Annual Student Membership Fee**: `42,000 KHR` (Paid annually)\n- ✍️ **Examination Fee**: `63,000 KHR` (Per subject per exam)\n\n*(Note: Candidates must be an approved ATQ student member and have paid all due fees before registering for exams.)*",
+    answerKm:
+      "កម្រៃផ្លូវការសម្រាប់កម្មវិធី ATQ មានដូចខាងក្រោម៖\n\n- 📝 **ថ្លៃពាក្យសុំចុះឈ្មោះ**: `២១,០០០ រៀល` (បង់តែម្តងគត់)\n- 🎓 **ថ្លៃសមាជិកភាពសិស្សប្រចាំឆ្នាំ**: `៤២,០០០ រៀល` (បង់ជារៀងរាល់ឆ្នាំ)\n- ✍️ **ថ្លៃប្រឡង**: `៦៣,០០០ រៀល` (ក្នុងមួយមុខវិជ្ជា)\n\n*(ចំណាំ៖ បេក្ខជនត្រូវតែជាសមាជិកសិស្ស ATQ ដែលបានអនុម័ត និងបានទូទាត់ថ្លៃពាក់ព័ន្ធរួចរាល់ មុនពេលចុះឈ្មោះប្រឡង)*",
+  },
+
+  // --- Category: Curriculum & Subjects ---
+  {
+    id: "subjects-overview",
+    category: "Curriculum & Subjects",
+    question: "What are the 8 ATQ subjects and levels?",
+    questionKm: "តើមុខវិជ្ជា ATQ ទាំង ៨ និងកម្រិតសិក្សាមានអ្វីខ្លះ?",
+    keywords: [
+      "8 subjects",
+      "all subjects",
+      "subjects",
+      "courses",
+      "modules",
+      "what subjects",
+      "levels",
+      "tq1",
+      "tq2",
+      "tq3",
+      "tq4",
+      "tq5",
+      "tq6",
+      "tq7",
+      "tq8",
+      "principles level",
+      "technician level",
+      "syllabus",
+      "curriculum",
+      "មុខវិជ្ជា",
+      "មុខវិជ្ជាទាំង ៨",
+      "កម្រិតសិក្សា",
+      "កម្រិតមូលដ្ឋាន",
+      "កម្រិតបច្ចេកទេស",
+      "តើមុខវិជ្ជា atq ទាំង ៨ និងកម្រិតសិក្សាមានអ្វីខ្លះ",
+    ],
+    answerEn:
+      "The ATQ program consists of **8 subjects across 2 qualification levels**:\n\n**📘 Principles Level**:\n- **TQ1**: Bookkeeping, accounting and controls\n- **TQ2**: IT skills and software (QuickBooks, Excel, Word)\n- **TQ3**: Management information and data analysis\n- **TQ4**: Business environment\n\n**📙 Technician Level**:\n- **TQ5**: Financial statement preparation\n- **TQ6**: Management accounting\n- **TQ7**: Principles of Cambodian taxation\n- **TQ8**: Ethics and Cambodian business law",
+    answerKm:
+      "កម្មវិធី ATQ រួមមាន **៨ មុខវិជ្ជា ចែកចេញជា ២ កម្រិត**៖\n\n**📘 កម្រិតមូលដ្ឋាន (Principles Level)**៖\n- **TQ1**: ការកត់ត្រាបញ្ជី គណនេយ្យ និងការត្រួតពិនិត្យ\n- **TQ2**: ជំនាញបច្ចេកវិទ្យាព័ត៌មាន និងកម្មវិធីកុំព្យូទ័រ (QuickBooks, Excel, Word)\n- **TQ3**: ការគ្រប់គ្រងព័ត៌មាន និងការវិភាគទិន្នន័យ\n- **TQ4**: ការយល់ដឹងអំពីបរិយាកាសអាជីវកម្ម\n\n**📙 កម្រិតបច្ចេកទេស (Technician Level)**៖\n- **TQ5**: ការរៀបចំរបាយការណ៍ហិរញ្ញវត្ថុ\n- **TQ6**: គណនេយ្យគ្រប់គ្រង\n- **TQ7**: គោលការណ៍ពន្ធដារកម្ពុជា\n- **TQ8**: ក្រមសីលធម៌ និងច្បាប់អាជីវកម្មកម្ពុជា",
+  },
+
+  // --- Category: Grading & Pass Mark ---
+  {
+    id: "grading-passmark",
+    category: "Grading & Pass Mark",
+    question: "What is the passing score for ATQ exams?",
+    questionKm: "តើពិន្ទុជាប់សម្រាប់ការប្រឡង ATQ គឺប៉ុន្មាន?",
+    keywords: [
+      "pass mark",
+      "passing score",
+      "pass score",
+      "pass rate",
+      "minimum score",
+      "passing grade",
+      "how to pass",
+      "50%",
+      "percentage to pass",
+      "score to pass",
+      "grade",
+      "ពិន្ទុជាប់",
+      "ពិន្ទុប្រឡងជាប់",
+      "ប៉ុន្មានជាប់",
+      "ពិន្ទុប៉ុន្មានជាប់",
+      "ជាប់",
+      "ពិន្ទុ",
+      "៥០%",
+      "តើពិន្ទុជាប់សម្រាប់ការប្រឡង atq គឺប៉ុន្មាន",
+    ],
+    answerEn:
+      "The pass mark for all ATQ examination subjects is **50%**.\n- Your result displays immediately on screen upon submission as **Pass** or **Fail** with your overall percentage score.\n- There is no penalty deduction for incorrect choices.",
+    answerKm:
+      "ពិន្ទុជាប់សម្រាប់ការប្រឡងគ្រប់មុខវិជ្ជា ATQ គឺ **៥០%**។\n- លទ្ធផលនឹងបង្ហាញភ្លាមៗបន្ទាប់ពីចុចបញ្ជូន (Submission) នៅលើអេក្រង់កុំព្យូទ័រថា **ជាប់ (Pass)** ឬ **ធ្លាក់ (Fail)** ព្រមទាំងពិន្ទុភាគរយជាក់ស្តែង។\n- មិនមានការកាត់ពិន្ទុសម្រាប់ការឆ្លើយខុសនោះទេ។",
+  },
+
+  // --- Category: Exam Format & Duration ---
+  {
+    id: "exam-format-duration",
+    category: "Exam Format",
+    question: "What is the format and duration of the ATQ exam?",
+    questionKm: "តើទម្រង់ និងរយៈពេលនៃការប្រឡង ATQ មានលក្ខណៈដូចម្តេច?",
+    keywords: [
+      "format",
+      "duration",
+      "how long",
+      "time limit",
+      "exam length",
+      "hours",
+      "2 hours",
+      "computer based",
+      "cbe",
+      "multiple choice",
+      "questions format",
+      "ទម្រង់",
+      "រយៈពេល",
+      "ប៉ុន្មានម៉ោង",
+      "ម៉ោងប្រឡង",
+      "ទម្រង់ប្រឡង",
+      "ប្រឡងលើកុំព្យូទ័រ",
+      "រយៈពេលប្រឡង",
+      "តើទម្រង់ និងរយៈពេលនៃការប្រឡង atq មានលក្ខណៈដូចម្តេច",
+    ],
+    answerEn:
+      "**ATQ Examination Format & Duration**:\n- 💻 **Exam Method**: Computer-Based Examination (CBE) taken in person at KICPAA Center.\n- ⏱️ **Duration**: **2 hours** (120 minutes) per subject.\n- 📋 **Question Types**: Multiple-choice questions, objective test items, scenario analysis, and practical data entries.\n- 🌐 **Language**: English with bilingual clarifications for Cambodian context where applicable.",
+    answerKm:
+      "**ទម្រង់ និងរយៈពេលនៃការប្រឡង ATQ**៖\n- 💻 **របៀបប្រឡង**៖ ប្រឡងលើប្រព័ន្ធកុំព្យូទ័រ (Computer-Based Exam - CBE) ដោយផ្ទាល់នៅមណ្ឌលប្រឡង វ.គ.ស.ក.។\n- ⏱️ **រយៈពេល**៖ **២ ម៉ោង** (១២០ នាទី) ក្នុងមួយមុខវិជ្ជា។\n- 📋 **ប្រភេទសំណួរ**៖ សំណួរពហុជ្រើសរើស (Multiple-choice), សំណួរផ្អែកលើករណីសិក្សា និងការបញ្ចូលទិន្នន័យជាក់ស្តែង។\n- 🌐 **ភាសា**៖ ភាសាអង់គ្លេស ជាមួយនឹងការពន្យល់គាំទ្រជាភាសាខ្មែរសម្រាប់បរិបទកម្ពុជា។",
+  },
+
+  // --- Category: Admission & Eligibility ---
+  {
+    id: "admission-requirements",
+    category: "Admission & Eligibility",
+    question: "Who is eligible to apply for the ATQ program?",
+    questionKm: "តើនរណាខ្លះដែលមានសិទ្ធិចុះឈ្មោះចូលរៀនកម្មវិធី ATQ?",
+    keywords: [
+      "eligible",
+      "eligibility",
+      "who can apply",
+      "who can study",
+      "requirements",
+      "admission",
+      "qualification to join",
+      "criteria",
+      "apply",
+      "enroll",
+      "enrollment",
+      "high school",
+      "university",
+      "តម្រូវការ",
+      "អ្នកណាខ្លះអាចរៀនបាន",
+      "លក្ខខណ្ឌ",
+      "ចុះឈ្មោះចូលរៀន",
+      "សិទ្ធិចុះឈ្មោះ",
+      "និស្សិត",
+      "បាក់ឌុប",
+      "តើនរណាខ្លះដែលមានសិទ្ធិចុះឈ្មោះចូលរៀនកម្មវិធី atq",
+    ],
+    answerEn:
+      "The ATQ program is designed for:\n1. 🎓 **University Students**: Enrolled in accounting, finance, banking, business, or economics.\n2. 🏫 **High School Graduates (Bac II)**: Seeking an accredited fast-track entry into the accounting profession.\n3. 💼 **Professionals & Civil Servants**: Working in finance, accounting, or audit roles seeking national professional recognition.\n\nTo enroll, visit the **Learning Hub** to submit your student application.",
+    answerKm:
+      "កម្មវិធី ATQ បើកទូលាយសម្រាប់បេក្ខជនជាច្រើនរួមមាន៖\n១. 🎓 **និស្សិតសាកលវិទ្យាល័យ**៖ កំពុងសិក្សាជំនាញគណនេយ្យ ហិរញ្ញវត្ថុ ធនាគារ គ្រប់គ្រង ឬសេដ្ឋកិច្ច។\n២. 🏫 **សិស្សបញ្ចប់ថ្នាក់វិទ្យាល័យ (បាក់ឌុប)**៖ ដែលចង់ទទួលបានវិជ្ជាជីវៈគណនេយ្យស្តង់ដារជាតិដោយឆាប់រហ័ស។\n៣. 💼 **បុគ្គលិក មន្ត្រីរាជការ និងអ្នកអនុវត្តការងារ**៖ ក្នុងវិស័យគណនេយ្យ ហិរញ្ញវត្ថុ ឬសវនកម្ម ដែលចង់បានវិញ្ញាបនបត្រវិជ្ជាជីវៈស្របច្បាប់។\n\nដើម្បីចុះឈ្មោះ សូមចូលទៅកាន់ **Learning Hub** ដើម្បីដាក់ពាក្យស្នើសុំ។",
+  },
+
+  // --- Category: Internships ---
+  {
+    id: "internship-opportunities",
+    category: "Internships",
+    question: "Are there internship opportunities for ATQ students?",
+    questionKm: "តើមានឱកាសកម្មសិក្សា (Internship) សម្រាប់សិស្ស ATQ ដែរឬទេ?",
+    keywords: [
+      "internship",
+      "internships",
+      "job",
+      "career",
+      "partner firms",
+      "practical training",
+      "work experience",
+      "bdo",
+      "grant thornton",
+      "ecovis",
+      "hlb",
+      "employers",
+      "កម្មសិក្សា",
+      "ការងារ",
+      "ឱកាសការងារ",
+      "ក្រុមហ៊ុនដៃគូ",
+      "ចុះកម្មសិក្សា",
+      "តើមានឱកាសកម្មសិក្សាសម្រាប់សិស្ស atq ដែរឬទេ",
+    ],
+    answerEn:
+      "**Yes!** KICPAA collaborates with recognized accounting firms, audit practices, and corporations across Cambodia (such as **BDO, Grant Thornton, HLB, ECOVIS, Morison, CamEd**, and leading universities).\n- Active ATQ student members receive direct support and recommendations for **practical internship placements** and entry-level accounting positions.",
+    answerKm:
+      "**បាទ/ចាស មាន!** វ.គ.ស.ក. មានកិច្ចសហការជាមួយក្រុមហ៊ុនគណនេយ្យ សវនកម្ម និងស្ថាប័នដៃគូនានាក្នុងប្រទេសកម្ពុជា (ដូចជា **BDO, Grant Thornton, HLB, ECOVIS, Morison, CamEd** និងគ្រឹះស្ថានឧត្តមសិក្សាជាច្រើន)។\n- សមាជិកសិស្ស ATQ នឹងទទួលបានការគាំទ្រ និងការណែនាំសម្រាប់ការ **ចុះកម្មសិក្សា (Internships)** និងឱកាសការងារគណនេយ្យជាក់ស្តែង។",
+  },
+
+  // --- Category: Study Materials ---
+  {
+    id: "study-materials",
+    category: "Study Materials",
+    question: "Where can I get ATQ study materials and textbooks?",
+    questionKm: "តើខ្ញុំអាចទទួលបានសៀវភៅ និងឯកសារសិក្សា ATQ នៅឯណា?",
+    keywords: [
+      "textbook",
+      "textbooks",
+      "books",
+      "study materials",
+      "materials",
+      "reading",
+      "learning hub",
+      "curriculum book",
+      "syllabus book",
+      "download",
+      "resources",
+      "mock exam",
+      "សៀវភៅ",
+      "ឯកសារ",
+      "សៀវភៅសិក្សា",
+      "មេរៀន",
+      "ឯកសារសិក្សា",
+      "ទាញយកសៀវភៅ",
+      "តើខ្ញុំអាចទទួលបានសៀវភៅ និងឯកសារសិក្សា atq នៅឯណា",
+    ],
+    answerEn:
+      "ATQ study resources and learning guides are available through two channels:\n1. 💻 **Digital Resources**: Syllabi, chapter overviews, and test preparation materials can be accessed on the **Learning Hub**.\n2. 📚 **Physical Textbooks**: Official printed study books for TQ1 through TQ8 can be purchased directly at the **KICPAA office**.",
+    answerKm:
+      "ឯកសារ និងសៀវភៅសិក្សា ATQ អាចទទួលបានតាម ២ ផ្លូវ៖\n១. 💻 **ឯកសារឌីជីថល**៖ កម្មវិធីសិក្សាលម្អិត សេចក្តីសង្ខេបមេរៀន និងគំរូសំណួរប្រឡង អាចចូលមើលបាននៅលើ **Learning Hub**។\n២. 📚 **សៀវភៅពុម្ពផ្លូវការ**៖ សៀវភៅសិក្សាផ្លូវការសម្រាប់មុខវិជ្ជា TQ1 ដល់ TQ8 អាចរកជាវបានដោយផ្ទាល់នៅ **ការិយាល័យ វ.គ.ស.ក.**។",
+  },
+
+  // --- Category: Certificate & Career ---
+  {
+    id: "qualification-certificate",
+    category: "Certificate & Career",
+    question: "What certificate do I receive upon completing the ATQ?",
+    questionKm: "តើខ្ញុំនឹងទទួលបានវិញ្ញាបនបត្រអ្វីខ្លះនៅពេលបញ្ចប់កម្មវិធី ATQ?",
+    keywords: [
+      "certificate",
+      "diploma",
+      "qualification",
+      "accreditation",
+      "finish",
+      "complete",
+      "graduation",
+      "cpa pathway",
+      "recognized",
+      "recognition",
+      "វិញ្ញាបនបត្រ",
+      "សញ្ញាបត្រ",
+      "បញ្ចប់ការសិក្សា",
+      "ការទទួលស្គាល់",
+      "វិញ្ញាបនបត្រ atq",
+      "តើខ្ញុំនឹងទទួលបានវិញ្ញាបនបត្រអ្វីខ្លះនៅពេលបញ្ចប់កម្មវិធី atq",
+    ],
+    answerEn:
+      "Upon passing all required subjects:\n- 📜 Candidates are awarded the **Accounting Technician Qualification (ATQ)** certificate accredited by KICPAA under Cambodian regulations.\n- 🚀 The ATQ certificate validates your professional capability to perform accounting, tax, and reporting roles, and serves as a solid foundation toward the **Certified Public Accountant (CPA)** qualification.",
+    answerKm:
+      "នៅពេលប្រឡងជាប់មុខវិជ្ជាកំណត់ទាំងអស់៖\n- 📜 បេក្ខជននឹងទទួលបានវិញ្ញាបនបត្រ **អ្នកបច្ចេកទេសគណនេយ្យ (Accounting Technician Qualification - ATQ)** ដែលចេញជាផ្លូវការដោយ វ.គ.ស.ក.។\n- 🚀 វិញ្ញាបនបត្រនេះបញ្ជាក់ពីសមត្ថភាពវិជ្ជាជីវៈក្នុងការបំពេញការងារគណនេយ្យ ពន្ធដារ និងរបាយការណ៍ហិរញ្ញវត្ថុ ព្រមទាំងជាមូលដ្ឋានគ្រឹះដ៏រឹងមាំដើម្បីបន្តទៅកាន់សញ្ញាបត្រ **គណនេយ្យករជំនាញ (CPA)**។",
+  },
+
+  // --- Category: Contact ---
   {
     id: "contact-support",
     category: "Contact",
@@ -651,128 +764,13 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ kicpaa atq តាមរបៀបណា",
     ],
     answerEn:
-      "**KICPAA ATQ Support Contacts**:\n- ✉️ **Email**: `Education@kicpaa.org` / `ATQ@kicpaa.org`\n- 📞 **Phone / Telegram**: `+855 17 493 140`\n- 🌐 **Platform**: KICPAA Learning Hub",
+      "**KICPAA ATQ Support Contacts**:\n- ✉️ **Email**: `Education@kicpaa.org` / `ATQ@kicpaa.org`\n- 📞 **Phone / Telegram**: `+855 17 493 140`\n- 🏢 **Office**: Monday – Friday (8:00 AM – 5:00 PM)\n- 🌐 **Platform**: KICPAA Learning Hub",
     answerKm:
-      "**ព័ត៌មានទំនាក់ទំនង KICPAA ATQ**៖\n- ✉️ **អ៊ីមែល**: `Education@kicpaa.org` / `ATQ@kicpaa.org`\n- 📞 **ទូរស័ព្ទ / Telegram**: `+855 17 493 140`\n- 🌐 **ប្រព័ន្ធ**: KICPAA Learning Hub",
-    suggestionsEn: [
-      "When can I take exams?",
-      "How can I enter for exams?",
-      "When is the registration deadline?",
-    ],
-    suggestionsKm: [
-      "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-      "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-      "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?",
-    ],
+      "**ព័ត៌មានទំនាក់ទំនង KICPAA ATQ**៖\n- ✉️ **អ៊ីមែល**: `Education@kicpaa.org` / `ATQ@kicpaa.org`\n- 📞 **ទូរស័ព្ទ / Telegram**: `+855 17 493 140`\n- 🏢 **ការិយាល័យ**: ថ្ងៃចន្ទ – សុក្រ (៨:០០ ព្រឹក – ៥:០០ ល្ងាច)\n- 🌐 **ប្រព័ន្ធ**: KICPAA Learning Hub",
   },
 ];
 
-// Direct mapping of clickable suggestion pills and quick-prompts to their target FAQ items
-const suggestionTargetMap = {
-  // English suggestions -> target FAQ ID
-  "What subjects will be available at each month?": "session-available",
-  "what subjects will be available": "session-available",
-  "what subjects will be available at each month": "session-available",
-  "how can i enter for exams": "booking-how-to-enter",
-  "how to register for exams": "booking-how-to-enter",
-  "how to enter for exams": "booking-how-to-enter",
-  "when are booking deadlines": "booking-deadlines",
-  "what are booking deadlines": "booking-deadlines",
-  "when is the registration deadline": "booking-deadlines",
-  "can i take exams in any order": "booking-order",
-  "can i take the atq qualification exams in any order": "booking-order",
-  "how many exams can i take per session": "booking-max-exams",
-  "how many exams can i take at each exam session": "booking-max-exams",
-  "how many exams can i take": "booking-max-exams",
-  "what if i fail an exam": "booking-fail-resit",
-  "if i fail can i resit": "booking-fail-resit",
-  "if i fail an exam can i amend my entry to resit the exam in the same session": "booking-fail-resit",
-  "can i still sit if i miss deadline": "booking-late",
-  "can i still sit my exams if i miss the standard exam booking deadline": "booking-late",
-  "can i do late booking": "booking-late",
-  "how do i know booking is successful": "booking-success",
-  "how do i know if my exam booking has been successful": "booking-success",
-  "how do i know booking succeeded": "booking-success",
-  "where can i take my exams": "booking-location",
-  "where can i take exams": "booking-location",
-  "when are results issued": "result-when",
-  "when can i take exams": "session-when",
-  "exam session dates": "session-when",
-  "what if results are incorrect": "result-incorrect",
-  "what can i do if i think that my results are incorrect": "result-incorrect",
-  "what happens on exam day": "sitting-exam-day",
-  "what happens on the exam day": "sitting-exam-day",
-  "what documents are required": "sitting-exam-day",
-  "what documents do i need to bring on exam day": "sitting-exam-day",
-  "contact information": "contact-support",
-  "contact kicpaa support": "contact-support",
-  "how can i contact kicpaa atq support": "contact-support",
-  "contact kicpaa": "contact-support",
-  "can i change my booking": "booking-change",
-  "i would like to change my exam date is this possible": "booking-change",
-  "i would like to change my booking": "booking-change",
-  "can i change entry on exam day": "sitting-same-day-change",
-  "can i change my entry on the day of the exam": "sitting-same-day-change",
-  "where can i find exam rules": "sitting-rules",
-  "where can i find the rules and regulations in relation to sitting an examination": "sitting-rules",
-  "exam sitting rules": "sitting-rules",
-  "exam complaints": "sitting-complaint",
-  "if something happens at the exam center that affects my performance can i make a complaint": "sitting-complaint",
-  "can i file a complaint": "sitting-complaint",
-  "what if i miss the exam": "booking-late",
-
-  // Khmer suggestions -> target FAQ ID
-  "តើមានមុខវិជ្ជាអ្វីខ្លះ": "session-available",
-  "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ": "session-available",
-  "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?": "booking-how-to-enter",
-  "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា": "booking-how-to-enter",
-  "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច": "booking-how-to-enter",
-  "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?": "booking-deadlines",
-  "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា": "booking-deadlines",
-  "តើអាចប្រឡងតាមលំដាប់ណា": "booking-order",
-  "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា": "booking-order",
-  "តើខ្ញុំអាចប្រឡងមុខវិជ្ជា atq តាមលំដាប់ណាមួយក៏បានមែនទេ": "booking-order",
-  "តើប្រឡងបានប៉ុន្មានមុខក្នុង១សម័យ": "booking-max-exams",
-  "តើប្រឡងបានប៉ុន្មានមុខ": "booking-max-exams",
-  "តើខ្ញុំអាចប្រឡងបានប៉ុន្មានមុខវិជ្ជាក្នុងសម័យប្រឡងនីមួយៗ": "booking-max-exams",
-  "ចំនួនមុខវិជ្ជាប្រឡង": "booking-max-exams",
-  "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?": "booking-fail-resit",
-  "បើធ្លាក់តើអាចប្រឡងសងពេលណា": "booking-fail-resit",
-  "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ": "booking-fail-resit",
-  "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ": "booking-late",
-  "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់": "booking-late",
-  "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?": "booking-late",
-  "ដឹងថាកក់បានជោគជ័យដោយរបៀបណា": "booking-success",
-  "ដឹងថាកក់ជោគជ័យដោយរបៀបណា": "booking-success",
-  "តើខ្ញុំដឹងដោយរបៀបណាថាការកក់ប្រឡងបានជោគជ័យ": "booking-success",
-  "ទីតាំងប្រឡងនៅឯណា": "booking-location",
-  "តើខ្ញុំអាចប្រឡងនៅទីណា?": "booking-location",
-  "តើខ្ញុំអាចប្រឡងនៅទីណា": "booking-location",
-  "លទ្ធផលចេញពេលណា": "result-when",
-  "តើលទ្ធផលប្រឡងចេញនៅពេលណា": "result-when",
-  "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?": "result-incorrect",
-  "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ": "result-incorrect",
-  "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង": "sitting-exam-day",
-  "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង": "sitting-exam-day",
-  "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?": "sitting-exam-day",
-  "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?": "sitting-exam-day",
-  "តើប្រឡងនៅពេលណា": "session-when",
-  "តើខ្ញុំអាចប្រឡងនៅពេលណា": "session-when",
-  "កាលវិភាគប្រឡង": "session-when",
-  "តើខ្ញុំអាចប្រឡងនៅពេលណា?": "session-when",
-  "តើអាចផ្លាស់ប្តូរការកក់បានទេ": "booking-change",
-  "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ": "booking-change",
-  "តើខ្ញុំអាចផ្លាស់ប្តូរថ្ងៃប្រឡងបានទេ?": "booking-change",
-  "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?": "contact-support",
-  "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ kicpaa atq តាមរបៀបណា": "contact-support",
-  "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
-  "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
-  "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?": "sitting-rules",
-  "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា": "sitting-rules",
-  "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?": "sitting-complaint",
-  "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ": "sitting-complaint",
-};
-
+// Helper: Normalizes text for case, unicode, and punctuation
 const normalizeChatText = (value = "") =>
   value
     .normalize("NFKC")
@@ -782,6 +780,171 @@ const normalizeChatText = (value = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
+// Direct mapping of clickable suggestion pills and quick-prompts to their target FAQ items
+const suggestionTargetMap = {};
+
+// Register all FAQs programmatically into the target map for 100% click resolution
+faqKnowledgeBase.forEach((item) => {
+  if (item.question) {
+    suggestionTargetMap[normalizeChatText(item.question)] = item.id;
+  }
+  if (item.questionKm) {
+    suggestionTargetMap[normalizeChatText(item.questionKm)] = item.id;
+  }
+  if (Array.isArray(item.keywords)) {
+    item.keywords.forEach((kw) => {
+      suggestionTargetMap[normalizeChatText(kw)] = item.id;
+    });
+  }
+});
+
+// Alias variations to guarantee 100% precision for common short prompts
+const promptAliases = {
+  "when can i take exams": "session-when",
+  "exam session dates": "session-when",
+  "what subjects will be available": "session-available",
+  "what subjects will be available at each month": "session-available",
+  "can i take exams in any order": "booking-order",
+  "can i take the atq qualification exams in any order": "booking-order",
+  "when are booking deadlines": "booking-deadlines",
+  "what are booking deadlines": "booking-deadlines",
+  "when is the registration deadline": "booking-deadlines",
+  "how many exams can i take per session": "booking-max-exams",
+  "how many exams can i take at each exam session": "booking-max-exams",
+  "how many exams can i take": "booking-max-exams",
+  "what if i fail an exam": "booking-fail-resit",
+  "if i fail can i resit": "booking-fail-resit",
+  "can i still sit if i miss deadline": "booking-late",
+  "can i do late booking": "booking-late",
+  "how do i know booking is successful": "booking-success",
+  "where can i take my exams": "booking-location",
+  "where can i take exams": "booking-location",
+  "how can i enter for exams": "booking-how-to-enter",
+  "how to register for exams": "booking-how-to-enter",
+  "can i change my booking": "booking-change",
+  "what happens on exam day": "sitting-exam-day",
+  "what documents are required": "sitting-exam-day",
+  "where can i find exam rules": "sitting-rules",
+  "can i change entry on exam day": "sitting-same-day-change",
+  "exam complaints": "sitting-complaint",
+  "when are results issued": "result-when",
+  "what if results are incorrect": "result-incorrect",
+  "how much are the atq fees": "fees-costs",
+  "how much is exam fee": "fees-costs",
+  "what are the 8 subjects": "subjects-overview",
+  "what is the passing score": "grading-passmark",
+  "exam format and duration": "exam-format-duration",
+  "who can apply for atq": "admission-requirements",
+  "internship opportunities": "internship-opportunities",
+  "study materials and textbooks": "study-materials",
+  "what certificate do i receive": "qualification-certificate",
+  "contact kicpaa support": "contact-support",
+  // Khmer aliases
+  "តើប្រឡងនៅពេលណា": "session-when",
+  "កាលវិភាគប្រឡង": "session-when",
+  "តើមានមុខវិជ្ជាអ្វីខ្លះ": "session-available",
+  "តើអាចប្រឡងតាមលំដាប់ណា": "booking-order",
+  "តើប្រឡងបានប៉ុន្មានមុខក្នុង១សម័យ": "booking-max-exams",
+  "ចំនួនមុខវិជ្ជាប្រឡង": "booking-max-exams",
+  "បើធ្លាក់តើអាចប្រឡងសងពេលណា": "booking-fail-resit",
+  "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ": "booking-late",
+  "ដឹងថាកក់បានជោគជ័យដោយរបៀបណា": "booking-success",
+  "ទីតាំងប្រឡងនៅឯណា": "booking-location",
+  "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច": "booking-how-to-enter",
+  "តើអាចផ្លាស់ប្តូរការកក់បានទេ": "booking-change",
+  "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង": "sitting-exam-day",
+  "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង": "sitting-exam-day",
+  "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
+  "លទ្ធផលចេញពេលណា": "result-when",
+  "តម្លៃប្រឡងប៉ុន្មាន": "fees-costs",
+  "មុខវិជ្ជាទាំង ៨": "subjects-overview",
+  "ពិន្ទុជាប់ប៉ុន្មាន": "grading-passmark",
+  "ទម្រង់ប្រឡង": "exam-format-duration",
+  "អ្នកណាខ្លះអាចរៀនបាន": "admission-requirements",
+  "ឱកាសការងារ": "internship-opportunities",
+  "សៀវភៅសិក្សា": "study-materials",
+  "វិញ្ញាបនបត្រ atq": "qualification-certificate",
+};
+
+Object.entries(promptAliases).forEach(([alias, id]) => {
+  suggestionTargetMap[normalizeChatText(alias)] = id;
+});
+
+/**
+ * Smart Random Suggestions Generator
+ * Generates dynamic, diverse suggestion questions picked across knowledge base categories.
+ * Excludes the currently answered question, and ensures cross-category variety.
+ */
+const getRandomSuggestions = (excludeId = null, lang = "en", count = 3) => {
+  const isKm = lang === "km";
+  const pool = faqKnowledgeBase.filter((item) => item.id !== excludeId);
+  if (pool.length <= count) {
+    return pool.map((item) => (isKm ? item.questionKm : item.question));
+  }
+
+  // Group by category to ensure cross-category representation
+  const categoryMap = new Map();
+  pool.forEach((item) => {
+    const cat = item.category || "General";
+    if (!categoryMap.has(cat)) categoryMap.set(cat, []);
+    categoryMap.get(cat).push(item);
+  });
+
+  const selected = [];
+  const selectedIds = new Set();
+
+  // If excludeId was provided, pick 1 question from the same category first (related question)
+  if (excludeId) {
+    const currentItem = faqKnowledgeBase.find((i) => i.id === excludeId);
+    if (currentItem && categoryMap.has(currentItem.category)) {
+      const sameCatItems = categoryMap
+        .get(currentItem.category)
+        .filter((item) => item.id !== excludeId);
+      if (sameCatItems.length > 0) {
+        const picked =
+          sameCatItems[Math.floor(Math.random() * sameCatItems.length)];
+        selected.push(picked);
+        selectedIds.add(picked.id);
+      }
+    }
+  }
+
+  // Shuffle all categories
+  const categories = Array.from(categoryMap.keys()).sort(
+    () => 0.5 - Math.random(),
+  );
+
+  // Pick 1 question from each distinct category until we reach count
+  for (const cat of categories) {
+    if (selected.length >= count) break;
+    const catItems = categoryMap
+      .get(cat)
+      .filter((item) => !selectedIds.has(item.id));
+    if (catItems.length > 0) {
+      const pick = catItems[Math.floor(Math.random() * catItems.length)];
+      selected.push(pick);
+      selectedIds.add(pick.id);
+    }
+  }
+
+  // If still need more, fill randomly from remaining candidates
+  if (selected.length < count) {
+    const remaining = pool
+      .filter((item) => !selectedIds.has(item.id))
+      .sort(() => 0.5 - Math.random());
+    for (const item of remaining) {
+      if (selected.length >= count) break;
+      selected.push(item);
+      selectedIds.add(item.id);
+    }
+  }
+
+  // Shuffle selected items so the related one isn't always in position 0
+  const shuffled = selected.sort(() => 0.5 - Math.random());
+
+  return shuffled.map((item) => (isKm ? item.questionKm : item.question));
+};
+
 const ignoredEnglishTokens = new Set([
   "a", "an", "the", "is", "are", "am", "was", "were", "be", "been",
   "i", "me", "my", "we", "our", "you", "your", "it", "this", "that",
@@ -790,89 +953,74 @@ const ignoredEnglishTokens = new Set([
   "when", "where", "who", "which", "why", "please", "tell", "about",
 ]);
 
-// Query matcher with phrase and token scoring for English and Khmer.
+// Intelligent Query Matcher with Natural Language understanding for English & Khmer
 function findBestAnswer(rawQuery, lang = "en") {
   const query = normalizeChatText(rawQuery);
-  const queryTokens = [...new Set(query.split(" ").filter((token) =>
-    token.length > 1 && !ignoredEnglishTokens.has(token),
-  ))];
+  const isKm = lang === "km";
 
   // 1. Check for Greetings
   const greetings = [
-    "hi",
-    "hello",
-    "hey",
-    "greetings",
-    "good morning",
-    "good afternoon",
-    "សួស្តី",
-    "ជំរាបសួរ",
+    "hi", "hello", "hey", "greetings", "good morning", "good afternoon", "good evening", "sup",
+    "សួស្តី", "ជំរាបសួរ", "សួស្ដី",
   ];
   if (greetings.some((g) => query === g || query.startsWith(g + " "))) {
-    if (lang === "km") {
-      return {
-        text: "សួស្តី! 👋 ខ្ញុំជា **ATQ Assistant** ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ ឬលទ្ធផលប្រឡងបាន!",
-        suggestions: [
-          "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-          "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-          "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-          "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-        ],
-      };
-    }
     return {
-      text: "Hello! 👋 I'm your **KICPAA ATQ Assistant**. How can I help you today? You can ask me about exam sessions, booking procedures, exam rules, or results!",
-      suggestions: [
-        "When can I take exams?",
-        "How can I enter for exams?",
-        "Can I take the ATQ Qualification exams in any order?",
-        "When are results issued?",
-      ],
+      text: isKm
+        ? "សួស្តី! 👋 ខ្ញុំជា **ATQ Assistant** ជំនួយការឆ្លាតវៃរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃសិក្សា មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!"
+        : "Hello! 👋 I'm your **KICPAA ATQ Assistant**. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!",
+      suggestions: getRandomSuggestions(null, lang, 4),
     };
   }
 
-  // 2. Direct Suggestion Mapping (Ensures clicking suggestion pills always routes to the correct target FAQ)
+  // 2. Check for Gratitude / Thanks
+  const thanksWords = [
+    "thanks", "thank you", "thx", "thank", "appreciate", "ok thanks", "okay thanks",
+    "អរគុណ", "អរគុណច្រើន", "សូមអរគុណ",
+  ];
+  if (thanksWords.some((w) => query === w || query.startsWith(w + " "))) {
+    return {
+      text: isKm
+        ? "មិនអីទេ ដោយក្តីរីករាយ! 😊 ប្រសិនបើអ្នកមានចម្ងល់បន្ថែមអំពីកម្មវិធី ATQ សូមសួរខ្ញុំបានគ្រប់ពេល។"
+        : "You're very welcome! 😊 Feel free to ask if you have any more questions about the KICPAA ATQ Program.",
+      suggestions: getRandomSuggestions(null, lang, 4),
+    };
+  }
+
+  // 3. Direct Suggestion Mapping & Keyword Map Lookup
   const targetFaqId = suggestionTargetMap[query];
   if (targetFaqId) {
     const targetItem = faqKnowledgeBase.find((item) => item.id === targetFaqId);
     if (targetItem) {
       return {
-        text: lang === "km" ? targetItem.answerKm : targetItem.answerEn,
-        suggestions:
-          (lang === "km" ? targetItem.suggestionsKm : targetItem.suggestionsEn) || [],
+        text: isKm ? targetItem.answerKm : targetItem.answerEn,
+        suggestions: getRandomSuggestions(targetItem.id, lang, 3),
       };
     }
   }
 
-  // 3. Exact Question or Keyword Match
-  const exactItem = faqKnowledgeBase.find((item) =>
-    normalizeChatText(item.question) === query ||
-    normalizeChatText(item.questionKm) === query ||
-    item.keywords.some((keyword) => normalizeChatText(keyword) === query),
+  // 4. Exact Question or Keyword Match
+  const exactItem = faqKnowledgeBase.find(
+    (item) =>
+      normalizeChatText(item.question) === query ||
+      normalizeChatText(item.questionKm) === query ||
+      item.keywords.some((kw) => normalizeChatText(kw) === query),
   );
   if (exactItem) {
     return {
-      text: lang === "km" ? exactItem.answerKm : exactItem.answerEn,
-      suggestions:
-        (lang === "km" ? exactItem.suggestionsKm : exactItem.suggestionsEn) || [],
+      text: isKm ? exactItem.answerKm : exactItem.answerEn,
+      suggestions: getRandomSuggestions(exactItem.id, lang, 3),
     };
   }
 
-  // 4. Direct Contact Request
+  // 5. Direct Contact Request
   const contactTriggers = [
-    "contact",
-    "agent",
-    "human",
-    "support",
-    "email",
-    "phone",
-    "telegram",
-    "call",
-    "ទាក់ទង",
-    "ភ្នាក់ងារ",
-    "លេខទូរស័ព្ទ",
+    "contact", "agent", "human", "support", "email", "phone", "telegram", "call", "helpdesk",
+    "ទាក់ទង", "ភ្នាក់ងារ", "លេខទូរស័ព្ទ", "តេលេក្រាម", "ទំនាក់ទំនង",
   ];
-  const hasOtherTopic = /\b(exam|booking|register|result|fee|subject|schedule|deadline)\b/i.test(query);
+  const hasOtherTopic =
+    /\b(exam|booking|register|result|fee|subject|schedule|deadline|cost|pass|duration)\b/i.test(
+      query,
+    );
   if (
     !hasOtherTopic &&
     contactTriggers.some((t) => query.includes(normalizeChatText(t)))
@@ -881,13 +1029,20 @@ function findBestAnswer(rawQuery, lang = "en") {
       (i) => i.id === "contact-support",
     );
     return {
-      text: lang === "km" ? contactItem.answerKm : contactItem.answerEn,
-      suggestions:
-        lang === "km" ? contactItem.suggestionsKm : contactItem.suggestionsEn,
+      text: isKm ? contactItem.answerKm : contactItem.answerEn,
+      suggestions: getRandomSuggestions("contact-support", lang, 3),
     };
   }
 
-  // 5. Keyword & Token Scoring for custom typed queries
+  // 6. Intelligent Scoring Engine (Bilingual NLP)
+  const queryTokens = [
+    ...new Set(
+      query
+        .split(/\s+/)
+        .filter((token) => token.length > 1 && !ignoredEnglishTokens.has(token)),
+    ),
+  ];
+
   let bestItem = null;
   let highestScore = 0;
   let secondHighestScore = 0;
@@ -897,25 +1052,132 @@ function findBestAnswer(rawQuery, lang = "en") {
     const questionEn = normalizeChatText(item.question);
     const questionKm = normalizeChatText(item.questionKm);
 
-    if (query === questionEn || query === questionKm) score += 100;
-    else if (
+    // Exact or substring match in questions
+    if (query === questionEn || query === questionKm) {
+      score += 100;
+    } else if (
       (questionEn && (questionEn.includes(query) || query.includes(questionEn))) ||
       (questionKm && (questionKm.includes(query) || query.includes(questionKm)))
-    ) score += 24;
+    ) {
+      score += 35;
+    }
 
+    // Substring match of individual normalized keywords in query
     const normalizedKeywords = item.keywords.map(normalizeChatText);
-    normalizedKeywords.forEach((keyword) => {
-      if (keyword && query.includes(keyword)) {
-        score += 7 + keyword.split(" ").length * 2;
+    normalizedKeywords.forEach((kw) => {
+      if (!kw) return;
+      if (query === kw) {
+        score += 30;
+      } else if (query.includes(kw)) {
+        score += 12 + kw.split(" ").length * 3;
+      } else if (kw.length > 4 && kw.includes(query)) {
+        score += 10;
       }
     });
 
+    // Token-level scoring
     queryTokens.forEach((token) => {
-      const inQuestion = questionEn.includes(token) || questionKm.includes(token);
-      const inKeyword = normalizedKeywords.some((keyword) => keyword.includes(token));
-      if (inKeyword) score += 4;
-      else if (inQuestion) score += 2;
+      if (questionEn.includes(token) || questionKm.includes(token)) {
+        score += 5;
+      }
+      if (normalizedKeywords.some((kw) => kw.includes(token))) {
+        score += 6;
+      }
     });
+
+    // Domain-specific smart intent boosts
+    if (
+      item.id === "fees-costs" &&
+      (query.includes("fee") ||
+        query.includes("cost") ||
+        query.includes("price") ||
+        query.includes("pay") ||
+        query.includes("តម្លៃ") ||
+        query.includes("ថ្លៃ") ||
+        query.includes("បង់"))
+    ) {
+      score += 25;
+    }
+    if (
+      item.id === "subjects-overview" &&
+      (query.includes("subject") ||
+        query.includes("course") ||
+        query.includes("module") ||
+        query.includes("tq") ||
+        query.includes("មុខវិជ្ជា") ||
+        query.includes("៨ មុខ"))
+    ) {
+      score += 20;
+    }
+    if (
+      item.id === "grading-passmark" &&
+      (query.includes("pass") ||
+        query.includes("score") ||
+        query.includes("mark") ||
+        query.includes("grade") ||
+        query.includes("ជាប់") ||
+        query.includes("ធ្លាក់") ||
+        query.includes("៥០"))
+    ) {
+      score += 25;
+    }
+    if (
+      item.id === "exam-format-duration" &&
+      (query.includes("format") ||
+        query.includes("duration") ||
+        query.includes("hour") ||
+        query.includes("time") ||
+        query.includes("cbe") ||
+        query.includes("computer") ||
+        query.includes("រយៈពេល") ||
+        query.includes("ទម្រង់"))
+    ) {
+      score += 25;
+    }
+    if (
+      item.id === "internship-opportunities" &&
+      (query.includes("intern") ||
+        query.includes("partner") ||
+        query.includes("job") ||
+        query.includes("work") ||
+        query.includes("កម្មសិក្សា") ||
+        query.includes("ការងារ"))
+    ) {
+      score += 30;
+    }
+    if (
+      item.id === "study-materials" &&
+      (query.includes("book") ||
+        query.includes("material") ||
+        query.includes("textbook") ||
+        query.includes("reading") ||
+        query.includes("សៀវភៅ") ||
+        query.includes("ឯកសារ"))
+    ) {
+      score += 30;
+    }
+    if (
+      item.id === "qualification-certificate" &&
+      (query.includes("certificate") ||
+        query.includes("diploma") ||
+        query.includes("cpa") ||
+        query.includes("graduate") ||
+        query.includes("វិញ្ញាបនបត្រ") ||
+        query.includes("សញ្ញាបត្រ"))
+    ) {
+      score += 30;
+    }
+    if (
+      item.id === "admission-requirements" &&
+      (query.includes("who can") ||
+        query.includes("eligib") ||
+        query.includes("require") ||
+        query.includes("criteria") ||
+        query.includes("តម្រូវការ") ||
+        query.includes("នរណា"))
+    ) {
+      score += 25;
+    }
 
     if (score > highestScore) {
       secondHighestScore = highestScore;
@@ -926,39 +1188,21 @@ function findBestAnswer(rawQuery, lang = "en") {
     }
   });
 
-  const hasClearMatch = highestScore >= 7 &&
-    (highestScore - secondHighestScore >= 2 || highestScore >= 20);
+  const hasConfidentMatch = highestScore >= 12;
 
-  if (hasClearMatch && bestItem) {
+  if (hasConfidentMatch && bestItem) {
     return {
-      text: lang === "km" ? bestItem.answerKm : bestItem.answerEn,
-      suggestions: (lang === "km" ? bestItem.suggestionsKm : bestItem.suggestionsEn) || [],
+      text: isKm ? bestItem.answerKm : bestItem.answerEn,
+      suggestions: getRandomSuggestions(bestItem.id, lang, 3),
     };
   }
 
-  // 6. Fallback
-  if (lang === "km") {
-    return {
-      text: "ខ្ញុំមិនបានរកឃើញចម្លើយជាក់លាក់សម្រាប់សំណួរនេះទេ។ ប៉ុន្តែអ្នកអាចជ្រើសរើសប្រធានបទពេញនិយមខាងក្រោម ឬទាក់ទងផ្ទាល់មកកាន់ក្រុមការងារ KICPAA តាមរយៈ **Education@kicpaa.org** ឬទូរស័ព្ទ **+855 17 493 140** (មាន Telegram)។",
-      suggestions: [
-        "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-        "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-        "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា?",
-        "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-        "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ KICPAA ATQ តាមរបៀបណា?",
-      ],
-    };
-  }
-
+  // 7. Fallback when no match is found
   return {
-    text: "I couldn't find an exact answer to that specific question. However, here are popular topics, or you can contact our education team directly at **Education@kicpaa.org** or **+855 17 493 140** (Telegram available).",
-    suggestions: [
-      "When can I take exams?",
-      "How can I enter for exams?",
-      "Can I take the ATQ Qualification exams in any order?",
-      "When are results issued?",
-      "How can I contact KICPAA ATQ support?",
-    ],
+    text: isKm
+      ? "ខ្ញុំមិនបានរកឃើញចម្លើយជាក់លាក់សម្រាប់សំណួរនេះទេ។ ប៉ុន្តែអ្នកអាចជ្រើសរើសប្រធានបទពេញនិយមខាងក្រោម ឬទាក់ទងផ្ទាល់មកកាន់ក្រុមការងារ KICPAA តាមរយៈ **Education@kicpaa.org** ឬទូរស័ព្ទ **+855 17 493 140** (Telegram)។"
+      : "I couldn't find an exact answer to that specific question. However, here are some popular topics, or you can contact our education team directly at **Education@kicpaa.org** or **+855 17 493 140** (Telegram available).",
+    suggestions: getRandomSuggestions(null, lang, 4),
   };
 }
 
@@ -981,18 +1225,23 @@ const AIChatbot = ({
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  // Initial messages based on user reference screenshot
-  const initialWelcomeMessages = [
-    {
-      id: "welcome-main",
-      sender: "bot",
-      isWelcome: true,
-      text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ ឬលទ្ធផលប្រឡងបាន!`,
-      time: "Oct 6, 1:12 PM",
-    },
-  ];
-
-  const [messages, setMessages] = useState(initialWelcomeMessages);
+  // Initial welcome message with dynamic random suggestions
+  const [messages, setMessages] = useState(() => {
+    const isKm = siteLanguage === "km";
+    return [
+      {
+        id: "welcome-main",
+        sender: "bot",
+        isWelcome: true,
+        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
+        suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      },
+    ];
+  });
 
   // Global custom event listener
   useEffect(() => {
@@ -1024,14 +1273,8 @@ const AIChatbot = ({
           {
             id: `lang-km-${Date.now()}`,
             sender: "bot",
-            text: "សូមស្វាគមន៍មកកាន់ **ភាសាខ្មែរ**! 🇰🇭\nតើអ្នកចង់សាកសួរអំពីអ្វីដែរទាក់ទងនឹងកម្មវិធីប្រឡង ATQ? សូមជ្រើសរើសប្រធានបទ ឬវាយសំណួររបស់អ្នកខាងក្រោម៖",
-            suggestions: [
-              "តើខ្ញុំអាចប្រឡងនៅពេលណា?",
-              "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?",
-              "តើខ្ញុំអាចប្រឡងតាមលំដាប់ណា?",
-              "តើលទ្ធផលប្រឡងចេញនៅពេលណា?",
-             
-            ],
+            text: "សូមស្វាគមន៍មកកាន់ **ភាសាខ្មែរ**! 🇰🇭\nតើអ្នកចង់សាកសួរអំពីអ្វីដែរទាក់ទងនឹងកម្មវិធីប្រឡង ATQ? សូមជ្រើសរើសប្រធានបទខាងក្រោម ឬវាយសំណួររបស់អ្នក៖",
+            suggestions: getRandomSuggestions(null, "km", 4),
             time: new Date().toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
@@ -1045,13 +1288,7 @@ const AIChatbot = ({
             id: `lang-en-${Date.now()}`,
             sender: "bot",
             text: "Welcome to **English**! 🇬🇧\nWhat would you like to know about the KICPAA ATQ Program? You can choose a quick topic below or type your question:",
-            suggestions: [
-              "When can I take exams?",
-              "How can I enter for exams?",
-              "Can I take the ATQ Qualification exams in any order?",
-              "When are results issued?",
-              "How can I contact KICPAA ATQ support?",
-            ],
+            suggestions: getRandomSuggestions(null, "en", 4),
             time: new Date().toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
@@ -1067,17 +1304,21 @@ const AIChatbot = ({
   const handleConnectAgent = () => {
     setIsTyping(true);
     setTimeout(() => {
+      const isKm = language === "km";
       setMessages((prev) => [
         ...prev,
         {
           id: `agent-${Date.now()}`,
           sender: "bot",
-          text: `🧑‍💼 **Connecting with KICPAA ATQ Team**\n\nOur education officers are ready to assist you directly:\n\n- 📱 **Telegram / Phone**: [+855 17 493 140](tel:+85517493140)\n- ✉️ **Email**: [Education@kicpaa.org](mailto:Education@kicpaa.org) / [ATQ@kicpaa.org](mailto:ATQ@kicpaa.org)\n- 🏢 **Office Hours**: Monday – Friday (8:00 AM – 5:00 PM)`,
+          text: isKm
+            ? `🧑‍💼 **ការទាក់ទងជាមួយក្រុមការងារ KICPAA ATQ**\n\nមន្ត្រីអប់រំរបស់យើងត្រៀមខ្លួនជាស្រេចដើម្បីជួយអ្នកដោយផ្ទាល់៖\n\n- 📱 **Telegram / ទូរស័ព្ទ**: [+855 17 493 140](tel:+85517493140)\n- ✉️ **អ៊ីមែល**: [Education@kicpaa.org](mailto:Education@kicpaa.org) / [ATQ@kicpaa.org](mailto:ATQ@kicpaa.org)\n- 🏢 **ម៉ោងធ្វើការ**: ថ្ងៃចន្ទ – សុក្រ (៨:០០ ព្រឹក – ៥:០០ ល្ងាច)`
+            : `🧑‍💼 **Connecting with KICPAA ATQ Team**\n\nOur education officers are ready to assist you directly:\n\n- 📱 **Telegram / Phone**: [+855 17 493 140](tel:+85517493140)\n- ✉️ **Email**: [Education@kicpaa.org](mailto:Education@kicpaa.org) / [ATQ@kicpaa.org](mailto:ATQ@kicpaa.org)\n- 🏢 **Office Hours**: Monday – Friday (8:00 AM – 5:00 PM)`,
           isAgentContact: true,
-          suggestions:
-            language === "km"
-              ? ["កាលវិភាគប្រឡង", "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?"]
-              : ["When can I take exams?", "How can I enter for exams?"],
+          suggestions: getRandomSuggestions(
+            "contact-support",
+            isKm ? "km" : "en",
+            3,
+          ),
           time: new Date().toLocaleTimeString([], {
             hour: "2-digit",
             minute: "2-digit",
@@ -1110,7 +1351,10 @@ const AIChatbot = ({
 
       setTimeout(() => {
         const containsKhmer = /[\u1780-\u17FF]/.test(query);
-        const activeLang = language === "km" || (language === "bilingual" && containsKhmer) ? "km" : "en";
+        const activeLang =
+          language === "km" || (language === "bilingual" && containsKhmer)
+            ? "km"
+            : "en";
         const response = findBestAnswer(query, activeLang);
 
         const botMessage = {
@@ -1133,33 +1377,42 @@ const AIChatbot = ({
 
   // Reset chat
   const handleClearChat = () => {
-    setMessages(initialWelcomeMessages);
+    const isKm = siteLanguage === "km";
+    setMessages([
+      {
+        id: `welcome-${Date.now()}`,
+        sender: "bot",
+        isWelcome: true,
+        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
+        suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      },
+    ]);
     setLanguage("bilingual");
   };
 
   // Format text renderer for Markdown links and bold text
   const renderFormattedText = (text) => {
     return text.split("\n").map((line, idx) => {
-      // Bold text and link any Learning Hub mention.
       let formattedLine = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
       formattedLine = formattedLine.replace(
         /Learning Hub/g,
         '<a href="https://education.kicpaa.org/student/login" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-semibold hover:text-blue-800">Learning Hub</a>',
       );
-      // Markdown link [Label](url)
       formattedLine = formattedLine.replace(
         /\[(.*?)\]\((.*?)\)/g,
         '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline font-semibold hover:text-blue-800">$1</a>',
       );
-      // Inline email
       formattedLine = formattedLine.replace(
         /`([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})`/g,
         '<a href="mailto:$1" class="text-sky-600 underline font-medium hover:text-sky-800">$1</a>',
       );
-      // Inline code
       formattedLine = formattedLine.replace(
         /`([^`]+)`/g,
-        '<code class="bg-slate-200/60 px-1 py-0.5 rounded text-xs">$1</code>',
+        '<code class="bg-slate-200/60 px-1 py-0.5 rounded text-xs dark:bg-slate-700/60">$1</code>',
       );
 
       return (
@@ -1195,9 +1448,10 @@ const AIChatbot = ({
               <div>
                 <div className="flex items-center gap-1.5">
                   <h4 className="text-base font-bold text-slate-800 tracking-tight dark:text-slate-100">
-                    KICPAA FAQ{" "}
+                    KICPAA FAQ
                   </h4>
                 </div>
+                
               </div>
             </div>
 
@@ -1223,7 +1477,11 @@ const AIChatbot = ({
           <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3.5 bg-[#fbfcfd] dark:bg-slate-950">
             {/* Centered Date Separator */}
             <div className="flex items-center justify-center my-1">
-              <span className="text-[11px] font-medium text-slate-400 tracking-wide dark:text-slate-500"></span>
+              <span className="text-[11px] font-medium text-slate-400 tracking-wide dark:text-slate-500">
+                {language === "km"
+                  ? "ជំនួយការ KICPAA ATQ ឆ្លាតវៃ"
+                  : "Smart KICPAA ATQ Assistant"}
+              </span>
             </div>
 
             {/* Message Bubbles */}
@@ -1236,7 +1494,7 @@ const AIChatbot = ({
                   className={`max-w-[88%] text-sm leading-relaxed shadow-2xs ${
                     msg.sender === "user"
                       ? "rounded-2xl rounded-tr-xs bg-[#0b1a6e] px-4 py-2.5 text-white dark:bg-[#03A9f4] dark:text-slate-950 font-medium"
-                      : "rounded-2xl rounded-tl-xs bg-[#f2f4f8] px-4 py-3 text-slate-800 border border-slate-200/50 dark:bg-slate-850 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700"
+                      : "rounded-2xl rounded-tl-xs bg-[#f2f4f8] px-4 py-3 text-slate-800 border border-slate-200/50 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700"
                   }`}
                 >
                   {renderFormattedText(msg.text)}
@@ -1264,7 +1522,7 @@ const AIChatbot = ({
                   )}
                 </div>
 
-                {/* Suggestions Pills attached to bot message */}
+                {/* Suggestions Pills attached to bot message (Random & Category-Diverse) */}
                 {msg.suggestions && msg.suggestions.length > 0 && (
                   <div className="mt-2.5 flex flex-wrap gap-1.5 pl-1 max-w-[95%]">
                     {msg.suggestions.map((sug, sIdx) => (
@@ -1293,9 +1551,9 @@ const AIChatbot = ({
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Bottom Action Toolbar: 3 Pill Buttons (Matches reference screenshot) */}
+          {/* Bottom Action Toolbar: 3 Pill Buttons */}
           <div className="border-t border-slate-100 bg-white px-3 pt-2 pb-1.5 dark:border-slate-800 dark:bg-slate-900">
-            <div className="flex items-center  gap-1.5 overflow-x-auto py-1 no-scrollbar">
+            <div className="flex items-center gap-1.5 overflow-x-auto py-1 no-scrollbar">
               <button
                 onClick={() => handleSelectLanguage("km")}
                 className={`cursor-pointer inline-flex items-center gap-1.5 rounded-lg border px-2.5 py-1.5 text-xs font-medium transition-all shrink-0 shadow-2xs ${
@@ -1344,8 +1602,8 @@ const AIChatbot = ({
                 type="text"
                 placeholder={
                   language === "km"
-                    ? "សរសេរសំណួរអំពីការប្រឡង ATQ..."
-                    : "Ask about ATQ exams, booking, results..."
+                    ? "សរសេរសំណួរអំពីការប្រឡង ATQ តម្លៃ មុខវិជ្ជា..."
+                    : "Ask about ATQ exams, booking, fees, subjects..."
                 }
                 value={inputVal}
                 onChange={(e) => setInputVal(e.target.value)}
@@ -1367,7 +1625,7 @@ const AIChatbot = ({
         </div>
       )}
 
-      {/* 2. Floating Circular Close/Toggle Button at Bottom Right (Matches reference screenshot) */}
+      {/* 2. Floating Circular Close/Toggle Button at Bottom Right */}
       <div className="fixed bottom-5 right-4 sm:right-6 z-50">
         {!isOpen && (
           <button
