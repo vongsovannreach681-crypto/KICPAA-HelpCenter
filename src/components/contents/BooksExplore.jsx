@@ -105,7 +105,7 @@ const BooksExplore = () => {
         {[
           {
             id: "principles",
-            label: isKhmer ? "កម្រិតមូលដ្ឋាន" : "Principles Level",
+            label: isKhmer ? "កម្រិតមូលដ្ឋានគ្រិះ" : "Principles Level",
             count: TQbook.length,
             icon: FaBookOpen,
           },
@@ -170,7 +170,7 @@ const BooksExplore = () => {
               className="text-2xl font-bold tracking-tight text-[#0b1a6e] sm:text-3xl dark:text-sky-400"
             >
               {isKhmer
-                ? "កម្រិតមូលដ្ឋាន (Principles Level)"
+                ? "កម្រិតមូលដ្ឋានគ្រិះ (Principles Level)"
                 : "Principles Level"}
             </h2>
             <p className="mt-3 max-w-5xl font-serif text-base italic leading-7 text-slate-700 sm:text-lg dark:text-slate-300">

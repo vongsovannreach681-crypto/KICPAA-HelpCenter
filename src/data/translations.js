@@ -47,7 +47,7 @@ export const translations = {
     atqProgram: {
       aboutHeading: "About ATQ Program",
       bannerText:
-        "is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia.",
+        "The Accounting Technician Qualification (ATQ) is an examination-based qualification that recognizes accounting skills at the technician level. It was developed by KICPAA with technical support from ICAEW and funded by the Russian Federation and UNDP Cambodia.",
       features: {
         f1Title: "Study online anytime anywhere",
         f1Desc: "Access your lessons from any device, at your own pace.",
@@ -118,7 +118,7 @@ export const translations = {
       step4Title: "Download Invoice",
       step4Desc: "Download your invoice for the selected fees.",
       step5Title: "Pay the Fees",
-      step5Desc: "Pay the application, annual membership, and exam fees.",
+      step5Desc: "Pay the registration, annual membership, and exam fees.",
       step6Title: "KICPAA Approval",
       step6Desc:
         "KICPAA reviews your application against student membership criteria. Once approved, access the Learning Hub or KICPAA app.",
@@ -161,7 +161,7 @@ export const translations = {
       titlePart3: "Qualification",
       titlePart4: "Exam",
       announcementDesc:
-        "is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from January to December 2026 for TQ1-TQ8 at KICPAA office.",
+        "Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA) is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from January to December 2026 for TQ1-TQ8 at KICPAA office.",
       scheduleBtn: "Exam Schedule",
       examInMonth: "ATQ exam in",
       chooseMonth: "Choose a month to view its ATQ exam schedule.",
@@ -278,7 +278,7 @@ export const translations = {
     // Home Page
     home: {
       welcome: "សូមស្វាគមន៍មកកាន់",
-      heroTitle: "មជ្ឈមណ្ឌលជំនួយ កម្មវិធី​បច្ចេកទេស​គណនេយ្យ (ATQ)",
+      heroTitle: "មជ្ឈមណ្ឌលជំនួយ \n\nកម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ (ATQ)",
       heroSubtitle:
         "មានសំណួរ ឬចម្ងល់អំពីកម្មវិធី ATQ ឬការប្រឡងមែនទេ? ស្វែងរកព័ត៌មានដែលអ្នកត្រូវការនៅទីនេះ ឬទាក់ទងមកកាន់ពួកយើងផ្ទាល់។",
       browseAtq: "ស្វែងយល់ពីកម្មវិធី ATQ",
@@ -288,7 +288,7 @@ export const translations = {
         "ស្វែងយល់បន្ថែមអំពីកម្មវិធី​បច្ចេកទេស​គណនេយ្យ រចនាសម្ព័ន្ធ និងលក្ខខណ្ឌតម្រូវក្នុងការសិក្សា។",
       atqExamTitle: "ការប្រឡង ATQ",
       atqExamDesc:
-        "ស្វែងរកព័ត៌មានអំពីការប្រឡង ATQ រួមទាំងទម្រង់ រយៈពេលប្រឡង និងធនធានត្រៀមប្រឡង។",
+        "ស្វែងរកព័ត៌មានអំពីការប្រឡង ATQ រួមមានទម្រង់នៃការប្រឡង រយៈពេលប្រឡង និងធនធានត្រៀមប្រឡង។",
       atqSubjectsTitle: "មាតិកាមុខវិជ្ជា",
       atqSubjectsDesc:
         "ស្វែងយល់ពីមុខវិជ្ជានានាក្នុងកម្មវិធី ATQ និងមើលសេចក្តីលម្អិតនៃមុខវិជ្ជានីមួយៗ។",
@@ -303,9 +303,9 @@ export const translations = {
 
     // ATQ Program Page & Sections
     atqProgram: {
-      aboutHeading: "អំពី កម្មវិធី ATQ",
+      aboutHeading: "អំពី កម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ (ATQ)",
       bannerText:
-        "គឺជាកម្មវិធីគុណវុឌ្ឍិផ្អែកលើការប្រឡងដើម្បីទទួលស្គាល់ជំនាញកម្រិតបច្ចេកទេសគណនេយ្យ។ រៀបចំឡើងដោយ វ.គ.ស.ក. ដោយមានការគាំទ្របច្ចេកទេសពី ICAEW និងឧបត្ថម្ភថវិកាដោយសហព័ន្ធរុស្ស៊ី និង UNDP ប្រចាំកម្ពុជា។",
+        "កម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ (ATQ) គឺជាកម្មវិធីគុណវុឌ្ឍិផ្អែកលើការប្រឡងដើម្បីទទួលស្គាល់ជំនាញគណនេយ្យកម្រិតបច្ចេកទេស។ កម្មវិធីនេះរៀបចំឡើងដោយ វ.គ.ស.ក. ដោយមានការគាំទ្របច្ចេកទេសពី ICAEW និងឧបត្ថម្ភថវិកាដោយ Russian Federation និង UNDP Cambodia។",
       features: {
         f1Title: "សិក្សាអនឡាញគ្រប់ពេលវេលា គ្រប់ទីកន្លែង",
         f1Desc: "ចូលរៀនមេរៀនពីគ្រប់ឧបករណ៍ តាមល្បឿនផ្ទាល់ខ្លួនរបស់អ្នក។",
@@ -317,27 +317,27 @@ export const translations = {
       curriculumTitle: "កម្មវិធីសិក្សា",
       curriculumDesc:
         "កម្មវិធី ATQ ត្រូវបានបែងចែកជា ២ កម្រិត៖ កម្រិតមូលដ្ឋាន និងកម្រិតបច្ចេកទេស។ កម្រិតនីមួយៗត្រូវបានបែងចែកជា ២ ផ្នែកបន្ថែមទៀត។",
-      principlesLabel: "កម្រិតមូលដ្ឋាន",
+      principlesLabel: "កម្រិតមូលដ្ឋានគ្រិះ",
       technicianLabel: "កម្រិតបច្ចេកទេស",
       principlesLevel: "កម្រិតមូលដ្ឋាន (Principles Level)",
       technicianLevel: "កម្រិតបច្ចេកទេស (Technician Level)",
-      part1: "ផ្នែកទី ១",
-      part1Title: "អ្នកកាន់បញ្ជីគណនេយ្យ វ.គ.ស.ក. (Bookkeeper)",
-      part2: "ផ្នែកទី ២",
-      part2Title: "គណនេយ្យករថ្លៃដើម វ.គ.ស.ក. (Cost Accountant)",
-      part3: "ផ្នែកទី ៣",
-      part3Title: "គណនេយ្យកររៀបចំរបាយការណ៍ វ.គ.ស.ក. (Reporting Accountant)",
-      part4: "ផ្នែកទី ៤",
-      part4Title: "មន្ត្រីគាំទ្រផ្នែកពន្ធដារ និងច្បាប់ វ.គ.ស.ក. (Tax & Legal Officer)",
+      part1: "ភាគទី ១",
+      part1Title: "អ្នកកាន់បញ្ជីគណនេយ្យ ទទួលស្គាល់ដោយ​ វ.គ.ស.ក.",
+      part2: "ភាគទី ២",
+      part2Title: "គណនេយ្យករទទួលបន្ទុកថ្លៃដើម ទទួលស្គាល់ដោយ​ វ.គ.ស.ក.",
+      part3: "ភាគទី ៣",
+      part3Title: "គណនេយ្យករទទួលបន្ទុករៀបចំរបាយការណ៍ ​ទទួលស្គាល់ដោយ វ.គ.ស.ក.",
+      part4: "ភាគទី ៤",
+      part4Title: "មន្ត្រីទទួលបន្ទុកផ្នែកច្បាប់និងពន្ធដារ ​ទទួលស្គាល់ដោយ​ វ.គ.ស.ក.",
       subjects: {
-        TQ1: "ការកត់ត្រាបញ្ជី ការត្រួតពិនិត្យ និងគណនេយ្យ",
-        TQ2: "ជំនាញបច្ចេកវិទ្យាព័ត៌មាន និងកម្មវិធីកុំព្យូទ័រ",
-        TQ3: "សេចក្តីផ្តើមអំពីការគិតថ្លៃដើម",
-        TQ4: "សេចក្តីផ្តើមអំពីអាជីវកម្ម",
+        TQ1: "ការកាន់បញ្ជីគណនេយ្យ",
+        TQ2: "ជំនាញបច្ចេកវិទ្យាកុំព្យូទ័រ និងកម្មវិធីសូហ្វវែគណនេយ្យ",
+        TQ3: "ការសិក្សាអំពីការគណនាថ្លៃដើម",
+        TQ4: "ការសិក្សាអំពីអាជីវកម្ម",
         TQ5: "ការរៀបចំរបាយការណ៍ហិរញ្ញវត្ថុ",
-        TQ6: "គណនេយ្យគ្រប់គ្រង",
-        TQ7: "ការអនុវត្ត និងច្បាប់ពន្ធដារកម្ពុជា",
-        TQ8: "ច្បាប់ពាណិជ្ជកម្ម និងក្រុមហ៊ុននៅកម្ពុជា",
+        TQ6: "គណនេយ្យសម្រាប់ការគ្រប់គ្រង",
+        TQ7: "ពន្ធដារកម្ពុជា និងការអនុវត្ត",
+        TQ8: "នីតិក្រុមហ៊ុន និងអាជីវកម្មកម្អុជា",
       },
     },
 
@@ -345,11 +345,11 @@ export const translations = {
     studyMethods: {
       selfStudy: "ស្វ័យសិក្សា (រៀនដោយខ្លួនឯង)",
       selfStudyDesc:
-        "សិស្សអាចស្វ័យសិក្សា និងចូលរួមប្រឡងបានភ្លាមៗ ហើយត្រូវបានចាត់ថ្នាក់ជា KICPAA សម្រាប់អង្គភាពបណ្តុះបណ្តាលរបស់ពួកគេ។ ប្រភេទនេះគឺសម្រាប់អ្នកដែលមានសញ្ញាបត្រ គុណវុឌ្ឍិ ឬបទពិសោធន៍ផ្នែកគណនេយ្យរួចហើយ។",
+        "សិស្សអាចស្វ័យសិក្សា និងចូលរួមប្រឡងបានភ្លាមៗ ហើយត្រូវបានចាត់ថ្នាក់ជា KICPAA សម្រាប់ស្ថាប័នបណ្តុះបណ្តាលរបស់ពួកគេ។ ការសិក្សាប្រភេទនេះនេះគឺសម្រាប់អ្នកដែលមានសញ្ញាបត្រ គុណវុឌ្ឍិ ឬបទពិសោធន៍ផ្នែកគណនេយ្យរួចហើយ។",
       selfStudyNote: "មិនត្រូវបានណែនាំសម្រាប់សិស្សដែលទើបតែបញ្ចប់វិទ្យាល័យនោះទេ។",
-      trainingOrg: "គ្រឹះស្ថានបណ្តុះបណ្តាល",
+      trainingOrg: "ស្ថាប័នបណ្តុះបណ្តាល",
       trainingOrgDesc:
-        "សិស្សអាចចូលរួមវគ្គបណ្តុះបណ្តាល និងចូលរួមប្រឡងបន្ទាប់ពីបញ្ចប់វគ្គសិក្សាដែលបានកំណត់។ ប្រភេទនេះគឺសម្រាប់អ្នកដែលទើបចាប់ផ្តើមផ្នែកគណនេយ្យ ឬចង់ពង្រឹងជំនាញបន្ថែម។",
+        "សិស្សអាចចូលរួមសិក្សាវគ្គបណ្តុះបណ្តាល និងចូលរួមប្រឡងបន្ទាប់ពីបញ្ចប់វគ្គសិក្សាដែលបានកំណត់។ ការសិក្សាប្រភេទនេះគឺសម្រាប់អ្នកដែលទើបចាប់ផ្តើមផ្នែកគណនេយ្យ ឬចង់ពង្រឹងជំនាញបន្ថែម។",
     },
 
     // Learning Hub
@@ -375,10 +375,10 @@ export const translations = {
       step4Title: "ទាញយកវិក្កយបត្រ",
       step4Desc: "ទាញយកវិក្កយបត្រសម្រាប់ការបង់ថ្លៃសេវាដែលបានជ្រើសរើស។",
       step5Title: "បង់ថ្លៃសេវា",
-      step5Desc: "បង់ថ្លៃពាក្យសុំ សមាជិកភាពសិស្សប្រចាំឆ្នាំ និងថ្លៃប្រឡង។",
+      step5Desc: "បង់ថ្លៃចុះឈ្មោះ សមាជិកភាពសិស្សប្រចាំឆ្នាំ និងថ្លៃប្រឡង។",
       step6Title: "ការអនុម័តពី វ.គ.ស.ក.",
       step6Desc:
-        "វ.គ.ស.ក. នឹងពិនិត្យពាក្យសុំរបស់អ្នកស្របតាមលក្ខខណ្ឌសមាជិកភាព។ នៅពេលទទួលបានការអនុម័ត អ្នកអាចចូលប្រើ Learning Hub ឬ KICPAA App។",
+        "វ.គ.ស.ក. នឹងពិនិត្យពាក្យស្នើសុំរបស់អ្នកស្របតាមលក្ខខណ្ឌសមាជិកភាព។ នៅពេលទទួលបានការអនុម័ត អ្នកអាចចូលប្រើ Learning Hub ឬ KICPAA Appបាន។",
       alertNote:
         "លោកអ្នកត្រូវតែជាសមាជិកសិស្ស ATQ និងបានបង់កម្រៃសេវាទាំងអស់ដែលបានរាយខាងក្រោម ដើម្បីអាចចូលរួមការប្រឡង ATQ បាន។",
       feesTitle: "តារាងកម្រៃសេវា",
@@ -404,9 +404,9 @@ export const translations = {
     },
 
     partners: {
-      trainingOrganization: "អង្គការបណ្តុះបណ្តាល",
+      trainingOrganization: "ស្ថាប័នបណ្តុះបណ្តាល",
       trainingOrganizationDesc:
-        "KICPAA សហការជាមួយសាកលវិទ្យាល័យ និងវិទ្យាស្ថានបណ្តុះបណ្តាលឈានមុខនៅទូទាំងប្រទេសកម្ពុជា ដើម្បីផ្តល់ការបង្រៀនកម្មវិធី ATQ ប្រកបដោយគុណភាព ការត្រៀមខ្លួនក្នុងថ្នាក់រៀន និងការណែនាំផ្នែកសិក្សា។",
+        "វ.គ.ស.ក.សហការជាមួយសាកលវិទ្យាល័យ និងវិទ្យាស្ថានបណ្តុះបណ្តាលឈានមុខគេនៅទូទាំងប្រទេសកម្ពុជា ដើម្បីផ្តល់ជូននូវការបង្រៀនកម្មវិធី ATQ ប្រកបដោយគុណភាព ជួយដល់ការត្រៀមខ្លួនប្រឡងរបស់បេក្ខជន និងការណែនាំផ្សេងៗដល់បេក្ខជនទៅលើការសិក្សាផងដែរ។",
     },
 
     // Exam Page & Schedule
@@ -414,11 +414,11 @@ export const translations = {
       welcomeBadge: "សូមស្វាគមន៍មកកាន់",
       officialAnnouncement: "សេចក្តីជូនដំណឹងផ្លូវការ",
       titlePart1: "ការប្រឡង",
-      titlePart2: "គុណវុឌ្ឍិ",
-      titlePart3: "អ្នកបច្ចេកទេស",
-      titlePart4: "គណនេយ្យ (ATQ)",
+      titlePart2: "កម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ​ (ATQ)",
+      titlePart3: "",
+      titlePart4: " ",
       announcementDesc:
-        "មានសេចក្តីសោមនស្សរីករាយសូមជម្រាបជូនដំណឹងដល់សិស្ស សមាជិក បុគ្គលិក និងមន្ត្រីរាជការទាំងអស់ថា ការប្រឡង ATQ នឹងត្រូវរៀបចំឡើងចាប់ពីខែមករា ដល់ ខែធ្នូ ឆ្នាំ២០២៦ សម្រាប់មុខវិជ្ជា TQ1 ដល់ TQ8 នៅការិយាល័យ វ.គ.ស.ក.។",
+        "វិទ្យាស្ថានគណនេយ្យករជំនាញ និងសវនករកម្ពុជា (វ.គ.ស.ក.) មានសេចក្តីសោមនស្សរីករាយសូមជម្រាបជូនដំណឹងដល់សិស្ស សមាជិក បុគ្គលិក និងមន្ត្រីរាជការទាំងអស់ឱ្យបានជ្រាបថាការប្រឡង ATQ នឹងត្រូវរៀបចំឡើងចាប់ពីខែមករា ដល់ ខែធ្នូ ឆ្នាំ២០២៦ សម្រាប់មុខវិជ្ជា TQ1 ដល់ TQ8 នៅការិយាល័យ វ.គ.ស.ក.។",
       scheduleBtn: "កាលវិភាគប្រឡង",
       examInMonth: "ការប្រឡង ATQ ក្នុងខែ",
       chooseMonth: "ជ្រើសរើសខែដើម្បីមើលកាលវិភាគប្រឡង ATQ។",
@@ -451,14 +451,14 @@ export const translations = {
       titlePart1: "សេចក្តីលម្អិតមុខវិជ្ជា",
       titlePart2: "កម្មវិធី ATQ",
       subtitle:
-        "ស្វែងយល់ពីមុខវិជ្ជា ប្រធានបទ និងលទ្ធផលនៃការសិក្សាដែលណែនាំមាគ៌ារបស់អ្នកតាមរយៈកម្មវិធី​បច្ចេកទេស​គណនេយ្យ។",
+        "ស្វែងយល់ពីមុខវិជ្ជា ប្រធានបទ និងលទ្ធផលនៃការសិក្សាដែលណែនាំមាគ៌ារបស់អ្នកតាមរយៈកម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ",
       sectionTitle: "សេចក្តីលម្អិតមុខវិជ្ជា និងវគ្គសិក្សា ATQ",
       principlesTitle: "កម្រិតមូលដ្ឋាន (Principles Level)",
       principlesDesc:
         "កម្រិតមូលដ្ឋានផ្តល់នូវក្របខ័ណ្ឌសម្រាប់ការរៀនសូត្រដែលមានជំនាញស្នូលក្នុងដំណើរការប្រតិបត្តិការអាជីវកម្ម ដើម្បីជួយឱ្យពួកគេក្លាយជាសមាជិកដ៏មានប្រសិទ្ធភាពនៃក្រុមគាំទ្រគណនេយ្យ។",
       technicianTitle: "កម្រិតបច្ចេកទេស (Technician Level)",
       technicianDesc:
-        "មុខវិជ្ជាកម្រិតបច្ចេកទេសបង្កើតឡើងលើការសិក្សានៅកម្រិតមុន និងអភិវឌ្ឍជំនាញដោយផ្តោតជាពិសេសលើការអនុវត្តចំណេះដឹង ដោយប្រើសេណារីយ៉ូជាក់ស្តែង។",
+        "មុខវិជ្ជាកម្រិតបច្ចេកទេស ត្រូវបានបង្កើតឡើងផ្អែកលើការសិក្សាពីកម្រិតមុន ដោយពង្រឹង និងអភិវឌ្ឍជំនាញដែលផ្តោតជាសំខាន់លើការអនុវត្តចំណេះដឹង តាមរយៈការប្រើប្រាស់ស្ថានភាពជាក់ស្តែង (Realistic Scenarios)។",
       examMonthLabel: "ខែប្រឡង",
       selectMonth: "ជ្រើសរើសខែ",
       examSchedule: "កាលវិភាគប្រឡង៖",
@@ -473,14 +473,14 @@ export const translations = {
     // Footer
     footer: {
       tagline:
-        "មជ្ឈមណ្ឌលជំនួយរបស់អ្នកសម្រាប់កម្មវិធី​បច្ចេកទេស​គណនេយ្យ មុខវិជ្ជា និងការប្រឡង។",
+        "មជ្ឈមណ្ឌលជំនួយសម្រាប់កម្មវិធី​បច្ចេកទេស​គណនេយ្យ មុខវិជ្ជា និងការប្រឡង។",
       explore: "តំណភ្ជាប់",
       studentResources: "ធនធានសម្រាប់សិស្ស",
       contactTeam: "ទំនាក់ទំនងក្រុមការងារ ATQ",
       learningHub: "ប្រព័ន្ធ Learning Hub",
       studentReg: "ការចុះឈ្មោះសិស្ស",
       allRights: "រក្សាសិទ្ធិគ្រប់យ៉ាងដោយវិទ្យាស្ថានគណនេយ្យករជំនាញ និងសវនករកម្ពុជា (វ.គ.ស.ក.)",
-      qualification: "កម្មវិធី​បច្ចេកទេស​គណនេយ្យ (ATQ)",
+      qualification: "កម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ (ATQ)",
     },
 
     // Search Modal

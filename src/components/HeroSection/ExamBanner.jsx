@@ -228,7 +228,7 @@ const ExamBanner = ({
 
             {/* Announcement Paragraph */}
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg text-left">
-              <span className="text-blue-900 dark:text-cyan-300 font-semibold">Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA)</span>
+              <span className="text-blue-900 dark:text-cyan-300 font-semibold"></span>
               {displayDescription}
             </p>
 

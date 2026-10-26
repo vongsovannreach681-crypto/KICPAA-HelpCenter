@@ -61,7 +61,7 @@ const CoursesBanner = ({
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
             <span className="text-blue-950 font-semibold dark:text-cyan-300">
-              Accounting Technician Qualification (ATQ){" "}
+              {" "}
             </span>
             {displayText}
           </p>

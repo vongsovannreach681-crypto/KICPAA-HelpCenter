@@ -9,6 +9,7 @@ import RootLayout from './components/common/RootLayout';
 import ATQexam from './pages/ATQexam';
 import NotFoundPage from './pages/NotFoundPage';
 import { LanguageProvider } from './context/LanguageContext';
+import AIBeta from './components/chatbot/AIBeta';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: '/atq-examination',
         element: <ATQexam />,
+      },
+      {
+        path:'admin/betaBot',
+        element:<AIBeta/>
       },
       {
         path: '*',
