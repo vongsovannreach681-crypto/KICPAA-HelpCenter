@@ -21,7 +21,9 @@ function Part({ part, title, subjects, partKey }) {
     <div className="flex flex-col gap-1 poppins">
       <h3 className="text-center text-xl font-bold text-white">{partNumber}</h3>
       <fieldset className="border border-white/25 px-1.5 pb-1.5 pt-0">
-        <legend className="mx-auto px-2 text-sm text-white/50">{partTitle}</legend>
+        <legend className="mx-auto px-2 text-sm text-white/50">
+          {partTitle}
+        </legend>
         <div className="flex flex-col gap-2">
           {subjects.map((s) => (
             <div
@@ -49,7 +51,7 @@ function Column({ items, partKeys }) {
 }
 
 export default function Ciri() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section
@@ -62,7 +64,9 @@ export default function Ciri() {
         className="bg-white py-3 text-center dark:bg-slate-900 dark:border dark:border-slate-800 rounded-lg"
       >
         <h2 className="text-2xl font-extrabold text-[#0b1a6e] sm:text-3xl dark:text-sky-300">
-          Accounting Technician Qualification (ATQ)
+          {language === "km"
+            ? "កម្មវិធីសិក្សាបច្ចេកទេសគណនេយ្យ (ATQ)"
+            : "Accounting Technician Qualification (ATQ)"}
         </h2>
       </div>
 
@@ -74,9 +78,7 @@ export default function Ciri() {
           data-aos-delay="150"
           className="flex flex-1 gap-2"
         >
-          <SideLabel>
-            {t("atqProgram.principlesLabel", "PRINCIPLES")}
-          </SideLabel>
+          <SideLabel>{t("atqProgram.principlesLabel", "PRINCIPLES")}</SideLabel>
           <Column items={principles} partKeys={["part1", "part2"]} />
         </div>
 
@@ -101,9 +103,7 @@ export default function Ciri() {
           data-aos-delay="150"
           className="flex flex-1 gap-2"
         >
-          <SideLabel>
-            {t("atqProgram.technicianLabel", "TECHNICIAN")}
-          </SideLabel>
+          <SideLabel>{t("atqProgram.technicianLabel", "TECHNICIAN")}</SideLabel>
           <Column items={technician} partKeys={["part3", "part4"]} />
         </div>
       </div>

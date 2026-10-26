@@ -870,6 +870,20 @@ Object.entries(promptAliases).forEach(([alias, id]) => {
   suggestionTargetMap[normalizeChatText(alias)] = id;
 });
 
+const chatMenuItems = [
+  { label: "Exam", labelKm: "ការប្រឡង", icon: "📝", question: "What happens on the exam day?" },
+  { label: "Booking", labelKm: "ការកក់", icon: "📅", question: "Can I take the ATQ exams in any order?" },
+  { label: "Register", labelKm: "ចុះឈ្មោះ", icon: "✅", question: "How can I enter for exams?" },
+  { label: "Result", labelKm: "លទ្ធផល", icon: "📊", question: "When is the result issued?" },
+  { label: "Fee", labelKm: "ថ្លៃប្រឡង", icon: "💳", question: "How much are the ATQ fees and exam fees?" },
+  { label: "Subject", labelKm: "មុខវិជ្ជា", icon: "📚", question: "What are the 8 ATQ subjects and levels?" },
+  { label: "Schedule", labelKm: "កាលវិភាគ", icon: "🗓️", question: "When can I take exams?" },
+  { label: "Deadline", labelKm: "ថ្ងៃផុតកំណត់", icon: "⏰", question: "When is the registration deadline?" },
+  { label: "Cost", labelKm: "តម្លៃ", icon: "💰", question: "How much are the ATQ fees and exam fees?" },
+  { label: "Pass", labelKm: "ពិន្ទុជាប់", icon: "🎯", question: "What is the passing score for ATQ exams?" },
+  { label: "Duration", labelKm: "រយៈពេល", icon: "⌛", question: "What is the format and duration of the ATQ exam?" },
+];
+
 /**
  * Smart Random Suggestions Generator
  * Generates dynamic, diverse suggestion questions picked across knowledge base categories.
@@ -979,272 +993,102 @@ function findBestAnswer(rawQuery, lang = "en") {
   const query = normalizeChatText(rawQuery);
   const isKm = lang === "km";
 
-  // 1. Check for Greetings
-  const greetings = [
-    "hi", "hello", "hey", "greetings", "good morning", "good afternoon", "good evening", "sup",
-    "សួស្តី", "ជំរាបសួរ", "សួស្ដី",
-  ];
-  if (greetings.some((g) => query === g || query.startsWith(g + " "))) {
-    return {
-      text: isKm
-        ? "សួស្តី! 👋 ខ្ញុំជា **ATQ Assistant** ជំនួយការឆ្លាតវៃរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃសិក្សា មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!"
-        : "Hello! 👋 I'm your **KICPAA ATQ Assistant**. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!",
-      suggestions: getRandomSuggestions(null, lang, 4),
-    };
-  }
-
-  // 2. Check for Gratitude / Thanks
-  const thanksWords = [
-    "thanks", "thank you", "thx", "thank", "appreciate", "ok thanks", "okay thanks",
-    "អរគុណ", "អរគុណច្រើន", "សូមអរគុណ",
-  ];
-  if (thanksWords.some((w) => query === w || query.startsWith(w + " "))) {
-    return {
-      text: isKm
-        ? "មិនអីទេ ដោយក្តីរីករាយ! 😊 ប្រសិនបើអ្នកមានចម្ងល់បន្ថែមអំពីកម្មវិធី ATQ សូមសួរខ្ញុំបានគ្រប់ពេល។"
-        : "You're very welcome! 😊 Feel free to ask if you have any more questions about the KICPAA ATQ Program.",
-      suggestions: getRandomSuggestions(null, lang, 4),
-    };
-  }
-
-  // 3. Direct Suggestion Mapping & Keyword Map Lookup
-  const targetFaqId = suggestionTargetMap[query];
-  if (targetFaqId) {
-    const targetItem = faqKnowledgeBase.find((item) => item.id === targetFaqId);
-    if (targetItem) {
-      return {
-        text: isKm ? targetItem.answerKm : targetItem.answerEn,
-        suggestions: getRandomSuggestions(targetItem.id, lang, 3),
-      };
-    }
-  }
-
-  // 4. Exact Question or Keyword Match
-  const exactItem = faqKnowledgeBase.find(
-    (item) =>
-      normalizeChatText(item.question) === query ||
-      normalizeChatText(item.questionKm) === query ||
-      item.keywords.some((kw) => normalizeChatText(kw) === query),
-  );
-  if (exactItem) {
-    return {
-      text: isKm ? exactItem.answerKm : exactItem.answerEn,
-      suggestions: getRandomSuggestions(exactItem.id, lang, 3),
-    };
-  }
-
-  // 4a. Browse by a broad topic prompt. Keep this exact so words like
-  // "exam" inside a full question still go through normal FAQ matching.
-  const topic = query.replace(/^(about|info|information on|tell me about) /, "");
-  const topicCategories = topicPromptAliases[topic];
-  if (topicCategories) {
-    const topicItems = faqKnowledgeBase.filter((item) =>
-      topicCategories.includes(item.category),
-    );
-    const topicName = topic.charAt(0).toUpperCase() + topic.slice(1);
-    const topicSuggestions = topicItems
-      .slice(0, 4)
-      .map((item) => (isKm ? item.questionKm : item.question));
-    return {
-      text: isKm
-        ? `សូមជ្រើសរើសសំណួរអំពី ${topicName}៖`
-        : `Here are some questions about ${topicName}. Choose one to see the answer:`,
-      suggestions: topicSuggestions.length
-        ? topicSuggestions
-        : getRandomSuggestions(null, lang, 4),
-    };
-  }
-
-  // 5. Direct Contact Request
-  const contactTriggers = [
-    "contact", "agent", "human", "support", "email", "phone", "telegram", "call", "helpdesk",
-    "ទាក់ទង", "ភ្នាក់ងារ", "លេខទូរស័ព្ទ", "តេលេក្រាម", "ទំនាក់ទំនង",
-  ];
-  const hasOtherTopic =
-    /\b(exam|booking|register|result|fee|subject|schedule|deadline|cost|pass|duration)\b/i.test(
-      query,
-    );
-  if (
-    !hasOtherTopic &&
-    contactTriggers.some((t) => query.includes(normalizeChatText(t)))
-  ) {
-    const contactItem = faqKnowledgeBase.find(
-      (i) => i.id === "contact-support",
-    );
-    return {
-      text: isKm ? contactItem.answerKm : contactItem.answerEn,
-      suggestions: getRandomSuggestions("contact-support", lang, 3),
-    };
-  }
-
-  // 6. Intelligent Scoring Engine (Bilingual NLP)
-  const queryTokens = [
-    ...new Set(
-      query
-        .split(/\s+/)
-        .filter((token) => token.length > 1 && !ignoredEnglishTokens.has(token)),
-    ),
-  ];
-
-  let bestItem = null;
-  let highestScore = 0;
-  let secondHighestScore = 0;
-
-  faqKnowledgeBase.forEach((item) => {
-    let score = 0;
-    const questionEn = normalizeChatText(item.question);
-    const questionKm = normalizeChatText(item.questionKm);
-
-    // Exact or substring match in questions
-    if (query === questionEn || query === questionKm) {
-      score += 100;
-    } else if (
-      (questionEn && (questionEn.includes(query) || query.includes(questionEn))) ||
-      (questionKm && (questionKm.includes(query) || query.includes(questionKm)))
-    ) {
-      score += 35;
-    }
-
-    // Substring match of individual normalized keywords in query
-    const normalizedKeywords = item.keywords.map(normalizeChatText);
-    normalizedKeywords.forEach((kw) => {
-      if (!kw) return;
-      if (query === kw) {
-        score += 30;
-      } else if (query.includes(kw)) {
-        score += 12 + kw.split(" ").length * 3;
-      } else if (kw.length > 4 && kw.includes(query)) {
-        score += 10;
-      }
-    });
-
-    // Token-level scoring
-    queryTokens.forEach((token) => {
-      if (questionEn.includes(token) || questionKm.includes(token)) {
-        score += 5;
-      }
-      if (normalizedKeywords.some((kw) => kw.includes(token))) {
-        score += 6;
-      }
-    });
-
-    // Domain-specific smart intent boosts
-    if (
-      item.id === "fees-costs" &&
-      (query.includes("fee") ||
-        query.includes("cost") ||
-        query.includes("price") ||
-        query.includes("pay") ||
-        query.includes("តម្លៃ") ||
-        query.includes("ថ្លៃ") ||
-        query.includes("បង់"))
-    ) {
-      score += 25;
-    }
-    if (
-      item.id === "subjects-overview" &&
-      (query.includes("subject") ||
-        query.includes("course") ||
-        query.includes("module") ||
-        query.includes("tq") ||
-        query.includes("មុខវិជ្ជា") ||
-        query.includes("៨ មុខ"))
-    ) {
-      score += 20;
-    }
-    if (
-      item.id === "grading-passmark" &&
-      (query.includes("pass") ||
-        query.includes("score") ||
-        query.includes("mark") ||
-        query.includes("grade") ||
-        query.includes("ជាប់") ||
-        query.includes("ធ្លាក់") ||
-        query.includes("៥០"))
-    ) {
-      score += 25;
-    }
-    if (
-      item.id === "exam-format-duration" &&
-      (query.includes("format") ||
-        query.includes("duration") ||
-        query.includes("hour") ||
-        query.includes("time") ||
-        query.includes("cbe") ||
-        query.includes("computer") ||
-        query.includes("រយៈពេល") ||
-        query.includes("ទម្រង់"))
-    ) {
-      score += 25;
-    }
-    if (
-      item.id === "internship-opportunities" &&
-      (query.includes("intern") ||
-        query.includes("partner") ||
-        query.includes("job") ||
-        query.includes("work") ||
-        query.includes("កម្មសិក្សា") ||
-        query.includes("ការងារ"))
-    ) {
-      score += 30;
-    }
-    if (
-      item.id === "study-materials" &&
-      (query.includes("book") ||
-        query.includes("material") ||
-        query.includes("textbook") ||
-        query.includes("reading") ||
-        query.includes("សៀវភៅ") ||
-        query.includes("ឯកសារ"))
-    ) {
-      score += 30;
-    }
-    if (
-      item.id === "qualification-certificate" &&
-      (query.includes("certificate") ||
-        query.includes("diploma") ||
-        query.includes("cpa") ||
-        query.includes("graduate") ||
-        query.includes("វិញ្ញាបនបត្រ") ||
-        query.includes("សញ្ញាបត្រ"))
-    ) {
-      score += 30;
-    }
-    if (
-      item.id === "admission-requirements" &&
-      (query.includes("who can") ||
-        query.includes("eligib") ||
-        query.includes("require") ||
-        query.includes("criteria") ||
-        query.includes("តម្រូវការ") ||
-        query.includes("នរណា"))
-    ) {
-      score += 25;
-    }
-
-    if (score > highestScore) {
-      secondHighestScore = highestScore;
-      highestScore = score;
-      bestItem = item;
-    } else if (score > secondHighestScore) {
-      secondHighestScore = score;
-    }
+  const reply = (text, excludeId = null, count = 3) => ({
+    text,
+    suggestions: getRandomSuggestions(excludeId, lang, count),
   });
 
-  const hasConfidentMatch = highestScore >= 12;
+  if (!query) {
+    return reply(isKm
+      ? "សូមវាយសំណួររបស់អ្នកអំពីកម្មវិធី ATQ ឬជ្រើសរើសប្រធានបទខាងក្រោម។"
+      : "Please type a question about the ATQ program, or choose one of the topics below.", null, 4);
+  }
 
-  if (hasConfidentMatch && bestItem) {
+  // Handle greetings and thanks only when the whole message is a greeting/thanks.
+  const greetings = ["hi", "hello", "hey", "greetings", "good morning", "good afternoon", "good evening", "សួស្តី", "ជំរាបសួរ", "សួស្ដី"];
+  if (greetings.includes(query)) {
+    return reply(isKm
+      ? "សួស្តី! ខ្ញុំជា KICPAA ATQ Assistant។ ខ្ញុំអាចជួយស្វែងរកព័ត៌មានអំពីការចុះឈ្មោះ កាលវិភាគប្រឡង ថ្លៃសេវា មុខវិជ្ជា លទ្ធផល និងឯកសារសិក្សា។ តើអ្នកចង់ដឹងអំពីអ្វី?"
+      : "Hello! I'm the KICPAA ATQ FAQ Assistant. I can help with registration, exam schedules, fees, subjects, results, and study materials. What would you like to know?", null, 4);
+  }
+
+  const thanksWords = ["thanks", "thank you", "thx", "thank you very much", "អរគុណ", "អរគុណច្រើន", "សូមអរគុណ"];
+  if (thanksWords.includes(query)) {
+    return reply(isKm
+      ? "មិនអីទេ! ប្រសិនបើអ្នកមានសំណួរបន្ថែមអំពីកម្មវិធី ATQ សូមសួរបាន។"
+      : "You're welcome! Feel free to ask another question about the KICPAA ATQ program.", null, 4);
+  }
+
+  // Exact quick-question, alias, and keyword matches are the most reliable.
+  const directId = suggestionTargetMap[query] || promptAliases[query];
+  if (directId) {
+    const item = faqKnowledgeBase.find((entry) => entry.id === directId);
+    if (item) return reply(isKm ? item.answerKm : item.answerEn, item.id);
+  }
+
+  const exactItem = faqKnowledgeBase.find((item) =>
+    normalizeChatText(item.question) === query ||
+    normalizeChatText(item.questionKm) === query ||
+    item.keywords.some((keyword) => normalizeChatText(keyword) === query)
+  );
+  if (exactItem) return reply(isKm ? exactItem.answerKm : exactItem.answerEn, exactItem.id);
+
+  // Topic browsing should only activate for a short, clear topic prompt.
+  const topic = query.replace(/^(about|info|information on|tell me about)\s+/, "");
+  const topicCategories = topicPromptAliases[topic];
+  if (topicCategories) {
+    const items = faqKnowledgeBase.filter((item) => topicCategories.includes(item.category));
     return {
-      text: isKm ? bestItem.answerKm : bestItem.answerEn,
-      suggestions: getRandomSuggestions(bestItem.id, lang, 3),
+      text: isKm
+        ? "សូមជ្រើសរើសសំណួរមួយក្នុងប្រធានបទនេះ ដើម្បីមើលចម្លើយ៖"
+        : `Choose a question about ${topic} to see its answer:`,
+      suggestions: items.slice(0, 5).map((item) => isKm ? item.questionKm : item.question),
     };
   }
 
-  // 7. Fallback when no match is found
+  // A request for a person should not be mistaken for an FAQ about another topic.
+  const contactPhrases = ["contact support", "talk to a person", "speak to someone", "human agent", "contact an agent", "ទាក់ទងក្រុមការងារ", "ចង់ជួបមន្ត្រី"];
+  if (contactPhrases.some((phrase) => query.includes(normalizeChatText(phrase)))) {
+    const item = faqKnowledgeBase.find((entry) => entry.id === "contact-support");
+    return reply(isKm ? item.answerKm : item.answerEn, item.id);
+  }
+
+  // Score phrase and token overlap. Khmer is supported by whitespace-delimited terms
+  // plus substring checks against the Khmer keywords supplied in the FAQ data.
+  const tokens = query.split(/\s+/).filter((token) => token.length > 1 && !ignoredEnglishTokens.has(token));
+  const scored = faqKnowledgeBase.map((item) => {
+    const questionEn = normalizeChatText(item.question);
+    const questionKm = normalizeChatText(item.questionKm);
+    const phrases = [questionEn, questionKm, ...item.keywords.map(normalizeChatText)].filter(Boolean);
+    let score = 0;
+    for (const phrase of phrases) {
+      if (phrase === query) score += 40;
+      else if (phrase.length >= 5 && query.includes(phrase)) score += 18;
+      else if (phrase.length >= 5 && phrase.includes(query) && query.length >= 5) score += 8;
+    }
+    const matchedTokens = new Set();
+    for (const token of tokens) {
+      if (phrases.some((phrase) => phrase.includes(token) || token.includes(phrase))) {
+        matchedTokens.add(token);
+      }
+    }
+    score += matchedTokens.size * 5;
+    // Reward coverage of meaningful words without letting one generic word dominate.
+    if (tokens.length >= 2) score += Math.round((matchedTokens.size / tokens.length) * 10);
+    return { item, score };
+  }).sort((a, b) => b.score - a.score);
+
+  const best = scored[0];
+  const second = scored[1];
+  // Require a reasonable score and separation from the next FAQ to avoid confident wrong answers.
+  const confident = best && best.score >= 15 && (!second || best.score - second.score >= 4 || best.score >= 35);
+  if (confident) return reply(isKm ? best.item.answerKm : best.item.answerEn, best.item.id);
+
+  const contact = faqKnowledgeBase.find((item) => item.id === "contact-support");
   return {
     text: isKm
-      ? "ខ្ញុំមិនបានរកឃើញចម្លើយជាក់លាក់សម្រាប់សំណួរនេះទេ។ ប៉ុន្តែអ្នកអាចជ្រើសរើសប្រធានបទពេញនិយមខាងក្រោម ឬទាក់ទងផ្ទាល់មកកាន់ក្រុមការងារ KICPAA តាមរយៈ **Education@kicpaa.org** ឬទូរស័ព្ទ **+855 17 493 140** (Telegram)។"
-      : "I couldn't find an exact answer to that specific question. However, here are some popular topics, or you can contact our education team directly at **Education@kicpaa.org** or **+855 17 493 140** (Telegram available).",
+      ? `សូមអភ័យទោស ខ្ញុំមិនអាចកំណត់ចម្លើយដែលត្រឹមត្រូវពីសំណួរនេះបានទេ។ សូមសាកល្បងសួរដោយប្រើពាក្យផ្សេង ឬជ្រើសរើសប្រធានបទខាងក្រោម។ ប្រសិនបើត្រូវការជំនួយផ្ទាល់ សូមទាក់ទង ${"Education@kicpaa.org"} ឬ +855 17 493 140 (Telegram)។`
+      : `Sorry, I couldn't confidently match that question to an approved FAQ, so I don't want to give you a potentially incorrect answer. Try rephrasing it or choose a topic below. For direct assistance, contact Education@kicpaa.org or +855 17 493 140 (Telegram).`,
     suggestions: getRandomSuggestions(null, lang, 4),
   };
 }
@@ -1270,14 +1114,13 @@ const AIBeta = ({
 
   // Initial welcome message with dynamic random suggestions
   const [messages, setMessages] = useState(() => {
-    const isKm = siteLanguage === "km";
     return [
       {
         id: "welcome-main",
         sender: "bot",
         isWelcome: true,
         text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Beta. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
-        suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
+        suggestions: [],
         time: new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -1420,14 +1263,13 @@ const AIBeta = ({
 
   // Reset chat
   const handleClearChat = () => {
-    const isKm = siteLanguage === "km";
     setMessages([
       {
         id: `welcome-${Date.now()}`,
         sender: "bot",
         isWelcome: true,
         text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
-        suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
+        suggestions: [],
         time: new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -1540,7 +1382,7 @@ const AIBeta = ({
                       : "rounded-2xl rounded-tl-xs bg-[#f2f4f8] px-4 py-3 text-slate-800 border border-slate-200/50 dark:bg-slate-800 dark:text-slate-100 dark:border-slate-700"
                   }`}
                 >
-                  {renderFormattedText(msg.text)}
+                  {msg.sender === "user" ? msg.text : renderFormattedText(msg.text)}
 
                   {/* Direct Telegram Action button for Agent Contact */}
                   {msg.isAgentContact && (
@@ -1565,8 +1407,26 @@ const AIBeta = ({
                   )}
                 </div>
 
+                {msg.isWelcome && (
+                  <div className="mt-2.5 grid w-full max-w-[95%] grid-cols-3 gap-2 pl-1">
+                    {chatMenuItems.map((item) => (
+                      <button
+                        key={item.label}
+                        type="button"
+                        onClick={() => handleSendMessage(item.question)}
+                        className="flex min-h-[78px] cursor-pointer flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-2 py-2 text-center text-xs font-medium text-slate-600 shadow-2xs transition hover:border-emerald-300 hover:bg-emerald-50/50 hover:text-slate-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-emerald-700 dark:hover:bg-slate-800 dark:hover:text-white"
+                      >
+                        <span className="text-2xl leading-none" aria-hidden="true">
+                          {item.icon}
+                        </span>
+                        <span>{language === "km" ? item.labelKm : item.label}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+
                 {/* Suggestions Pills attached to bot message (Random & Category-Diverse) */}
-                {msg.suggestions && msg.suggestions.length > 0 && (
+                {!msg.isWelcome && msg.suggestions && msg.suggestions.length > 0 && (
                   <div className="mt-2.5 flex flex-wrap gap-1.5 pl-1 max-w-[95%]">
                     {msg.suggestions.map((sug, sIdx) => (
                       <button
