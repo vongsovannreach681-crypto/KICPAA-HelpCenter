@@ -9,6 +9,64 @@ import tq1Book from "../../assets/images/book/tq1.png";
 import tq2Book from "../../assets/images/book/tq2.png";
 import tq3Book from "../../assets/images/book/tq3.png";
 import tq4Book from "../../assets/images/book/tq4.png";
+import { examSessionsByMonth } from "../../data/examSessions";
+
+const ExamMonthSelect = ({ subject }) => {
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const session = selectedMonth
+    ? examSessionsByMonth[selectedMonth].find(
+        (monthSession) => monthSession.subject === subject,
+      )
+    : null;
+  const months = Object.entries(examSessionsByMonth).filter(([, sessions]) =>
+    sessions.some((monthSession) => monthSession.subject === subject),
+  );
+
+  return (
+    <div className="mt-6">
+      <label
+        htmlFor={`exam-month-${subject}`}
+        className="mb-2 block text-sm font-bold text-[#0b1a6e] dark:text-sky-300"
+      >
+        Exam month
+      </label>
+      <select
+        id={`exam-month-${subject}`}
+        value={selectedMonth}
+        onChange={(event) => setSelectedMonth(event.target.value)}
+        className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#03A9f4] dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+      >
+        <option value="" disabled>
+          Select a month
+        </option>
+        {months.map(([month]) => (
+          <option key={month} value={month}>
+            {month}
+          </option>
+        ))}
+      </select>
+      {session && (
+        <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700 dark:text-slate-300">
+          <li>
+            <span className="font-semibold">Exam schedule:</span>{" "}
+            {session.dates.join(" and ")}
+          </li>
+          <li>
+            <span className="font-semibold">Time:</span> {session.time}
+          </li>
+          <li>
+            <span className="font-semibold">Venue:</span> {session.venue}
+          </li>
+          <li>
+            <span className="font-semibold">Registration closes:</span>{" "}
+            {session.registrationCloses}
+          </li>
+        </ul>
+      )}
+    </div>
+  );
+};
+
 const BooksExplore = () => {
   const [activeLevel, setActiveLevel] = useState("principles");
   const TQbook = [
@@ -475,6 +533,7 @@ const BooksExplore = () => {
                     </li>
                   ))}
                 </ul>
+                <ExamMonthSelect subject={`TQ${book.id}`} />
               </div>
             </div>
 
@@ -617,6 +676,7 @@ const BooksExplore = () => {
                         </li>
                       ))}
                     </ul>
+                    <ExamMonthSelect subject={`TQ${book.id}`} />
                   </div>
                 )}
               </div>
