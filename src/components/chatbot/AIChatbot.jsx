@@ -540,7 +540,7 @@ const faqKnowledgeBase = [
     answerEn:
       "The ATQ program consists of **8 subjects across 2 qualification levels**:\n\n**📘 Principles Level**:\n- **TQ1**: Bookkeeping, accounting and controls\n- **TQ2**: IT skills and software (QuickBooks, Excel, Word)\n- **TQ3**: Management information and data analysis\n- **TQ4**: Business environment\n\n**📙 Technician Level**:\n- **TQ5**: Financial statement preparation\n- **TQ6**: Management accounting\n- **TQ7**: Principles of Cambodian taxation\n- **TQ8**: Ethics and Cambodian business law",
     answerKm:
-      "កម្មវិធី ATQ រួមមាន **៨ មុខវិជ្ជា ចែកចេញជា ២ កម្រិត**៖\n\n**📘 កម្រិតមូលដ្ឋាន (Principles Level)**៖\n- **TQ1**: ការកត់ត្រាបញ្ជី គណនេយ្យ និងការត្រួតពិនិត្យ\n- **TQ2**: ជំនាញបច្ចេកវិទ្យាព័ត៌មាន និងកម្មវិធីកុំព្យូទ័រ (QuickBooks, Excel, Word)\n- **TQ3**: ការគ្រប់គ្រងព័ត៌មាន និងការវិភាគទិន្នន័យ\n- **TQ4**: ការយល់ដឹងអំពីបរិយាកាសអាជីវកម្ម\n\n**📙 កម្រិតបច្ចេកទេស (Technician Level)**៖\n- **TQ5**: ការរៀបចំរបាយការណ៍ហិរញ្ញវត្ថុ\n- **TQ6**: គណនេយ្យគ្រប់គ្រង\n- **TQ7**: គោលការណ៍ពន្ធដារកម្ពុជា\n- **TQ8**: ក្រមសីលធម៌ និងច្បាប់អាជីវកម្មកម្ពុជា",
+      "កម្មវិធី ATQ រួមមាន **៨ មុខវិជ្ជា ចែកចេញជា ២ កម្រិត**៖\n\n**📘 កម្រិតមូលដ្ឋាន (Principles Level)**៖\n- **TQ1**: ការកាន់បញ្ជីគណនេយ្យ\n- **TQ2**: ជំនាញបច្ចេកវិទ្យាកុំព្យូទ័រ និងកម្មវិធីសូហ្វវែគណនេយ្យ\n- **TQ3**: ការសិក្សាអំពីការគណនាថ្លៃដើម\n- **TQ4**: ការសិក្សាអំពីអាជីវកម្ម\n\n**📙 កម្រិតបច្ចេកទេស (Technician Level)**៖\n- **TQ5**: ការរៀបចំរបាយការណ៍ហិរញ្ញវត្ថុ\n- **TQ6**: គណនេយ្យសម្រាប់ការគ្រប់គ្រង\n- **TQ7**: ពន្ធដារកម្ពុជា និងការអនុវត្ត\n- **TQ8**: នីតិក្រុមហ៊ុន និងអាជីវកម្មកម្អុជា",
   },
 
   // --- Category: Grading & Pass Mark ---
