@@ -1676,7 +1676,9 @@ const AIBeta = ({
             onClick={() => setIsOpen(true)}
             className="qa-session-bubble absolute bottom-[calc(100%+0.9rem)] right-0 w-max max-w-[220px] rounded-2xl rounded-br-sm border border-slate-200 bg-white px-3 py-2 text-left text-[15px] font-medium leading-snug text-slate-700 shadow-xl shadow-slate-900/10 transition hover:bg-sky-50 hover:text-sky-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-sky-300"
           >
-            Hello, I'm ATQ Assistant! Any questions?
+            {language === "km"
+              ? "សួស្តី! ខ្ញុំជា ATQ Assistant។ តើអ្នកមានសំណួរអ្វីដែរ?"
+              : "Hello! I'm ATQ Assistant. Any questions?"}
             <span
               className="absolute -bottom-1.5 right-5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
               aria-hidden="true"

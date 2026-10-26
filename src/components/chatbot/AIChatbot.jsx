@@ -1233,7 +1233,7 @@ const AIChatbot = ({
         id: "welcome-main",
         sender: "bot",
         isWelcome: true,
-        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
+        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជាខ្ញុំជាជំនួយការ ATQ ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
         suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
         time: new Date().toLocaleTimeString([], {
           hour: "2-digit",
@@ -1383,7 +1383,7 @@ const AIChatbot = ({
         id: `welcome-${Date.now()}`,
         sender: "bot",
         isWelcome: true,
-        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជា ATQ Assistant ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
+        text: `Hi there / សួស្តី! 👋\nHello! I'm your KICPAA ATQ Assistant. How can I help you today? You can ask me about exam sessions, booking procedures, fees, the 8 subjects, exam rules, or results!\n\nសួស្តី! ខ្ញុំជាជំនួយការ ATQ  ជំនួយការរបស់ KICPAA។ តើខ្ញុំអាចជួយអ្វីដល់អ្នកថ្ងៃនេះ? អ្នកអាចសួរអំពីកាលវិភាគប្រឡង ការចុះឈ្មោះ តម្លៃ មុខវិជ្ជា ឬលទ្ធផលប្រឡងបាន!`,
         suggestions: getRandomSuggestions(null, isKm ? "km" : "en", 4),
         time: new Date().toLocaleTimeString([], {
           hour: "2-digit",
@@ -1633,7 +1633,9 @@ const AIChatbot = ({
             onClick={() => setIsOpen(true)}
             className="qa-session-bubble absolute bottom-[calc(100%+0.9rem)] right-0 w-max max-w-[220px] rounded-2xl rounded-br-sm border border-slate-200 bg-white px-3 py-2 text-left text-[15px] font-medium leading-snug text-slate-700 shadow-xl shadow-slate-900/10 transition hover:bg-sky-50 hover:text-sky-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 dark:hover:text-sky-300"
           >
-            Hello, I'm ATQ Assistant! Any questions?
+            {language === "km"
+              ? "សួស្តី! ខ្ញុំជាជំនួយការ ATQ តើអ្នកមានសំណួរអ្វីដែរ?"
+              : "Hello! I'm ATQ Assistant. Any questions?"}
             <span
               className="absolute -bottom-1.5 right-5 h-3 w-3 rotate-45 border-b border-r border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-900"
               aria-hidden="true"
