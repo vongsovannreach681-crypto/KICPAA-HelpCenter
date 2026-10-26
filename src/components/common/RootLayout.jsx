@@ -3,6 +3,7 @@ import { useLocation, Outlet } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Footer from "../footer/Footer";
+import SeoMetadata from "./SeoMetadata";
 
 export default function RootLayout() {
   const location = useLocation();
@@ -39,6 +40,7 @@ export default function RootLayout() {
 
   return (
     <>
+      <SeoMetadata />
       <Outlet />
       <Footer />
     </>
