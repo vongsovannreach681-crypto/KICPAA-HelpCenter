@@ -388,7 +388,7 @@ const faqKnowledgeBase = [
     id: "sitting-complaint",
     category: "Exam Sitting",
     question:
-      ": If something happens at the exam center that affects my performance, can I make a complaint?",
+      "If something happens at the exam center that affects my performance, can I make a complaint?",
     questionKm:
       "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?",
     keywords: [
@@ -704,9 +704,9 @@ const faqKnowledgeBase = [
       "តើខ្ញុំអាចទទួលបានសៀវភៅ និងឯកសារសិក្សា atq នៅឯណា",
     ],
     answerEn:
-      "ATQ study resources and learning guides are available through two channels:\n1. 💻 **Digital Resources**: Syllabi, chapter overviews, and test preparation materials can be accessed on the **Learning Hub**.\n2. 📚 **Physical Textbooks**: Official printed study books for TQ1 through TQ8 can be purchased directly at the **KICPAA office**.",
+      "ATQ study materials and learning quides are available in the ** Student Hub ** and ** Study Program sections **.",
     answerKm:
-      "ឯកសារ និងសៀវភៅសិក្សា ATQ អាចទទួលបានតាម ២ ផ្លូវ៖\n១. 💻 **ឯកសារឌីជីថល**៖ កម្មវិធីសិក្សាលម្អិត សេចក្តីសង្ខេបមេរៀន និងគំរូសំណួរប្រឡង អាចចូលមើលបាននៅលើ **Learning Hub**។\n២. 📚 **សៀវភៅពុម្ពផ្លូវការ**៖ សៀវភៅសិក្សាផ្លូវការសម្រាប់មុខវិជ្ជា TQ1 ដល់ TQ8 អាចរកជាវបានដោយផ្ទាល់នៅ **ការិយាល័យ វ.គ.ស.ក.**។",
+      "ឯកសារ និងសៀវភៅសិក្សា ATQ អាចស្វែងរកបាននៅ ** Student Hub ** និង ** Study Program **។",
   },
 
   // --- Category: Certificate & Career ---
