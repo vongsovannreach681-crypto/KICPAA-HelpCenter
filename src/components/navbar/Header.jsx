@@ -203,7 +203,7 @@ const Header = () => {
           </nav>
 
           {/* Desktop Right Actions: Language Switcher + Search + Dark Mode */}
-          <div className="hidden items-center gap-2.5 md:flex">
+          <div className="hidden items-center gap-2.5 lg:flex">
             {/* Language Switcher Dropdown */}
             <div className="relative" ref={langDropdownRef}>
               <button
@@ -339,7 +339,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Right Actions: Quick Lang Toggle + Search + Dark Mode + Menu */}
-          <div className="flex items-center gap-1.5 sm:gap-2 md:hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
             {/* Quick Language Toggle Pill on Mobile */}
             <button
               onClick={() => setLanguage(language === "en" ? "km" : "en")}
