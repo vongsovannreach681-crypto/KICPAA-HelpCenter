@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import { FaCircleQuestion } from "react-icons/fa6";
 import helpCenterImage from "../../assets/images/Help.png";
-import {
-  FaArrowRight
-  
-} from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
+import { useLanguage } from "../../context/LanguageContext";
+
 const HomeSection = () => {
+  const { t } = useLanguage();
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -106,27 +105,45 @@ const HomeSection = () => {
       <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-24">
         {/* Text */}
         <div className="text-center lg:text-left" data-aos="fade-up">
-          <p className="text-base font-medium text-[#03A9f4] dark:text-blue-300" data-aos="fade-right" data-aos-delay="100">
-            Welcome to
+          <p
+            className="text-base font-medium text-[#03A9f4] dark:text-blue-300"
+            data-aos="fade-right"
+            data-aos-delay="100"
+          >
+            {t("home.welcome", "Welcome to")}
           </p>
 
-          <h1 className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl dark:text-white" data-aos="fade-up" data-aos-delay="200">
-            Accounting Technician Qualification help center
+          <h1
+            className="mt-3 text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-5xl dark:text-white"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            {t("home.heroTitle", "Accounting Technician Qualification help center")}
           </h1>
 
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-100 lg:mx-0 dark:text-gray-300" data-aos="fade-up" data-aos-delay="300">
-            Questions about the ATQ Program or the exam? Find what you need
-            here, or reach out and we&apos;ll help you directly.
+          <p
+            className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-gray-100 lg:mx-0 dark:text-gray-300"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            {t(
+              "home.heroSubtitle",
+              "Questions about the ATQ Program or the exam? Find what you need here, or reach out and we'll help you directly."
+            )}
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start" data-aos="fade-up" data-aos-delay="400">
+          <div
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <a
               href="/atq-program"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#03A9f4] px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
             >
-              Browse ATQ Program <FaArrowRight aria-hidden="true" className="text-xs" />
+              {t("home.browseAtq", "Browse ATQ Program")}{" "}
+              <FaArrowRight aria-hidden="true" className="text-xs" />
             </a>
-         
           </div>
         </div>
 

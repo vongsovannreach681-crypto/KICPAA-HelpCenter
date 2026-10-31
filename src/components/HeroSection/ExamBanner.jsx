@@ -10,21 +10,38 @@ import {
   FaScaleUnbalanced,
   FaBookOpen,
 } from "react-icons/fa6";
+import { useLanguage } from "../../context/LanguageContext";
 
 const ExamBanner = ({
-  welcomeBadge = "Welcome to",
-  titlePart1 = "Accounting",
-  titlePart2 = "Technician",
-  titlePart3 = "Qualification",
-  titlePart4 = "Exam",
-  description = " is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from January to December 2026 for TQ1-TQ8 at KICPAA office.",
-  ctaLabel = "Exam Schedule",
+  welcomeBadge,
+  titlePart1,
+  titlePart2,
+  titlePart3,
+  titlePart4,
+  description,
+  ctaLabel,
   ctaHref = "#important-dates",
   imageSrc = book,
   imageAlt = "KICPAA ATQ Examination Announcement",
   bookImages = {},
   onDatesClick,
 }) => {
+  const { t } = useLanguage();
+
+  const displayWelcomeBadge = welcomeBadge || t("exam.welcomeBadge", "Welcome to");
+  const displayTitlePart1 = titlePart1 || t("exam.titlePart1", "Accounting");
+  const displayTitlePart2 = titlePart2 || t("exam.titlePart2", "Technician");
+  const displayTitlePart3 = titlePart3 || t("exam.titlePart3", "Qualification");
+  const displayTitlePart4 = titlePart4 || t("exam.titlePart4", "Exam");
+  const displayDescription =
+    description ||
+    t(
+      "exam.announcementDesc",
+      " is pleased to announce to all students, members, staffs and civil servants that the ATQ Examination will be conducted starting from January to December 2026 for TQ1-TQ8 at KICPAA office."
+    );
+  const displayCtaLabel = ctaLabel || t("exam.scheduleBtn", "Exam Schedule");
+  const displayAnnouncementBadge = t("exam.officialAnnouncement", "Official Announcement");
+
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -193,26 +210,26 @@ const ExamBanner = ({
             {/* Kicker / Welcome Badge */}
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50/80 px-3.5 py-1 text-xs font-semibold text-[#18307d] backdrop-blur-sm dark:border-slate-700 dark:bg-slate-900/80 dark:text-sky-300 sm:text-sm">
               <span className="exam-banner-status h-2 w-2 rounded-full bg-[#f5a524]" />
-              <span>{welcomeBadge}</span>
+              <span>{displayWelcomeBadge}</span>
               <span className="text-slate-300 dark:text-slate-600">•</span>
               <span className="font-normal text-slate-600 dark:text-slate-400">
-                Official Announcement
+                {displayAnnouncementBadge}
               </span>
             </div>
 
             {/* Headline with 2-Tone Colors (Navy & Yellow/Amber like the reference UI) */}
             <h1 className="text-4xl font-extrabold leading-[1.12] tracking-tight text-[#18307d] dark:text-white sm:text-5xl lg:text-[3.5rem]">
-              <span>{titlePart1}</span>{" "}
-              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{titlePart2}</span>{" "}
+              <span>{displayTitlePart1}</span>{" "}
+              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{displayTitlePart2}</span>{" "}
               <br />
-              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{titlePart3}</span>{" "}
-              <span>{titlePart4}</span>
+              <span className="bg-gradient-to-r from-sky-500 to-cyan-400 bg-clip-text text-transparent">{displayTitlePart3}</span>{" "}
+              <span>{displayTitlePart4}</span>
             </h1>
 
             {/* Announcement Paragraph */}
             <p className="mt-6 max-w-xl text-base leading-relaxed text-slate-600 dark:text-slate-300 sm:text-lg text-left">
               <span className="text-blue-900 dark:text-cyan-300 font-semibold">Kampuchea Institute of Certified Public Accountants and Auditors (KICPAA)</span>
-              {description}
+              {displayDescription}
             </p>
 
             {/* CTA Buttons */}
@@ -226,7 +243,7 @@ const ExamBanner = ({
                   className="text-base transition-transform group-hover:scale-110"
                   aria-hidden="true"
                 />
-                <span>{ctaLabel}</span>
+                <span>{displayCtaLabel}</span>
                 <FaArrowRight
                   className="text-xs transition-transform group-hover:translate-x-1"
                   aria-hidden="true"

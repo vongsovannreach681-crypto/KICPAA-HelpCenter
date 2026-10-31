@@ -8,6 +8,7 @@ import SubjectCourse from './pages/SubjectCourse';
 import RootLayout from './components/common/RootLayout';
 import ATQexam from './pages/ATQexam';
 import NotFoundPage from './pages/NotFoundPage';
+import { LanguageProvider } from './context/LanguageContext';
 
 const router = createBrowserRouter([
   {
@@ -38,5 +39,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+  <LanguageProvider>
+    <RouterProvider router={router} />
+  </LanguageProvider>
 );

@@ -13,6 +13,7 @@ import {
   FaCompass,
 } from "react-icons/fa6";
 import { searchableItems } from "../../data/searchData";
+import { useLanguage } from "../../context/LanguageContext";
 
 const categories = [
   "All",
@@ -38,6 +39,7 @@ const categoryIcons = {
 
 const SearchModal = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -226,7 +228,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 type="text"
                 value={query}
                 onChange={(e) => handleQueryChange(e.target.value)}
-                placeholder="Search subjects, exams, fees, partners..."
+                placeholder={t("search.placeholder", "Search subjects, exams, fees, partners...")}
                 aria-label="Search ATQ content"
                 className="h-11 min-w-0 flex-1 bg-transparent px-3 text-sm text-slate-800 placeholder-slate-400 outline-none dark:text-slate-100 dark:placeholder-slate-500 sm:text-base"
               />
@@ -261,7 +263,7 @@ const SearchModal = ({ isOpen, onClose }) => {
         <div className="flex items-center gap-2 overflow-x-auto border-b border-slate-200 bg-white px-4 py-3 no-scrollbar dark:border-slate-800 dark:bg-slate-900 sm:px-6">
           {categories.map((cat) => (
             <button
-              key={cat}
+              key={cat === "All" ? t("search.allCategories", "All") : cat === "Pages" ? t("search.pages", "Pages") : cat === "Subjects" ? t("search.subjects", "Subjects") : cat === "Exam & FAQs" ? t("search.examFaqs", "Exam & FAQs") : cat === "Fees & Admission" ? t("search.feesAdmission", "Fees & Admission") : cat === "Internships" ? t("search.internships", "Internships") : cat}
               onClick={() => handleCategoryChange(cat)}
               className={`cursor-pointer shrink-0 rounded-lg px-3 py-1.5 text-xs font-medium transition-all ${
                 activeCategory === cat
@@ -282,7 +284,7 @@ const SearchModal = ({ isOpen, onClose }) => {
                 <FaMagnifyingGlass aria-hidden="true" />
               </span>
               <p className="text-base font-semibold text-slate-700 dark:text-slate-300">
-                No matching results found for "{query}"
+                {t("search.noResults", "No results found for")} "{query}"
               </p>
               <p className="mt-1 text-xs text-slate-400 dark:text-slate-500">
                 Try searching for subjects like "TQ1", "Costing", "Exam", or "Fees".

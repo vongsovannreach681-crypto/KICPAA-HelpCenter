@@ -1,29 +1,7 @@
 import React from "react";
 import SelfStudy from "../../assets/learn.jpg";
 import training from "../../assets/images/Training.png";
-
-const methods = [
-  {
-    id: "self-study",
-    title: "Self-study",
-    image: SelfStudy,
-    alt: "Self Study",
-    description:
-      "Students can self-study and take the exam immediately, and are categorized as KICPAA for their training organizations. This category is for those who already have a degree, qualification, or experience in accounting.",
-    note: "Not recommended for students who have just finished high school.",
-    reverse: false,
-  },
-  {
-    id: "training",
-    title: "Training organizations",
-    image: training,
-    alt: "Training",
-    description:
-      "Students can attend training sessions and take the exam after completing the required coursework. This category is for those who are new to accounting or want to enhance their skills.",
-    note: null,
-    reverse: true,
-  },
-];
+import { useLanguage } from "../../context/LanguageContext";
 
 const MethodCard = ({ method }) => (
   <section
@@ -52,9 +30,9 @@ const MethodCard = ({ method }) => (
       />
     </div>
 
-    {/* Text */}
-    <div className="flex-1 p-6 md:p-8">
-      <h3 className="mb-5 w-fit text-2xl font-bold text-[#0b1a6e] dark:text-sky-300">
+    {/* Content */}
+    <div className="flex flex-1 flex-col justify-center p-6 md:p-8">
+      <h3 className="mb-3 text-2xl font-bold text-[#0b1a6e] dark:text-sky-300 transition-colors duration-300 group-hover:text-[#03A9F4]">
         {method.title}
         <span
           aria-hidden="true"
@@ -76,13 +54,54 @@ const MethodCard = ({ method }) => (
 );
 
 const MethodStudy = () => {
+  const { t, isKhmer } = useLanguage();
+
+  const methods = [
+    {
+      id: "self-study",
+      title: t("studyMethods.selfStudy", "Self-study"),
+      image: SelfStudy,
+      alt: "Self Study",
+      description: t(
+        "studyMethods.selfStudyDesc",
+        "Students can self-study and take the exam immediately, and are categorized as KICPAA for their training organizations. This category is for those who already have a degree, qualification, or experience in accounting."
+      ),
+      note: t(
+        "studyMethods.selfStudyNote",
+        "Not recommended for students who have just finished high school."
+      ),
+      reverse: false,
+    },
+    {
+      id: "training",
+      title: t("studyMethods.trainingOrg", "Training organizations"),
+      image: training,
+      alt: "Training",
+      description: t(
+        "studyMethods.trainingOrgDesc",
+        "Students can attend training sessions and take the exam after completing the required coursework. This category is for those who are new to accounting or want to enhance their skills."
+      ),
+      note: null,
+      reverse: true,
+    },
+  ];
+
   return (
     <div id="method-study" className="container mt-15 scroll-mt-24">
-      <h3 data-aos="fade-up" className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
-        Method study
+      <h3
+        data-aos="fade-up"
+        className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl"
+      >
+        {isKhmer ? "វិធីសាស្ត្រនៃការសិក្សា" : "Method study"}
       </h3>
-      <p data-aos="fade-up" data-aos-delay="100" className="pt-5 text-lg text-gray-700 dark:text-slate-300">
-        The ATQ program is delivered to students through two methods:
+      <p
+        data-aos="fade-up"
+        data-aos-delay="100"
+        className="pt-5 text-lg text-gray-700 dark:text-slate-300"
+      >
+        {isKhmer
+          ? "កម្មវិធី ATQ ត្រូវបានផ្តល់ជូនសិស្សានុសិស្សតាមរយៈវិធីសាស្រ្តចំនួនពីរ៖"
+          : "The ATQ program is delivered to students through two methods:"}
       </p>
 
       {methods.map((method) => (

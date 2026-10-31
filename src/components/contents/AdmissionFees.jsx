@@ -10,60 +10,80 @@ import {
   FaRectangleList,
   FaUserPlus,
 } from "react-icons/fa6";
-
-const admissionSteps = [
-  {
-    title: "Create an Account",
-    description: "Sign up in the Learning Hub or KICPAA app.",
-    icon: FaUserPlus,
-  },
-  {
-    title: "Fill in Information",
-    description: "Complete the required information.",
-    icon: FaRectangleList,
-  },
-  {
-    title: "Choose Exam Subjects",
-    description: "Select the subjects you want to take exams in.",
-    icon: FaBookOpen,
-  },
-  {
-    title: "Download Invoice",
-    description: "Download your invoice for the selected fees.",
-    icon: FaFileInvoice,
-  },
-  {
-    title: "Pay the Fees",
-    description: "Pay the application, annual membership, and exam fees.",
-    icon: FaCreditCard,
-  },
-  {
-    title: "KICPAA Approval",
-    description:
-      "KICPAA reviews your application against student membership criteria. Once approved, access the Learning Hub or KICPAA app.",
-    icon: FaCircleCheck,
-  },
-];
-
-const fees = [
-  {
-    name: "Application fee",
-    frequency: "One-time payment",
-    amount: " 21,000",
-  },
-  {
-    name: "Annual student membership fee",
-    frequency: "Paid annually",
-    amount: " 42,000",
-  },
-  {
-    name: "Examination fee",
-    frequency: "Per subject",
-    amount: " 63,000",
-  },
-];
+import { useLanguage } from "../../context/LanguageContext";
 
 const AdmissionFees = () => {
+  const { t, isKhmer } = useLanguage();
+
+  const admissionSteps = [
+    {
+      title: t("admission.step1Title", "Create an Account"),
+      description: t(
+        "admission.step1Desc",
+        "Sign up in the Learning Hub or KICPAA app."
+      ),
+      icon: FaUserPlus,
+    },
+    {
+      title: t("admission.step2Title", "Fill in Information"),
+      description: t(
+        "admission.step2Desc",
+        "Complete the required information."
+      ),
+      icon: FaRectangleList,
+    },
+    {
+      title: t("admission.step3Title", "Choose Exam Subjects"),
+      description: t(
+        "admission.step3Desc",
+        "Select the subjects you want to take exams in."
+      ),
+      icon: FaBookOpen,
+    },
+    {
+      title: t("admission.step4Title", "Download Invoice"),
+      description: t(
+        "admission.step4Desc",
+        "Download your invoice for the selected fees."
+      ),
+      icon: FaFileInvoice,
+    },
+    {
+      title: t("admission.step5Title", "Pay the Fees"),
+      description: t(
+        "admission.step5Desc",
+        "Pay the application, annual membership, and exam fees."
+      ),
+      icon: FaCreditCard,
+    },
+    {
+      title: t("admission.step6Title", "KICPAA Approval"),
+      description: t(
+        "admission.step6Desc",
+        "KICPAA reviews your application against student membership criteria. Once approved, access the Learning Hub or KICPAA app."
+      ),
+      icon: FaCircleCheck,
+    },
+  ];
+
+  const fees = [
+    {
+      name: t("admission.appFee", "Application fee"),
+      frequency: t("admission.oneTime", "One-time payment"),
+      amount: " 21,000",
+    },
+    {
+      name: t("admission.annualFee", "Annual student membership fee"),
+      frequency: t("admission.annually", "Paid annually"),
+      amount: " 42,000",
+    },
+    {
+      name: t("admission.examFee", "Examination fee"),
+      frequency: t("admission.perSubject", "Per subject"),
+      amount: " 63,000",
+    },
+  ];
+
   return (
     <section
       aria-labelledby="admission-fees-title"
@@ -78,16 +98,19 @@ const AdmissionFees = () => {
             data-aos="fade-up"
           >
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-sky-200">
-              ATQ Application Process
+              {t("admission.kicker", "ATQ Application Process")}
             </p>
             <h3
               className="mt-3 text-3xl font-semibold leading-tight sm:text-4xl"
               id="admission-fees-title"
             >
-              How Admission Works
+              {t("admission.title", "How Admission Works")}
             </h3>
             <p className="mt-3 text-base leading-7 text-white/85 sm:text-lg">
-              Complete these steps to register and take your ATQ exams.
+              {t(
+                "admission.desc",
+                "Complete these steps to register and take your ATQ exams."
+              )}
             </p>
           </div>
 
@@ -139,8 +162,10 @@ const AdmissionFees = () => {
               aria-hidden="true"
             />
             <p className="text-sm leading-6 sm:text-base">
-              You must be an ATQ student member and pay all the fees listed
-              below to take the ATQ exam.
+              {t(
+                "admission.alertNote",
+                "You must be an ATQ student member and pay all the fees listed below to take the ATQ exam."
+              )}
             </p>
           </div>
         </div>
@@ -158,13 +183,13 @@ const AdmissionFees = () => {
             </span>
             <div>
               <h4 className="mt-1 text-xl font-semibold text-[#0b1a6e] dark:text-sky-300 sm:text-2xl">
-                Fees Table
+                {t("admission.feesTitle", "Fees Table")}
               </h4>
             </div>
           </div>
 
           <p className="mt-4 text-sm leading-6 text-[#0b1a6e]/80 dark:text-slate-300 sm:text-base">
-            The fee you have to pay will be as follow:
+            {t("admission.feesDesc", "The fee you have to pay will be as follow:")}
           </p>
 
           <div className="mt-5 overflow-x-auto rounded-xl border border-[#0b1a6e]/10 dark:border-slate-800">
@@ -175,16 +200,16 @@ const AdmissionFees = () => {
               <thead className="bg-[#0b1a6e] dark:bg-slate-800 text-xs uppercase tracking-wide text-white">
                 <tr>
                   <th className="px-4 py-3 font-semibold" scope="col">
-                    Fee
+                    {t("admission.feeCol", "Fee")}
                   </th>
                   <th className="px-4 py-3 font-semibold" scope="col">
-                    Payment
+                    {t("admission.paymentCol", "Payment")}
                   </th>
                   <th
                     className="px-4 py-3 text-right font-semibold"
                     scope="col"
                   >
-                    Amount
+                    {t("admission.amountCol", "Amount")}
                   </th>
                 </tr>
               </thead>
@@ -199,7 +224,9 @@ const AdmissionFees = () => {
                     </th>
                     <td className="px-4 py-4">{fee.frequency}</td>
                     <td className="px-3 py-3 sm:px-6 sm:py-4 text-right whitespace-nowrap text-xs sm:text-sm md:text-base font-bold text-[#0b1a6e] dark:text-sky-300">
-                      <span className="font-medium opacity-70">Riel</span>{" "}
+                      <span className="font-medium opacity-70">
+                        {isKhmer ? "រៀល" : "Riel"}
+                      </span>{" "}
                       {fee.amount}
                     </td>
                   </tr>
@@ -209,7 +236,9 @@ const AdmissionFees = () => {
           </div>
 
           <p className="mt-5 border-l-4 border-[#03A9f4] bg-[#0b1a6e]/[0.03] dark:bg-slate-800/60 p-4 text-sm leading-6 text-[#0b1a6e] dark:text-slate-200">
-            The examination fee is charged for each subject you choose to take.
+            {isKhmer
+              ? "ថ្លៃប្រឡងត្រូវបានគិតសម្រាប់មុខវិជ្ជានីមួយៗដែលលោកអ្នកជ្រើសរើសដើម្បីប្រឡង។"
+              : "The examination fee is charged for each subject you choose to take."}
           </p>
         </article>
       </div>

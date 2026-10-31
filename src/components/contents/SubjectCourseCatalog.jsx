@@ -1,18 +1,7 @@
 import React from "react";
-import TQbook from "../../assets/images/TQbook.png";
 import BooksExplore from "./BooksExplore";
 import TQbookup from "../../assets/TQbook.png";
-
-const levels = {
-  principles: {
-    title: "Principles Level",
-    text: "The Principles Level provides a framework for learning which contains core skills in processing business transactions to enable them to become effective members of an accounting support team.",
-  },
-  technician: {
-    title: "Technician Level",
-    text: "The Technician Level modules build on the studies undertaken in the previous level and develop skills with a particular focus on application of knowledge, using realistic scenarios.",
-  },
-};
+import { useLanguage } from "../../context/LanguageContext";
 
 const LevelBlock = ({ title, text, className = "" }) => (
   <div className={`mx-auto max-w-md text-center ${className}`}>
@@ -33,6 +22,25 @@ const Connector = ({ className = "" }) => (
 );
 
 const SubjectCourseCatalog = () => {
+  const { t } = useLanguage();
+
+  const levels = {
+    principles: {
+      title: t("syllabus.principlesTitle", "Principles Level"),
+      text: t(
+        "syllabus.principlesDesc",
+        "The Principles Level provides a framework for learning which contains core skills in processing business transactions to enable them to become effective members of an accounting support team."
+      ),
+    },
+    technician: {
+      title: t("syllabus.technicianTitle", "Technician Level"),
+      text: t(
+        "syllabus.technicianDesc",
+        "The Technician Level modules build on the studies undertaken in the previous level and develop skills with a particular focus on application of knowledge, using realistic scenarios."
+      ),
+    },
+  };
+
   return (
     <section id="courses" className="container mx-auto px-4 py-20">
       <div className="grid items-center gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-x-10 md:gap-y-16">

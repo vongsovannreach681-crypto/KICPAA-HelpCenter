@@ -1,6 +1,5 @@
 import React from "react";
 import AcClass from "../../assets/images/image.png";
-// import { FaLaptopCode } from "react-icons/fa";
 import Ciri from "./Ciri";
 import MethodStudy from "./MethodStudy";
 import LearningHub from "./LearningHub";
@@ -8,37 +7,51 @@ import Marque from "./Marque";
 import AdmissionFees from "./AdmissionFees";
 import InternshipOpportunities from "./InternshipOpportunities";
 import {
-  FaLaptopCode,
   FaChalkboardTeacher,
-  FaCertificate,
   FaLanguage,
   FaSwatchbook,
 } from "react-icons/fa";
-const features = [
-  {
-    icon: FaChalkboardTeacher,
-    title: "Study online anytime anywhere",
-    desc: "Access your lessons from any device, at your own pace.",
-    gradient: "from-blue-500 to-indigo-600",
-    glow: "group-hover:shadow-blue-500/30",
-  },
-  {
-    icon: FaLanguage,
-    title: "Khmer or English available",
-    desc: "Real professionals guide you through every course.",
-    gradient: "from-emerald-500 to-teal-600",
-    glow: "group-hover:shadow-emerald-500/30",
-  },
-  {
-    icon: FaSwatchbook,
-    title: "ATQ learning resources and tests",
-    desc: "Show your skills with certificates you can share.",
-    gradient: "from-amber-500 to-orange-600",
-    glow: "group-hover:shadow-amber-500/30",
-  },
-];
+import { useLanguage } from "../../context/LanguageContext";
 
 const ATQprogram = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: FaChalkboardTeacher,
+      title: t("atqProgram.features.f1Title", "Study online anytime anywhere"),
+      desc: t(
+        "atqProgram.features.f1Desc",
+        "Access your lessons from any device, at your own pace."
+      ),
+      gradient: "from-blue-500 to-indigo-600",
+      glow: "group-hover:shadow-blue-500/30",
+    },
+    {
+      icon: FaLanguage,
+      title: t("atqProgram.features.f2Title", "Khmer or English available"),
+      desc: t(
+        "atqProgram.features.f2Desc",
+        "Real professionals guide you through every course."
+      ),
+      gradient: "from-emerald-500 to-teal-600",
+      glow: "group-hover:shadow-emerald-500/30",
+    },
+    {
+      icon: FaSwatchbook,
+      title: t(
+        "atqProgram.features.f3Title",
+        "ATQ learning resources and tests"
+      ),
+      desc: t(
+        "atqProgram.features.f3Desc",
+        "Show your skills with certificates you can share."
+      ),
+      gradient: "from-amber-500 to-orange-600",
+      glow: "group-hover:shadow-amber-500/30",
+    },
+  ];
+
   return (
     <section
       id="about-atq"
@@ -49,7 +62,7 @@ const ATQprogram = () => {
           className="group relative mx-auto w-full max-w-xl"
           data-aos="fade-right"
         >
-          <div className="">
+          <div>
             <img
               src={AcClass}
               alt="Accounting class"
@@ -92,15 +105,17 @@ const ATQprogram = () => {
           data-aos="fade-up"
           className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl"
         >
-          Curriculum
+          {t("atqProgram.curriculumTitle", "Curriculum")}
         </h3>
         <p
           data-aos="fade-up"
           data-aos-delay="100"
           className="text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9 pt-5"
         >
-          ATQ Program is divided into 2 levels: principal level and technical
-          level. Each level is further divided into 2 parts.
+          {t(
+            "atqProgram.curriculumDesc",
+            "ATQ Program is divided into 2 levels: principal level and technical level. Each level is further divided into 2 parts."
+          )}
         </p>
         <div className="mt-10"></div>
 

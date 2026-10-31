@@ -9,6 +9,7 @@ import {
   FaXmark,
 } from "react-icons/fa6";
 import botAvatar from "../../assets/images/bot.png";
+import { useLanguage } from "../../context/LanguageContext";
 
 // Bilingual Knowledge Base for KICPAA ATQ Program
 const faqKnowledgeBase = [
@@ -702,6 +703,7 @@ const suggestionTargetMap = {
   "what happens on exam day": "sitting-exam-day",
   "what happens on the exam day": "sitting-exam-day",
   "what documents are required": "sitting-exam-day",
+  "what documents do i need to bring on exam day": "sitting-exam-day",
   "contact information": "contact-support",
   "contact kicpaa support": "contact-support",
   "how can i contact kicpaa atq support": "contact-support",
@@ -723,7 +725,6 @@ const suggestionTargetMap = {
   "តើមានមុខវិជ្ជាអ្វីខ្លះ": "session-available",
   "តើមានមុខវិជ្ជាអ្វីខ្លះដែលអាចប្រឡងបានក្នុងខែនីមួយៗ": "session-available",
   "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?": "booking-how-to-enter",
-  "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា?": "booking-how-to-enter",
   "តើខ្ញុំអាចចុះឈ្មោះប្រឡងដោយរបៀបណា": "booking-how-to-enter",
   "តើត្រូវចុះឈ្មោះប្រឡងយ៉ាងដូចម្តេច": "booking-how-to-enter",
   "តើកាលបរិច្ឆេទផុតកំណត់នៃការចុះឈ្មោះប្រឡងនៅពេលណា?": "booking-deadlines",
@@ -737,7 +738,6 @@ const suggestionTargetMap = {
   "ចំនួនមុខវិជ្ជាប្រឡង": "booking-max-exams",
   "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?": "booking-fail-resit",
   "បើធ្លាក់តើអាចប្រឡងសងពេលណា": "booking-fail-resit",
-  "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ?": "booking-fail-resit",
   "ប្រសិនបើខ្ញុំធ្លាក់ តើអាចកែប្រែដើម្បីប្រឡងសងក្នុងសម័យប្រឡងនេះបានទេ": "booking-fail-resit",
   "បើហួសកាលកំណត់តើអាចប្រឡងបានទេ": "booking-late",
   "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់": "booking-late",
@@ -753,6 +753,7 @@ const suggestionTargetMap = {
   "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ?": "result-incorrect",
   "តើខ្ញុំអាចធ្វើអ្វីបាន ប្រសិនបើគិតថាលទ្ធផលមិនត្រឹមត្រូវ": "result-incorrect",
   "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង": "sitting-exam-day",
+  "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង": "sitting-exam-day",
   "តើខ្ញុំត្រូវយកឯកសារអ្វីខ្លះទៅថ្ងៃប្រឡង?": "sitting-exam-day",
   "តើមានអ្វីកើតឡើងនៅថ្ងៃប្រឡង?": "sitting-exam-day",
   "តើប្រឡងនៅពេលណា": "session-when",
@@ -766,10 +767,8 @@ const suggestionTargetMap = {
   "តើខ្ញុំអាចទាក់ទងផ្នែកជំនួយ kicpaa atq តាមរបៀបណា": "contact-support",
   "តើអាចប្តូរនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
   "តើខ្ញុំអាចផ្លាស់ប្តូរការចុះឈ្មោះនៅថ្ងៃប្រឡងបានទេ": "sitting-same-day-change",
-  "តើខ្ញុំនៅតែអាចប្រឡងបានទេ ប្រសិនបើខកខានកាលបរិច្ឆេទកំណត់?": "booking-late",
   "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?": "sitting-rules",
   "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា": "sitting-rules",
-  "តើខ្ញុំអាចស្វែងរកច្បាប់និងបទប្បញ្ញត្តិស្តីពីការប្រឡងនៅឯណា?": "sitting-rules",
   "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ?": "sitting-complaint",
   "ប្រសិនបើមានអ្វីកើតឡើងនៅមណ្ឌលប្រឡងប៉ះពាល់ដល់ការប្រឡង តើខ្ញុំអាចតវ៉ាបានទេ": "sitting-complaint",
 };
@@ -972,7 +971,12 @@ const AIChatbot = ({
     controlledIsOpen !== undefined ? controlledIsOpen : internalIsOpen;
   const setIsOpen = controlledSetIsOpen || setInternalIsOpen;
 
-  const [language, setLanguage] = useState("bilingual"); // 'bilingual', 'km', 'en'
+  const { language: siteLanguage } = useLanguage();
+  const [userSelectedLanguage, setUserSelectedLanguage] = useState(null);
+  const language =
+    userSelectedLanguage || (siteLanguage === "km" ? "km" : "bilingual");
+  const setLanguage = setUserSelectedLanguage;
+
   const [inputVal, setInputVal] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);

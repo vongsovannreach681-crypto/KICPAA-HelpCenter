@@ -4,7 +4,7 @@ import {
   MONTH_ABBREVIATIONS,
   examSessionsByMonth,
 } from "../../data/examSessions";
-import Dropdown from "./Dropdown";
+import { useLanguage } from "../../context/LanguageContext";
 
 // Flatten the month-based data so the schedule can be filtered by one month.
 const examSessions = MONTHS.flatMap((month) =>
@@ -66,10 +66,13 @@ const getGroupRowSpan = (sessions, index, property) => {
 
 const ExamSdech = () => {
   const [selectedMonth, setSelectedMonth] = useState(getDefaultExamMonth);
+  const { t } = useLanguage();
   const today = getToday();
   const selectedSessions = examSessions.filter(
     (session) => session.month === selectedMonth,
   );
+
+  const displaySelectedMonth = t(`months.${selectedMonth}`, selectedMonth);
 
   return (
     <section
@@ -79,7 +82,7 @@ const ExamSdech = () => {
       <div className="mx-auto max-w-6xl">
         <div data-aos="fade-up">
           <h2 className="text-2xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-3xl">
-            ATQ exam in {selectedMonth}
+            {t("exam.examInMonth", "ATQ exam in")} {displaySelectedMonth}
           </h2>
 
           <p
@@ -87,7 +90,10 @@ const ExamSdech = () => {
             data-aos-delay="100"
             className="mt-3 max-w-2xl text-sm leading-7 text-slate-600 dark:text-slate-400 sm:text-base"
           >
-            Choose a month to view its ATQ exam schedule.
+            {t(
+              "exam.chooseMonth",
+              "Choose a month to view its ATQ exam schedule."
+            )}
           </p>
         </div>
 
@@ -102,29 +108,29 @@ const ExamSdech = () => {
             <thead>
               <tr className="bg-blue-950 dark:bg-sky-500 text-sm font-bold text-white sm:text-base">
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Batch
+                  {t("exam.batch", "Batch")}
                 </th>
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Month
+                  {t("exam.month", "Month")}
                 </th>
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Subject
+                  {t("exam.subject", "Subject")}
                 </th>
                 <th
                   scope="col"
                   colSpan={2}
                   className="border border-slate-500 px-3 py-2"
                 >
-                  Date
+                  {t("exam.date", "Date")}
                 </th>
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Time
+                  {t("exam.time", "Time")}
                 </th>
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Venue
+                  {t("exam.venue", "Venue")}
                 </th>
                 <th scope="col" className="border border-slate-500 px-3 py-2">
-                  Close Registration
+                  {t("exam.closeReg", "Close Registration")}
                 </th>
               </tr>
             </thead>
@@ -162,7 +168,7 @@ const ExamSdech = () => {
                         )}
                         className="border border-slate-400 px-3 py-3 text-sm font-bold sm:text-base"
                       >
-                        {session.month}
+                        {t(`months.${session.month}`, session.month)}
                       </td>
                     )}
 
@@ -254,7 +260,7 @@ const ExamSdech = () => {
                   : "border border-slate-300 bg-white text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
               }`}
             >
-              {month}
+              {t(`months.${month}`, month)}
             </button>
           ))}
         </div>
@@ -264,15 +270,23 @@ const ExamSdech = () => {
           className="mt-12 rounded-2xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
         >
           <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
-            Exam requirements
+            {t("exam.requirementsTitle", "Exam requirements")}
           </h3>
           <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            To be eligible to take the ATQ Exam, candidates must:
+            {t(
+              "exam.requirementsDesc",
+              "To be eligible to take the ATQ Exam, candidates must:"
+            )}
           </p>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
-            <li>Be a student member of KICPAA.</li>
-            <li>Have paid all due fees, including the examination fee.</li>
-            <li>Have an account in the Learning Hub.</li>
+            <li>{t("exam.req1", "Be a student member of KICPAA.")}</li>
+            <li>
+              {t(
+                "exam.req2",
+                "Have paid all due fees, including the examination fee."
+              )}
+            </li>
+            <li>{t("exam.req3", "Have an account in the Learning Hub.")}</li>
           </ol>
         </div>
 
@@ -282,15 +296,17 @@ const ExamSdech = () => {
           className="mt-6 rounded-2xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-900 sm:p-8"
         >
           <h3 className="text-xl font-bold text-[#0c1a6e] dark:text-blue-200 sm:text-2xl">
-            Booking your ATQ Exam
+            {t("exam.bookingTitle", "Booking your ATQ Exam")}
           </h3>
           <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300 sm:text-base">
-            Candidates can register for an exam 30 days in advance by following
-            these steps:
+            {t(
+              "exam.bookingDesc",
+              "Candidates can register for an exam 30 days in advance by following these steps:"
+            )}
           </p>
           <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm leading-7 text-slate-700 marker:font-semibold marker:text-[#0c1a6e] dark:text-slate-200 dark:marker:text-blue-300 sm:text-base">
             <li>
-              Go to the{" "}
+              {t("exam.book1", "Go to the")}{" "}
               <a
                 href="https://education.kicpaa.org/student/login"
                 target="_blank"
@@ -301,19 +317,20 @@ const ExamSdech = () => {
               </a>
               .
             </li>
+            <li>{t("exam.book2", "Go to Examination and select your next examination date.")}</li>
             <li>
-              Go to <span className="font-semibold">Examination</span> and
-              select your next examination date.
+              {t(
+                "exam.book3",
+                "Select a subject, then choose your desired examination date from the list."
+              )}
             </li>
-            <li>
-              Select a subject, then choose your desired examination date from
-              the list.
-            </li>
-            <li>Click Save to confirm your booking.</li>
+            <li>{t("exam.book4", "Click Save to confirm your booking.")}</li>
           </ol>
           <p className="mt-5 rounded-lg border-l-4 border-[#0c1a6e] bg-blue-50 px-4 py-3 text-sm font-medium leading-6 text-[#0c1a6e] dark:border-blue-400 dark:bg-blue-950/50 dark:text-blue-200 sm:text-base">
-            Be sure to book your exam schedule by the Standard Exam Booking
-            Deadline.
+            {t(
+              "exam.bookingDeadlineAlert",
+              "Be sure to book your exam schedule by the Standard Exam Booking Deadline."
+            )}
           </p>
         </div>
       </div>

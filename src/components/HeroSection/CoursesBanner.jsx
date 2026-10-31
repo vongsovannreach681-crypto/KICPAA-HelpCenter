@@ -1,6 +1,7 @@
 import React from "react";
-import { FaArrowRight } from "react-icons/fa6";
-import student from '../../assets/images/student.png'
+import student from "../../assets/images/student.png";
+import { useLanguage } from "../../context/LanguageContext";
+
 // Small decorative dots scattered around the student (% of the right panel)
 const dots = [
   { top: 18, left: 8 },
@@ -28,12 +29,20 @@ const symbols = [
 ];
 
 const CoursesBanner = ({
-  heading = " ATQ Program",
-  text = " is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia. ",
+  heading,
+  text,
   imageSrc = student,
-  ctaLabel = "About ATQ Program",
-  ctaHref = "#courses",
 }) => {
+  const { t } = useLanguage();
+
+  const displayHeading = heading || t("atqProgram.aboutHeading", "About ATQ Program");
+  const displayText =
+    text ||
+    t(
+      "atqProgram.bannerText",
+      "is the examination-based qualification for the skill recognizing at the technician level of accounting. Developed by KICPAA with technical support from ICAEW and funded by Russian Federation and UNDP Cambodia."
+    );
+
   return (
     <section
       className="relative mt-22 overflow-hidden bg-[#fafafa] dark:bg-slate-950 transition-colors"
@@ -46,59 +55,69 @@ const CoursesBanner = ({
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-end gap-0 px-6 lg:min-h-[420px] lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
         {/* Left: copy */}
         <div className="self-center py-12 lg:py-16" data-aos="fade-right">
-          <h1 className="border-l-10 rounded-[0px 10px 0px 10px]  border-blue-800 pl-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] dark:text-sky-300 sm:text-5xl lg:text-6xl">
-            <span className="">About</span> {heading}
+          <h1 className="border-l-10 rounded-[0px 10px 0px 10px] border-blue-800 pl-5 text-4xl font-extrabold leading-[1.05] tracking-tight text-[#0b2a6b] dark:text-sky-300 sm:text-5xl lg:text-6xl">
+            {displayHeading}
           </h1>
 
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-slate-300 sm:text-lg">
-           <span className="text-blue-950 font-semibold dark:text-cyan-300">Accounting Technician Qualification (ATQ) </span>{text}
+            <span className="text-blue-950 font-semibold dark:text-cyan-300">
+              Accounting Technician Qualification (ATQ){" "}
+            </span>
+            {displayText}
           </p>
-
-        
         </div>
 
         {/* Right: student panel */}
-        <div className="relative mx-auto h-[320px] w-full max-w-[460px] lg:h-[420px]" data-aos="fade-left" data-aos-delay="150">
-          {/* Dots */}
+        <div
+          className="relative flex h-[340px] items-end justify-center lg:h-[420px]"
+          data-aos="fade-left"
+          data-aos-delay="150"
+        >
+          {/* Subtle warm glow behind student */}
+          <div
+            className="pointer-events-none absolute bottom-0 left-1/2 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-amber-400/15 blur-3xl dark:bg-sky-500/10"
+            aria-hidden="true"
+          />
+
+          {/* Scattered decorative dots */}
           {dots.map((d, i) => (
             <span
               key={i}
-              aria-hidden="true"
-              className={`absolute h-1.5 w-1.5 rounded-full ${
-                i % 3 === 0 ? "bg-[#ffb703]" : i % 2 === 0 ? "bg-[#0b2a6b] dark:bg-sky-400" : "bg-[#0b2a6b]/50 dark:bg-sky-400/50"
-              }`}
+              className="pointer-events-none absolute hidden h-1.5 w-1.5 rounded-full bg-blue-900/25 dark:bg-sky-400/30 sm:block"
               style={{ top: `${d.top}%`, left: `${d.left}%` }}
+              aria-hidden="true"
             />
           ))}
 
-          {/* Symbol notes */}
-          {symbols.map((s) => (
+          {/* STEM symbols */}
+          {symbols.map((s, i) => (
             <span
-              key={s.char}
-              aria-hidden="true"
-              className="absolute z-20 rounded-md border border-[#0b2a6b]/15 bg-white px-2.5 py-1 text-base font-bold text-[#0b2a6b] shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:text-sky-300"
+              key={i}
+              className="pointer-events-none absolute hidden select-none font-mono text-sm font-semibold text-blue-900/30 dark:text-sky-400/35 sm:block"
               style={{
                 top: `${s.top}%`,
                 left: `${s.left}%`,
                 transform: `rotate(${s.rotate}deg)`,
               }}
+              aria-hidden="true"
             >
               {s.char}
             </span>
           ))}
 
-          {/* Arch frame: offset amber outline + cobalt arch holding the photo */}
+          {/* Student image anchored to the bottom */}
           <div className="absolute bottom-0 left-1/2 h-[290px] w-[230px] -translate-x-1/2 sm:w-[260px] lg:h-[385px] lg:w-[300px]">
+            {/* Outline offset behind the portrait */}
             <div
-              aria-hidden="true"
               className="absolute inset-0 translate-x-3 -translate-y-3 rounded-t-full border-[3px] border-[#ffb703]"
+              aria-hidden="true"
             />
-            <div className="relative h-full w-full overflow-hidden rounded-t-full bg-blue-800">
+            {/* Main portrait */}
+            <div className="relative h-full w-full overflow-hidden rounded-t-full border-[3px] border-[#0b2a6b] bg-white shadow-xl dark:border-slate-700 dark:bg-slate-900">
               <img
                 src={imageSrc}
-                alt="Smiling student holding books with a backpack"
+                alt="ATQ Student"
                 className="h-full w-full object-cover object-top"
-                loading="eager"
               />
             </div>
           </div>

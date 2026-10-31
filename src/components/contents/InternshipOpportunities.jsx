@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "../../context/LanguageContext";
 import logo3S from "../../assets/IntershipLogo/3S Logo-01.png";
 import logoAdvance from "../../assets/IntershipLogo/advance_logo-01.png";
 import logoAllison from "../../assets/IntershipLogo/Allison.jpg";
@@ -232,6 +233,7 @@ const ProviderCard = ({ provider }) => {
 };
 
 const InternshipOpportunities = () => {
+  const { t, isKhmer } = useLanguage();
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [isPaused, setIsPaused] = useState(false);
@@ -293,11 +295,10 @@ const InternshipOpportunities = () => {
       {/* Title & Requirements Intro */}
       <div data-aos="fade-up">
         <h3 className="mt-15 border-l-4 border-[#0b1a6e] dark:border-[#03A9f4] pl-5 text-3xl font-semibold leading-tight text-[#0b1a6e] dark:text-sky-300 transition-colors duration-200 hover:text-[#16257f] dark:hover:text-sky-200 sm:text-4xl">
-          Internship Opportunities
+          {isKhmer ? "ឱកាសកម្មសិក្សា" : "Internship Opportunities"}
         </h3>
         <p className="text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9 pt-5">
-          In the ATQ program curriculum, students must pass all subjects and
-          have minimum experience to get the ATQ certificate.
+          {isKhmer ? "នៅក្នុងកម្មវិធីសិក្សា ATQ សិស្សត្រូវតែប្រឡងជាប់គ្រប់មុខវិជ្ជា និងមានបទពិសោធន៍ជាក់ស្តែងអប្បបរមា ដើម្បីទទួលបានវិញ្ញាបនបត្រ ATQ។" : "In the ATQ program curriculum, students must pass all subjects and have minimum experience to get the ATQ certificate."}
         </p>
       </div>
 
@@ -311,7 +312,7 @@ const InternshipOpportunities = () => {
           <span className="flex h-5 w-5 items-center justify-center rounded-full border-2 border-[#0b1a6e] dark:border-sky-400">
             <span className="h-1.5 w-1.5 rounded-full bg-[#03A9f4]" />
           </span>
-          <span>Partner Internship Providers</span>
+          <span>{t("internships.title", "Partner Internship Providers")}</span>
         </div>
 
         {/* View mode toggle (Slider vs All Grid) */}
@@ -324,7 +325,7 @@ const InternshipOpportunities = () => {
                 : "text-slate-500 dark:text-slate-400 hover:text-[#0b1a6e] dark:hover:text-sky-300"
             }`}
           >
-            <FaSliders className="mr-1" aria-hidden="true" /> Slider View
+            <FaSliders className="mr-1" aria-hidden="true" /> {t("internships.sliderView", "Slider View")}
           </button>
           <span className="text-slate-300 dark:text-slate-700">|</span>
           <button
@@ -335,7 +336,7 @@ const InternshipOpportunities = () => {
                 : "text-slate-500 dark:text-slate-400 hover:text-[#0b1a6e] dark:hover:text-sky-300"
             }`}
           >
-            <FaTableCells className="mr-1" aria-hidden="true" /> View All
+            <FaTableCells className="mr-1" aria-hidden="true" /> {t("internships.viewAll", "View All")}
           </button>
         </div>
       </div>

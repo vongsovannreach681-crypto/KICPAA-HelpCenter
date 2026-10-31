@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { FaArrowRight } from "react-icons/fa6";
 import course from "../../assets/Course-01-01.png";
+import { useLanguage } from "../../context/LanguageContext";
 
 const SubjectCoursesBanner = () => {
+  const { t } = useLanguage();
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -61,7 +62,6 @@ const SubjectCoursesBanner = () => {
             context.moveTo(p.x, p.y);
             context.lineTo(q.x, q.y);
             context.strokeStyle = `rgba(103,232,249,${(1 - d / 150) * 0.18})`;
-            context.lineWidth = 1;
             context.stroke();
           }
         }
@@ -74,31 +74,32 @@ const SubjectCoursesBanner = () => {
     };
 
     const resize = () => {
-      const b = section.getBoundingClientRect();
-      const ratio = window.devicePixelRatio || 1;
-      canvas.width = b.width * ratio;
-      canvas.height = b.height * ratio;
-      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const rect = section.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const area = b.width * b.height;
-      const pCount = Math.min(80, Math.max(28, Math.floor(area / 15000)));
-      const sCount = Math.min(180, Math.max(70, Math.floor(area / 4500)));
+      const area = rect.width * rect.height;
+      const count = Math.min(65, Math.max(22, Math.floor(area / 16000)));
 
-      stars = Array.from({ length: sCount }, () => ({
-        x: Math.random() * b.width,
-        y: Math.random() * b.height,
-        radius: Math.random() * 1.4 + 0.4,
-        opacity: Math.random() * 0.55 + 0.25,
-        phase: Math.random() * Math.PI * 2,
-        speed: Math.random() * 2 + 0.7,
+      particles = Array.from({ length: count }, () => ({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        radius: Math.random() * 1.6 + 0.8,
+        opacity: Math.random() * 0.45 + 0.25,
       }));
-      particles = Array.from({ length: pCount }, () => ({
-        x: Math.random() * b.width,
-        y: Math.random() * b.height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        radius: Math.random() * 1.5 + 1,
-        opacity: Math.random() * 0.4 + 0.2,
+
+      const starCount = Math.min(80, Math.max(30, Math.floor(area / 12000)));
+      stars = Array.from({ length: starCount }, () => ({
+        x: Math.random() * rect.width,
+        y: Math.random() * rect.height,
+        radius: Math.random() * 1.6 + 0.6,
+        opacity: Math.random() * 0.6 + 0.25,
+        speed: Math.random() * 1.5 + 0.6,
+        phase: Math.random() * Math.PI * 2,
       }));
 
       cancelAnimationFrame(frame);
@@ -106,15 +107,16 @@ const SubjectCoursesBanner = () => {
       draw();
     };
 
-    const onMotionChange = () => {
-      cancelAnimationFrame(frame);
-      if (motion.matches) draw();
-      else frame = requestAnimationFrame(animate);
-    };
-
     const observer = new ResizeObserver(resize);
     observer.observe(section);
+
+    const onMotionChange = () => {
+      cancelAnimationFrame(frame);
+      if (!motion.matches) frame = requestAnimationFrame(animate);
+      draw();
+    };
     motion.addEventListener("change", onMotionChange);
+    resize();
 
     return () => {
       cancelAnimationFrame(frame);
@@ -148,26 +150,30 @@ const SubjectCoursesBanner = () => {
         <div data-aos="fade-right">
           <p className="inline-flex items-center gap-2 rounded-full border border-cyan-200/20 bg-cyan-100/10 px-4 py-2 text-sm font-medium text-cyan-200">
             <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.9)]" />
-            Learn with confidence
+            {t("syllabus.confidence", "Learn with confidence")}
           </p>
 
           <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
-            ATQ Subject Course
+            {t("syllabus.titlePart1", "ATQ Subject Course")}
             <span className="mt-2 block bg-gradient-to-r from-cyan-200 to-sky-400 bg-clip-text text-transparent">
-              Specification
+              {t("syllabus.titlePart2", "Specification")}
             </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-blue-100/80 sm:text-lg">
-            Explore the subjects, topics, and learning outcomes that guide your
-            journey through the Accounting Technician Qualification.
+            {t(
+              "syllabus.subtitle",
+              "Explore the subjects, topics, and learning outcomes that guide your journey through the Accounting Technician Qualification."
+            )}
           </p>
-
-       
         </div>
 
         {/* Image, framed by orbit rings */}
-        <div data-aos="fade-left" data-aos-delay="150" className="group relative mx-auto flex w-full max-w-md items-center justify-center md:max-w-none">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="150"
+          className="group relative mx-auto flex w-full max-w-md items-center justify-center md:max-w-none"
+        >
           <div
             className="pointer-events-none absolute aspect-square w-[92%] rounded-full border border-cyan-200/15 transition duration-700 group-hover:scale-105 group-hover:border-cyan-200/30 motion-reduce:transition-none"
             aria-hidden="true"

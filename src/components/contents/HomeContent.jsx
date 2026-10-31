@@ -7,40 +7,56 @@ import {
   FaListCheck,
   FaRegCalendarDays,
 } from "react-icons/fa6";
+import { useLanguage } from "../../context/LanguageContext";
 
 const HomeContent = () => {
+  const { t } = useLanguage();
+
   const items = [
     {
       icon: FaBook,
       color: "bg-[#29b6e8]",
       glow: "group-hover:shadow-[#29b6e8]/40",
-      title: "ATQ Program",
-      text: "Learn more about the Accounting Technician Qualification program, its structure, and requirements.",
+      title: t("home.atqProgramTitle", "ATQ Program"),
+      text: t(
+        "home.atqProgramDesc",
+        "Learn more about the Accounting Technician Qualification program, its structure, and requirements."
+      ),
       href: "/atq-program",
     },
     {
       icon: FaFilePen,
       color: "bg-[#00cdb6]",
       glow: "group-hover:shadow-[#00cdb6]/40",
-      title: "ATQ Examination",
-      text: "Find information about the ATQ examination, including format, duration, and preparation resources.",
+      title: t("home.atqExamTitle", "ATQ Examination"),
+      text: t(
+        "home.atqExamDesc",
+        "Find information about the ATQ examination, including format, duration, and preparation resources."
+      ),
       href: "/atq-examination",
     },
     {
       icon: FaListCheck,
       color: "bg-[#5b72ee]",
       glow: "group-hover:shadow-[#5b72ee]/40",
-      title: "ATQ Subjects & Course Specification",
-      text: "Explore the subjects covered in the ATQ program and access detailed course specifications for each subject.",
+      title: t("home.atqSubjectsTitle", "ATQ Subjects & Course Specification"),
+      text: t(
+        "home.atqSubjectsDesc",
+        "Explore the subjects covered in the ATQ program and access detailed course specifications for each subject."
+      ),
       href: "/subject-course",
     },
     {
       icon: FaRegCalendarDays,
       color: "bg-[#f5a524]",
       glow: "group-hover:shadow-[#f5a524]/40",
-      title: "Important Dates for ATQ Exam",
-      text: "Stay updated with important dates related to the ATQ examination, including registration deadlines and exam schedules.",
-      href: "/atq-examination",
+      title: t("home.cambodiaAtqTitle", "Cambodia ATQ"),
+      text: t(
+        "home.cambodiaAtqDesc",
+        "Student who passed all ATQ subjects will be recognized by KICPAA as Certified Accounting Technician."
+      ),
+      href: "https://www.kicpaa.org/en/atq-program/cambodia-atq/",
+      target: "blank",
     },
   ];
 
@@ -52,7 +68,7 @@ const HomeContent = () => {
           data-aos="fade-right"
           className="w-fit rounded-bottom-circle border-b-3 border-blue-700 pb-2 text-2xl font-semibold text-blue-900 transition-colors dark:border-[#03A9f4] dark:text-sky-300"
         >
-          Get help on the following topics
+          {t("home.helpTopics", "Get help on the following topics")}
         </h2>
       </div>
 
@@ -65,7 +81,8 @@ const HomeContent = () => {
               <article
                 key={item.title}
                 id={
-                  item.title === "ATQ Examination"
+                  item.title.includes("Examination") ||
+                  item.title.includes("ប្រឡង")
                     ? "atq-exam"
                     : undefined
                 }
@@ -91,6 +108,12 @@ const HomeContent = () => {
               >
                 <Link
                   to={item.href}
+                  target={item.target === "blank" ? "_blank" : undefined}
+                  rel={
+                    item.target === "blank"
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="flex h-full w-full flex-col items-center"
                 >
                   {/* Icon */}
@@ -155,7 +178,7 @@ const HomeContent = () => {
                       dark:group-hover:text-sky-300
                     "
                   >
-                    Learn More{" "}
+                    {t("home.learnMore", "Learn More")}{" "}
                     <FaArrowRight
                       className="
                         inline-block
@@ -208,11 +231,14 @@ const HomeContent = () => {
                 lg:text-3xl
               "
             >
-              Want to visit KICPAA office?
+              {t("home.visitOfficeTitle", "Want to visit KICPAA office?")}
             </h2>
 
             <p className="mt-4 text-base text-gray-600 dark:text-slate-300">
-              Schedule an in-person visit at our office or online.
+              {t(
+                "home.visitOfficeDesc",
+                "Schedule an in-person visit at our office or online."
+              )}
             </p>
 
             <a
@@ -233,7 +259,7 @@ const HomeContent = () => {
               "
             >
               <FaArrowRight aria-hidden="true" />
-              Schedule a visit
+              {t("home.scheduleVisit", "Schedule a visit")}
             </a>
           </div>
 
