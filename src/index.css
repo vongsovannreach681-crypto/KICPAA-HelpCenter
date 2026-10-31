@@ -100,6 +100,10 @@ html {
   animation: exam-banner-status 2.4s ease-out infinite;
 }
 
+.exam-table-enter {
+  animation: exam-table-enter 280ms ease-out both;
+}
+
 @keyframes chat-window-enter {
   from {
     opacity: 0;
@@ -165,6 +169,18 @@ html {
   }
 }
 
+@keyframes exam-table-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes marquee-scroll {
   from {
     transform: translateX(0);
@@ -194,7 +210,8 @@ html {
 
   .exam-banner-float,
   .exam-banner-image-glow,
-  .exam-banner-status {
+  .exam-banner-status,
+  .exam-table-enter {
     animation: none;
   }
 }

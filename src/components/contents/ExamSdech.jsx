@@ -6,6 +6,7 @@ import {
 } from "../../data/examSessions";
 import Dropdown from "./Dropdown";
 
+// Flatten the month-based data so the schedule can be filtered by one month.
 const examSessions = MONTHS.flatMap((month) =>
   examSessionsByMonth[month].map((session) => ({ ...session, month })),
 );
@@ -14,11 +15,10 @@ const availableMonths = MONTHS.filter(
   (month) => examSessionsByMonth[month].length > 0,
 );
 
-// for highlight date in examination
-
 const HIGHLIGHT_CLASS =
   "bg-amber-200 text-[#0c1a6e] dark:bg-amber-400 dark:text-slate-900";
 
+// Convert schedule dates such as "Tue, 27-Jan-2026" to local Date objects.
 const parseExamDate = (date) => {
   const [day, monthAbbreviation, year] = date.split(", ")[1].split("-");
   const monthIndex = MONTH_ABBREVIATIONS.indexOf(monthAbbreviation);
@@ -33,6 +33,7 @@ const getToday = () => {
   return today;
 };
 
+// Start with the first month that still has an upcoming exam.
 const getDefaultExamMonth = () => {
   const today = getToday();
   const upcomingMonth = availableMonths.find((month) =>
@@ -44,11 +45,13 @@ const getDefaultExamMonth = () => {
   return upcomingMonth ?? availableMonths.at(-1) ?? MONTHS[0];
 };
 
+// Identify the first row of each repeated value so its cell can span the group.
 const startsGroup = (sessions, index, property) =>
   index === 0 ||
   sessions[index - 1].month !== sessions[index].month ||
   sessions[index - 1][property] !== sessions[index][property];
 
+// Count consecutive rows with the same value to calculate the cell row span.
 const getGroupRowSpan = (sessions, index, property) => {
   let rowSpan = 1;
   while (
@@ -88,10 +91,12 @@ const ExamSdech = () => {
           </p>
         </div>
 
+        {/* Remount the table on month changes to replay its entrance animation. */}
         <div
+          key={selectedMonth}
           data-aos="zoom-in"
           data-aos-delay="150"
-          className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
+          className="exam-table-enter mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900"
         >
           <table className="w-full min-w-[760px] border-collapse text-center">
             <thead>
@@ -125,6 +130,7 @@ const ExamSdech = () => {
             </thead>
             <tbody className="text-[#0c1a6e] dark:text-blue-100">
               {selectedSessions.map((session, index) => {
+                // Highlight every subject scheduled for today's date.
                 const isExamDay = session.dates.some((date) =>
                   isSameDay(parseExamDate(date), today),
                 );
@@ -231,6 +237,7 @@ const ExamSdech = () => {
           </table>
         </div>
 
+        {/* Month buttons update the schedule shown above. */}
         <div
           className="mt-4 flex gap-2 overflow-x-auto px-1 py-1 sm:flex-wrap sm:justify-center sm:overflow-x-visible"
           aria-label="Exam schedule months"

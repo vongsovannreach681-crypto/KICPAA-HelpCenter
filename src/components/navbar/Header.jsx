@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     id: 3,
-    name: "Subject Course Specification",
+    name: "Syllabus",
     link: "/subject-course",
   },
   {
