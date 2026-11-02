@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import helpCenterImage from "../../assets/images/Help.png";
 import { FaArrowRight } from "react-icons/fa6";
 import { useLanguage } from "../../context/LanguageContext";
@@ -137,13 +138,13 @@ const HomeSection = () => {
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            <a
-              href="/atq-program"
+            <Link
+              to="/atq-program"
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#03A9f4] px-6 py-3 text-sm font-medium text-white shadow-md transition-colors hover:bg-blue-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800"
             >
               {t("home.browseAtq", "Browse ATQ Program")}{" "}
               <FaArrowRight aria-hidden="true" className="text-xs" />
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 
-const SITE_URL = "https://kicpaa-help-center.vercel.app";
+const SITE_URL = "https://kicpaa.org/ATQHelp";
 
 const pageMetadata = {
   "/": {
