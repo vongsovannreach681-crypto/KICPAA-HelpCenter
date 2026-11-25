@@ -33,9 +33,14 @@ const getToday = () => {
   return today;
 };
 
-// Start with the first month that still has an upcoming exam.
+// Prefer the current calendar month, even if its next exam date is later.
 const getDefaultExamMonth = () => {
   const today = getToday();
+  const currentMonth = MONTHS[today.getMonth()];
+  if (availableMonths.includes(currentMonth)) {
+    return currentMonth;
+  }
+
   const upcomingMonth = availableMonths.find((month) =>
     examSessionsByMonth[month].some((session) =>
       session.dates.some((date) => parseExamDate(date) >= today),

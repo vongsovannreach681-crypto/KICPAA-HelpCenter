@@ -125,16 +125,25 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a
+                <div className="flex items-center gap-2">
+                <FaPhone
+                  className="shrink-0 text-sky-400"
+                  aria-hidden="true"
+                />
+                   <a
                   className="inline-flex items-center gap-2 transition-colors hover:text-sky-300"
                   href="tel:+85517493140"
                 >
-                  <FaPhone
-                    className="shrink-0 text-sky-400"
-                    aria-hidden="true"
-                  />
                   +855 17 493 140
                 </a>
+                <span>/</span>
+                 <a
+                  className="inline-flex items-center gap-2 transition-colors hover:text-sky-300"
+                  href="tel:+85510253661"
+                >
+                  +855 10 253 661
+                </a>
+                </div>
               </li>
               <li>
                 <a

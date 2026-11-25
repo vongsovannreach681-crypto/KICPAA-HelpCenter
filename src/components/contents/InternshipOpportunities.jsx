@@ -315,7 +315,7 @@ const InternshipOpportunities = () => {
           {isKhmer ? "ឱកាសកម្មសិក្សា" : "Internship Opportunities"}
         </h3>
         <p className="text-slate-600 dark:text-slate-300 sm:text-lg sm:leading-9 pt-5">
-          {isKhmer ? "នៅក្នុងកម្មវិធីសិក្សា ATQ សិស្សត្រូវតែប្រឡងជាប់គ្រប់មុខវិជ្ជា និងមានបទពិសោធន៍ជាក់ស្តែងអប្បបរមា ដើម្បីទទួលបានវិញ្ញាបនបត្រ ATQ។" : "In the ATQ program curriculum, students must pass all subjects and have minimum experience to get the ATQ certificate."}
+          {isKhmer ? "នៅក្នុងកម្មវិធីសិក្សា ATQ សិស្សត្រូវតែប្រឡងជាប់គ្រប់មុខវិជ្ជា និងមានបទពិសោធជាក់ស្តែងអប្បបរមា ដើម្បីទទួលបានវិញ្ញាបនបត្រ ATQ។" : "In the ATQ program curriculum, students must pass all subjects and have minimum experience to get the ATQ certificate."}
         </p>
       </div>
 
